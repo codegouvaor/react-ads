@@ -5,7 +5,7 @@
     "description": "Official React implementation of the Astoria Design System (ADS), the design system for the digital ecosystem of the Republic of Astoria.",
     "repository": {
         "type": "git",
-        "url": "https://github.com/codegouvaor/react-ads.git"
+        "url": "git+https://github.com/codegouvaor/react-ads.git"
     },
     "bugs": {
         "url": "https://github.com/codegouvaor/react-ads/issues"

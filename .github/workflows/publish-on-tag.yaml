@@ -27,6 +27,15 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Align package.json version with tag
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Tag $GITHUB_REF_NAME does not look like a valid vX.Y.Z version." >&2
+            exit 1
+          fi
+          node -e "const fs=require('fs'); const p='package.json'; const pkg=JSON.parse(fs.readFileSync(p,'utf8')); pkg.version=process.argv[1]; fs.writeFileSync(p, JSON.stringify(pkg, null, 4) + '\n');" "$VERSION"
+          echo "Publishing version $VERSION (from tag $GITHUB_REF_NAME)"
       - name: Build for publish
         run: pnpm build --prePublish
       - name: Enable short npm import paths (subpath exports)
@@ -42,7 +51,7 @@ jobs:
           esac
       - name: Package validation (dry-run content of the npm tarball)
         run: pnpm pack --dry-run
-      - name: Publish on npm
-        run: npm publish --provenance --tag ${{ steps.dist-tag.outputs.dist_tag }}
+      - name: Publish on npm (public)
+        run: npm publish --provenance --access public --tag ${{ steps.dist-tag.outputs.dist_tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
