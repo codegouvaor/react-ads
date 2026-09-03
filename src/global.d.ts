@@ -1,3 +1,5 @@
+declare module "*.css";
+
 declare module "*.svg" {
     const _default: string | { src: string };
     export default _default;

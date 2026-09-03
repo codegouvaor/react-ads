@@ -5,6 +5,7 @@ import { Footer } from "../dist/Footer";
 import { headerFooterDisplayItem } from "../dist/Display";
 import { sectionName } from "./sectionName";
 import { getStoryFactory } from "./getStory";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
@@ -54,31 +55,29 @@ function App(){
 
 export default meta;
 
-const brandTop = (
-    <>
-        INTITULE
-        <br />
-        OFFICIEL
-    </>
-);
+const identity = {
+    imgUrl: astoriaGouvImgUrl,
+    alt: "République d'Astoria",
+    institution: "Gouvernement"
+};
 
 const homeLinkProps = {
     "href": "#",
-    "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+    "title": "Accueil - Gouvernement de la République d'Astoria"
 };
 
 function Story() {
     return (
         <>
             <Header
-                brandTop={brandTop}
+                identity={identity}
                 serviceTitle="Nom du site / service"
                 homeLinkProps={homeLinkProps}
                 quickAccessItems={[headerFooterDisplayItem]}
             />
             <Footer
                 className={fr.cx("fr-mt-5v")}
-                brandTop={brandTop}
+                identity={identity}
                 homeLinkProps={homeLinkProps}
                 accessibility="fully compliant"
                 bottomItems={[headerFooterDisplayItem]}

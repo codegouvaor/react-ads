@@ -35,7 +35,11 @@ function Root() {
             "flexDirection": "column",
         }}>
             <Header
-                brandTop={<>INTITULE<br />OFFICIEL</>}
+                identity={{
+                    imgUrl: "/astoria-gouv.png",
+                    alt: "République d'Astoria",
+                    institution: "Gouvernement"
+                }}
                 serviceTitle="Nom du site / service"
                 quickAccessItems={[
                     headerFooterDisplayItem,
@@ -47,7 +51,7 @@ function Root() {
                         text: "Nous contacter",
                     }
                 ]}
-                homeLinkProps={{ ...routes.home().link, "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" }}
+                homeLinkProps={{ ...routes.home().link, "title": "Accueil - République d'Astoria" }}
                 navigation={[
                     {
                         "text": "Home",

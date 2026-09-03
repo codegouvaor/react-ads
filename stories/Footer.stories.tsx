@@ -6,19 +6,18 @@ import { assert } from "tsafe/assert";
 import type { Equals } from "tsafe";
 import placeholder_9x16ImgUrl from "./assets/placeholder.9x16.png";
 import placeholder_16x9ImgUrl from "./assets/placeholder.16x9.png";
-import { setBrandTopAndHomeLinkProps } from "../dist/zz_internal/brandTopAndHomeLinkProps";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
+import { setIdentityAndHomeLinkProps } from "../dist/zz_internal/identityAndHomeLinkProps";
 
-setBrandTopAndHomeLinkProps({
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
+setIdentityAndHomeLinkProps({
+    "identity": {
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Gouvernement"
+    },
     "homeLinkProps": {
         "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+        "title": "Accueil - Gouvernement de la République d'Astoria"
     }
 });
 
@@ -62,11 +61,11 @@ const { meta, getStory } = getStoryFactory({
         "linkList": {
             "controls": { "type": null }
         },
-        "brandTop": {
+        "identity": {
             "control": { "type": null },
-            "description": `In the example here it's \`<>INTITULE<br />OFFICIEL</>\`
+            "description": `The institutional identity (flag/emblem lockup + institution) of the Republic of Astoria.
 If you are using the \`<Header />\` component of this library (as you should) this prop is optional, 
-the \`brandTop\` of the \`<Header />\` will be used.`
+the \`identity\` of the \`<Header />\` will be used.`
         },
         "homeLinkProps": {
             "control": { "type": null },

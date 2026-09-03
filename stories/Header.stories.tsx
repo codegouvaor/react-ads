@@ -4,39 +4,84 @@ import { Badge } from "../dist/Badge";
 import { MainNavigation } from "../dist/MainNavigation";
 import { sectionName } from "./sectionName";
 import { getStoryFactory } from "./getStory";
-import { GlobalStyles } from "tss-react";
-import placeholder_9x16ImgUrl from "./assets/placeholder.9x16.png";
-import placeholder_16x9ImgUrl from "./assets/placeholder.16x9.png";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Header },
     "description": `
-- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/Header.tsx)  
-  
-See also [\\<MainNavigation \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-mainnavigation)  
-  
-*NOTE*: On small screens (mobile), you can click on the burger menu to open the menu modal.
-You can watch if the menu modal is open or not with the \`useIsHeaderMenuModalOpen\` hook.  
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/Header.tsx)
 
-\`\`\`tsx  
+The Header is the **institutional signature of the Republic of Astoria**. It is built around
+three levels of identity that every citizen must recognize on any public service website:
 
+\`\`\`text
+Drapeau (emblem / lockup)      ← identity.imgUrl (includes the name of the Republic)
+République d'Astoria
+    Gouvernement                ← identity.institution
+\`\`\`
+
+- the **national identity** (flag/emblem of Astoria, with the name of the Republic) is passed
+  as an image (\`identity.imgUrl\` + \`identity.alt\`);
+- the **administrative authority** the site belongs to (\`Gouvernement\`, \`Ministère de l'Économie\`,
+  …) is displayed as a text line under the identity: \`identity.institution\`;
+- the **product / portal name** (e.g. \`Portail d'information\`) is optional and lives in the
+  \`serviceTitle\` / \`serviceTagline\` zone — it is never mixed with the institutional identity;
+- **navigation** and **actions** (quick access items, search) are separate props.
+
+One component covers every level of the State hierarchy: no separate
+\`GovernmentHeader\` / \`MinistryHeader\` variants are needed.
+
+\`\`\`tsx
+import { Header } from "@codegouvaor/react-ads/Header";
+
+<Header
+    identity={{
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Gouvernement"
+    }}
+    serviceTitle="Portail d'information"
+    homeLinkProps={{ href: "/", title: "Accueil - Gouvernement de la République d'Astoria" }}
+    navigation={navigation}
+    quickAccessItems={quickAccessItems}
+/>
+\`\`\`
+
+On small screens the navigation and the quick access items are available through a
+purpose-built menu (open it with the burger button). You can watch if the menu modal is open
+or not with the \`useIsHeaderMenuModalOpen\` hook:
+
+\`\`\`tsx
 import { useIsHeaderMenuModalOpen } from "@codegouvaor/react-ads/Header/useIsHeaderMenuModalOpen";
 
 const isOpen = useIsHeaderMenuModalOpen();
+\`\`\`
 
-\`\`\`  
+> **Accessibility** — the flag/emblem image carries a meaningful \`alt\` (the Republic is named
+> in the image), the identity links to the home page of the site (whole brand zone is a single
+> link on large screens), the focus is visible, colors come from the theme tokens (sufficient
+> contrast) and no animation is used, so \`prefers-reduced-motion\` is respected by design.
+
+> **Note on the flag asset** — the examples below use the official Astoria Government lockup
+> shipped in this repository (\`src/assets/astoria-gouv.png\`). Prefer a web-optimized version
+> (SVG ideally) in production, cropped to the actual emblem + wordmark.
+
+See also [\\\\<MainNavigation \\\\/\\\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-mainnavigation) for the navigation prop.
 
 `,
     "argTypes": {
-        "brandTop": {
+        "identity": {
             "control": { "type": null },
-            "description": "In the example here it's `<>INTITULE<br />OFFICIEL</>`"
+            "description": `The institutional identity of the site, made of:
+- \\`imgUrl\\`: URL of the official Astoria flag/emblem lockup (SVG preferred),
+- \\`alt\\`: accessible alternative of the image, the name of the Republic must appear,
+- \\`institution\\`: the administrative authority, e.g. "Gouvernement" or "Ministère de l'Économie".`
         },
         "homeLinkProps": {
             "control": { "type": null },
             "description":
-                "A link to the home, when the user click on the logo he must navigate to the homepage of the website"
+                "A link to the home, when the user click on the identity he must navigate to the homepage of the website"
         },
         "navigation": {
             "description":
@@ -58,7 +103,7 @@ const isOpen = useIsHeaderMenuModalOpen();
         },
         "allowEmptySearch": {
             "description":
-                "Default: false, if true the user will be able to search with an empty input, otherwise clicking ont the search button or pressing enter will focus the input",
+                "Default: false, if true the user will be able to search with an empty input, otherwise clicking on the search button or pressing enter will focus the input",
             "control": { "type": "boolean" }
         }
     },
@@ -67,111 +112,143 @@ const isOpen = useIsHeaderMenuModalOpen();
 
 export default meta;
 
-export const SimpleHeader = getStory({
-    "id": "fr-header-simple-header",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
-    "homeLinkProps": {
-        "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
-    },
-    "navigation": [
-        {
-            "text": "accès direct",
-            "linkProps": {
-                "href": "#",
-                "target": "_self"
-            }
-        },
-        {
-            "text": "accès direct",
-            "linkProps": {
-                "href": "#",
-                "target": "_self"
-            },
-            "isActive": true
-        },
-        {
-            "text": "accès direct",
-            "linkProps": {
-                "href": "#",
-                "target": "_self"
-            }
-        },
-        {
-            "text": "accès direct",
-            "linkProps": {
-                "href": "#",
-                "target": "_self"
-            }
+const directLinks = [
+    {
+        "text": "accès direct",
+        "linkProps": {
+            "href": "#",
+            "target": "_self"
         }
-    ],
-    "onSearchButtonClick": undefined
-});
-
-export const SimpleHeaderWithServiceTitleAndTagline = getStory({
-    "id": "fr-header-simple-header-with-service-title-and-tagline",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
-    "homeLinkProps": {
-        "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
     },
-    "serviceTitle": "Nom du site / service",
-    "serviceTagline": "baseline - précisions sur l'organisation",
-    "onSearchButtonClick": undefined
-});
+    {
+        "text": "accès direct",
+        "linkProps": {
+            "href": "#",
+            "target": "_self"
+        },
+        "isActive": true
+    },
+    {
+        "text": "accès direct",
+        "linkProps": {
+            "href": "#",
+            "target": "_self"
+        }
+    },
+    {
+        "text": "accès direct",
+        "linkProps": {
+            "href": "#",
+            "target": "_self"
+        }
+    }
+];
 
-export const SimpleHeaderWithServiceTitleAndBetaBadge = getStory({
-    "id": "fr-header-simple-header-with-service-title-and-tagline",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
+/** Site directly attached to the Government of the Republic of Astoria (e.g. info.gov.aor). */
+export const GovernmentSite = getStory({
+    "identity": {
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Gouvernement"
+    },
     "homeLinkProps": {
         "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+        "title": "Accueil - Gouvernement de la République d'Astoria"
+    },
+    "navigation": directLinks
+});
+
+export const GovernmentSiteWithServiceTitleAndTagline = getStory({
+    "identity": {
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Gouvernement"
+    },
+    "homeLinkProps": {
+        "href": "/",
+        "title": "Accueil - Gouvernement de la République d'Astoria"
+    },
+    "serviceTitle": "Portail d'information",
+    "serviceTagline": "Les services et démarches de la République d'Astoria",
+    "navigation": directLinks
+});
+
+export const GovernmentSiteWithServiceTitleAndBetaBadge = getStory({
+    "identity": {
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Gouvernement"
+    },
+    "homeLinkProps": {
+        "href": "/",
+        "title": "Accueil - Gouvernement de la République d'Astoria"
     },
     "serviceTitle": (
         <>
-            Nom du site / service{" "}
+            Portail d'information{" "}
             <Badge noIcon severity="success" as="span">
                 Beta
             </Badge>
         </>
     ),
-    "onSearchButtonClick": undefined
+    "navigation": directLinks
 });
 
-export const HeaderWithQuickAccessItems = getStory(
+export const MinistryOfEconomy = getStory(
     {
-        "id": "fr-header-header-with-quick-access-items",
-        "brandTop": (
-            <>
-                INTITULE
-                <br />
-                OFFICIEL
-            </>
-        ),
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Ministère de l'Économie"
+        },
         "homeLinkProps": {
             "href": "/",
-            "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+            "title": "Accueil - Ministère de l'Économie de la République d'Astoria"
         },
-        "serviceTitle": "Nom du site / service",
-        "serviceTagline": "baseline - précisions sur l'organisation",
+        "serviceTitle": "Guichet des entreprises",
+        "serviceTagline": "Création, gestion et développement de votre entreprise",
+        "navigation": directLinks
+    },
+    {
+        "description": `The same component represents any institution of the Republic. The second level of the
+identity ("République d'Astoria", inside the lockup) stays constant, only the \`institution\`
+line changes:
+
+\`\`\`text
+🇦🇴 République d'Astoria      ← identity.imgUrl (flag/emblem + name)
+    Ministère de l'Économie   ← identity.institution
+\`\`\`
+
+The header remains readable even when the institution name is relatively long.`
+    }
+);
+
+export const MinistryOfHealth = getStory({
+    "identity": {
+        imgUrl: astoriaGouvImgUrl,
+        alt: "République d'Astoria",
+        institution: "Ministère de la Santé"
+    },
+    "homeLinkProps": {
+        "href": "/",
+        "title": "Accueil - Ministère de la Santé de la République d'Astoria"
+    },
+    "serviceTitle": "Prévention et soins",
+    "navigation": directLinks
+});
+
+export const WithQuickAccessItemsNavigationAndSearch = getStory(
+    {
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Gouvernement"
+        },
+        "homeLinkProps": {
+            "href": "/",
+            "title": "Accueil - Gouvernement de la République d'Astoria"
+        },
+        "serviceTitle": "Portail d'information",
         "quickAccessItems": [
             {
                 "iconId": "fr-icon-add-circle-line",
@@ -181,9 +258,57 @@ export const HeaderWithQuickAccessItems = getStory(
                 }
             },
             {
+                "iconId": "fr-icon-lock-line",
+                "text": "Se connecter",
+                "linkProps": {
+                    "href": "#"
+                }
+            },
+            {
+                "iconId": "fr-icon-account-line",
+                "text": "S’enregistrer",
+                "linkProps": {
+                    "href": "#"
+                }
+            }
+        ],
+        "navigation": directLinks,
+        "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`)
+    },
+    {
+        "description": `The institutional identity never mixes with the navigation, the actions or the search engine.
+Those stay dedicated props:
+
+\`\`\`tsx
+<Header
+    identity={{ imgUrl, alt, institution: "Gouvernement" }}
+    navigation={navigation}
+    quickAccessItems={quickAccessItems}
+    onSearchButtonClick={text => console.log(text)}
+/>
+\`\`\`
+
+See below how to build dynamic quick access items (authentication buttons for instance).`
+    }
+);
+
+export const HeaderQuickAccessItemsExample = getStory(
+    {
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Ministère de l'Économie"
+        },
+        "homeLinkProps": {
+            "href": "/",
+            "title": "Accueil - Ministère de l'Économie de la République d'Astoria"
+        },
+        "serviceTitle": "Guichet des entreprises",
+        "quickAccessItems": [
+            {
                 "iconId": "fr-icon-mail-fill",
                 "linkProps": {
-                    "href": "mailto:contact@example.com"
+                    href: "mailto:contact@example.com"
                 },
                 "text": "Contact us"
             },
@@ -196,79 +321,27 @@ export const HeaderWithQuickAccessItems = getStory(
                     }
                 }
             }
-        ],
-        "onSearchButtonClick": undefined
+        ]
     },
     {
-        "description": `Let's see an example usage of quick access items in the Header component.  
+        "description": `If you need to create dynamic Header quick access items here is how you can do it, with a
+\`AuthButton\` for example.
 
-\`src/Header.tsx\`  
+\`src/AuthButton.tsx\`
 
-\`\`\`tsx  
-
-import { Header as AdsHeader } from "@codegouvaor/react-ads/Header";
-import { LanguageSelect } from "./LanguageSelect";
-import { AuthButtons } from "./AuthButtons";
-
-export function Header() {
-
-    return (
-        <AdsHeader
-            quickAccessItems={[
-                {
-                    iconId: "fr-icon-add-circle-line",
-                    text: "Créer un espace",
-                    linkProps: {
-                        "href": "#" // Link to a page
-                    }
-                },
-                {
-                    iconId: "fr-icon-mail-fill",
-                    linkProps: {
-                        href: "mailto:floss@numerique.gouv.fr"
-                    },
-                    text: "Contact us"
-                },
-                <LanguageSelect />, // See "LanguageSelect" component of this website
-                headerFooterDisplayItem, // See "Display" component of this website
-                <AuthButtons /> // See below
-
-            ]}
-        />
-    );
-
-}
-
-\`\`\`  
-
-If you need to create a dynamic Header quick action items there is how you can do it.  
-Let's see an example with the \`AuthButton\` component.
-In this example we assume the use of [oidc-spa](https://oidc-spa.dev/) for authentication.
-And [i18nifty](for internationalization).
-You can see this component live [here](https://vite-insee-starter.demo-domain.ovh/).  
-
-\`src/AuthButton.tsx\`  
-
-\`\`\`tsx  
-
+\`\`\`tsx
 import { HeaderQuickAccessItem } from "@codegouvaor/react-ads/Header";
 import { declareComponentKeys, useTranslation } from "i18n"; // i18nifty
 import { useOidc } from "oidc"; // oidc-spa
 
 type Props = {
-    // NOTE: If you component assigns id you must use the one passed as prop.
-    // If you have multiple id you must prefix them to differentiate them.
-    // In this example we don't actually need to set ids but I do is so you can see how to do it.  
-    // See this example where it's more relevant: 
+    // NOTE: If your component assigns an id you must use the one passed as prop.
     id?: string;
 };
 
 export function AuthButtons(props: Props) {
-
     const { id } = props;
-
     const { isUserLoggedIn, login, logout } = useOidc();
-
     const { t } = useTranslation("AuthButtons");
 
     if (!isUserLoggedIn) {
@@ -289,19 +362,15 @@ export function AuthButtons(props: Props) {
                     quickAccessItem={{
                         iconId: "ri-id-card-line",
                         buttonProps: {
-                            onClick: () => login({ 
-                                doesCurrentHrefRequiresAuth: false,
-                                transformUrlBeforeRedirect: url => {
-                                    const urlObj = new URL(url);
-
-                                    urlObj.pathname = urlObj.pathname.replace(
-                                        /\\/auth$/,
-                                        "/registrations"
-                                    );
-
-                                    return urlObj.href;
-                                }
-                            })
+                            onClick: () =>
+                                login({
+                                    doesCurrentHrefRequiresAuth: false,
+                                    transformUrlBeforeRedirect: url => {
+                                        const urlObj = new URL(url);
+                                        urlObj.pathname = urlObj.pathname.replace(/\\/auth$/, "/registrations");
+                                        return urlObj.href;
+                                    }
+                                })
                         },
                         text: t("register")
                     }}
@@ -316,9 +385,7 @@ export function AuthButtons(props: Props) {
                 id={\`account-\${id}\`}
                 quickAccessItem={{
                     iconId: "fr-icon-account-fill",
-                    linkProps: {
-                        to: "/account"
-                    },
+                    linkProps: { to: "/account" },
                     text: t("my account")
                 }}
             />
@@ -327,73 +394,56 @@ export function AuthButtons(props: Props) {
                 quickAccessItem={{
                     iconId: "ri-logout-box-line",
                     buttonProps: {
-                        onClick: () =>
-                            logout({
-                                redirectTo: "home"
-                            })
+                        onClick: () => logout({ redirectTo: "home" })
                     },
                     text: t("logout")
                 }}
             />
         </>
     );
-
 }
 
-const { i18n } = declareComponentKeys<
-    | "login"
-    | "register"
-    | "logout"
-    | "my account"
->()("AuthButtons");
+const { i18n } = declareComponentKeys<"login" | "register" | "logout" | "my account">()(
+    "AuthButtons"
+);
 
 export type I18n = typeof i18n;
-\`\`\`  
-
-`
+\`\`\``
     }
 );
 
 export const WithUncontrolledSearchBar = getStory(
     {
-        "id": "fr-header-with-uncontrolled-search-bar",
-        "brandTop": (
-            <>
-                INTITULE
-                <br />
-                OFFICIEL
-            </>
-        ),
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Gouvernement"
+        },
         "homeLinkProps": {
             "href": "/",
-            "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+            "title": "Accueil - Gouvernement de la République d'Astoria"
         },
-        "serviceTitle": "Nom du site / service",
-        "serviceTagline": "baseline - précisions sur l'organisation",
+        "serviceTitle": "Portail d'information",
         "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`),
         "clearSearchInputOnSearch": true,
         "allowEmptySearch": true
     },
     {
         "description": `
+If you do not plan to provide any realtime hinting to the user as he types the search query you can provide an
+\`onSearchButtonClick\` callback that will be called when the user clicks on the search button or presses enter.
 
-If you you do not plan to provide any realtime hinting to the user as he types the search query you can provide a \`onSearchButtonClick\`
-callback that will be called when the user click on the search button or press enter.
+You can also use the \`clearSearchInputOnSearch\` and \`allowEmptySearch\` props to control the behavior of the search input.
 
-You can also have a use the \`clearSearchInputOnSearch\` and \`allowEmptySearch\` props to control the behavior of the search input.  
-
-> NOTE: There is a bug in the underlying stylesheet that prevents the input from being cleared when the user presses the escape key.  
-We hope it will be fixed soon.
+> NOTE: There is a bug in the underlying stylesheet that prevents the input from being cleared when the user presses
+> the escape key. We hope it will be fixed soon.
 
 \`\`\`tsx
-
 <Header
-    ...
-    onSearchButtonClick={text=> alert(\`TODO: implement search with text: \${text}\`)}
+    // identity, navigation...
+    onSearchButtonClick={text => alert(\`TODO: implement search with text: \${text}\`)}
 />
-\`\`\`
-
-`
+\`\`\``
     }
 );
 
@@ -412,13 +462,6 @@ function MySearchInput(props: MySearchInputProps) {
 
     return (
         <>
-            <GlobalStyles
-                styles={{
-                    ".fr-container": {
-                        "overflow": "visible"
-                    }
-                }}
-            />
             <input
                 ref={setInputElement}
                 className={className}
@@ -449,355 +492,63 @@ function MySearchInput(props: MySearchInputProps) {
 
 export const WithControlledSearchBar = getStory(
     {
-        "id": "fr-header-with-controlled-search-bar",
-        "brandTop": (
-            <>
-                INTITULE
-                <br />
-                OFFICIEL
-            </>
-        ),
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Gouvernement"
+        },
         "homeLinkProps": {
             "href": "/",
-            "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+            "title": "Accueil - Gouvernement de la République d'Astoria"
         },
-        "serviceTitle": "Nom du site / service",
-        "serviceTagline": "baseline - précisions sur l'organisation",
+        "serviceTitle": "Portail d'information",
         "renderSearchInput": ({ className, id, placeholder, type }) => (
             <MySearchInput className={className} id={id} placeholder={placeholder} type={type} />
         )
     },
     {
         "description": `
-
+If you want to feature a modern search experience with realtime hinting you can omit providing an \`onSearchButtonClick\`
+callback and instead make sure you provide an overlay with the search results in the \`renderSearchInput\` function.
+As no component is provided to help you with that yet, you are on your own for implementing the overlay.
 
 \`\`\`tsx
-function Root(){
-
+function Root() {
     const [search, onSearchChange] = useState("");
 
     return (
         <>
             <Header
-                ...
-                renderSearchInput={({ className, id, placeholder, type }) => {
-                    const [inputElement, setInputElement] =
-                        useState<HTMLInputElement | null>(null);
-
-                    return (
-                        <input
-                            ref={setInputElement}
-                            className={className}
-                            id={id}
-                            placeholder={placeholder}
-                            type={type}
-                            value={search}
-                            // Note: The default behavior for an input of type 'text' is to clear the input value when the escape key is pressed.
-                            // However, due to a bug in @gouvfr/dsfr the escape key event is not propagated to the input element.
-                            // As a result this onChange is not called when the escape key is pressed.
-                            onChange={event => onSearchChange(event.currentTarget.value)}
-                            // Same goes for the keydown event so this is useless but we hope the bug will be fixed soon.
-                            onKeyDown={event => {
-                                if (event.key === "Escape") {
-                                    assert(inputElement !== null);
-                                    inputElement.blur();
-                                }
-                            }}
-                        />
-                    );
-                }}
-                ...
-            />
-            <p>Search results for: {search}</p>
-        </>
-
-    );
-
-}
-\`\`\`
-
-If you want to feature a modern search experience with realtime hinting you can omit providing a \`onSearchButtonClick\` callback and instead
-make sure you provide an overlay with the search results in the the \`renderSearchInput\` function.  
-
-As, to this day, no component is provided to help you with that, you are on your own for implementing the overlay.  
-You can achieve great result by using [MUI's autocomplete](https://mui.com/material-ui/react-autocomplete/) component.  
-[Video demo](https://youtu.be/AT3CvmY_Y7M?t=64).  
-If you go with MUI make sure to use the [\`<MuiDsfrProvider />\`](https://codegouvaor.github.io/react-ads/mui).  
-
-\`\`\`tsx
-
-import Autocomplete from "@mui/material/Autocomplete";
-import { cx } from "@codegouvaor/react-ads/tools/cx";
-
-type MySearchInputProps = {
-    className?: string;
-    id: string;
-    placeholder: string;
-    type: "search;
-};
-
-function MySearchInput(props: MySearchInputProps) {
-
-    const { className, id, placeholder, type } = props;
-
-    return (
-        <Autocomplete 
-            ...
-            renderInput={params => 
-                <div ref={params.InputProps.ref}>
-                    <input 
-                        {...params.inputProps} 
-                        className={cx(params.inputProps.className, className)}
+                // identity, navigation...
+                renderSearchInput={({ className, id, placeholder, type }) => (
+                    <input
+                        className={className}
                         id={id}
                         placeholder={placeholder}
                         type={type}
+                        value={search}
+                        onChange={event => onSearchChange(event.currentTarget.value)}
                     />
-                </div>
-            }
-        />
+                )}
+            />
+            <p>Search results for: {search}</p>
+        </>
     );
-
 }
-
-<Header
-    ...
-    renderSearchInput={({ className, id, placeholder, type }) => (
-        <MySearchInput
-            className={className}
-            id={id}
-            placeholder={placeholder}
-            type={type}
-        />
-    )}
-/>
-\`\`\`
-
-`
+\`\`\``
     }
 );
-
-export const HeaderWithQuickAccessItemsNavItemsAndSearchEngine = getStory(
-    {
-        "id": "fr-header-header-with-quick-access-items-nav-items-and-search-engine",
-        "brandTop": (
-            <>
-                INTITULE
-                <br />
-                OFFICIEL
-            </>
-        ),
-        "homeLinkProps": {
-            "href": "/",
-            "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
-        },
-        "serviceTitle": "Nom du site / service",
-        "serviceTagline": "baseline - précisions sur l'organisation",
-        "quickAccessItems": [
-            {
-                "iconId": "fr-icon-add-circle-line",
-                "text": "Créer un espace",
-                "linkProps": {
-                    "href": "#"
-                }
-            },
-            {
-                "iconId": "fr-icon-lock-line",
-                "text": "Se connecter",
-                "linkProps": {
-                    "href": "#"
-                }
-            },
-            {
-                "iconId": "fr-icon-account-line",
-                "text": "S’enregistrer",
-                "linkProps": {
-                    "href": "#"
-                }
-            }
-        ],
-        "navigation": [
-            {
-                "text": "accès direct",
-                "linkProps": {
-                    "href": "#",
-                    "target": "_self"
-                }
-            },
-            {
-                "text": "accès direct",
-                "linkProps": {
-                    "href": "#",
-                    "target": "_self"
-                },
-                "isActive": true
-            },
-            {
-                "text": "accès direct",
-                "linkProps": {
-                    "href": "#",
-                    "target": "_self"
-                }
-            },
-            {
-                "text": "accès direct",
-                "linkProps": {
-                    "href": "#",
-                    "target": "_self"
-                }
-            }
-        ],
-        "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`)
-    },
-    {
-        "description": `
-
-\`\`\`tsx
-
-<Header
-    //...
-    renderSearchInput={({ className, id, name, placeholder, type }) => 
-        <input className={className} id={id} name={name} placeholder={placeholder} type={type} />
-    }
-/>
-        
-\`\`\`
-    
-    `
-    }
-);
-
-export const HeaderWithVerticalOperatorLogo = getStory({
-    "id": "fr-header-header-with-vertical-operator-logo",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
-    "homeLinkProps": {
-        "href": "/",
-        "title":
-            "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République d'Astoria"
-    },
-    "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`),
-    "operatorLogo": {
-        "orientation": "vertical",
-        "imgUrl": placeholder_9x16ImgUrl,
-        "alt": "[À MODIFIER - texte alternatif de l’image]"
-    }
-});
-
-export const WithHorizontalOperatorLogo = getStory({
-    "id": "fr-header-with-horizontal-operator-logo",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
-    "homeLinkProps": {
-        "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
-    },
-    "serviceTitle": "Nom du site / service",
-    "serviceTagline": "baseline - précisions sur l'organisation",
-    "quickAccessItems": [
-        {
-            "iconId": "fr-icon-add-circle-line",
-            "text": "Créer un espace",
-            "linkProps": {
-                "href": "#"
-            }
-        },
-        {
-            "iconId": "fr-icon-lock-line",
-            "text": "Se connecter",
-            "linkProps": {
-                "href": "#"
-            }
-        },
-        {
-            "iconId": "fr-icon-account-line",
-            "text": "S’enregistrer",
-            "linkProps": {
-                "href": "#"
-            }
-        }
-    ],
-    "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`),
-    "operatorLogo": {
-        "orientation": "horizontal",
-        "imgUrl": placeholder_16x9ImgUrl,
-        "alt": "[À MODIFIER - texte alternatif de l’image]"
-    }
-});
-
-export const WithOperatorLogoWithLink = getStory({
-    "id": "fr-header-with-operator-logo-with-link",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
-    "homeLinkProps": {
-        "href": "/",
-        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
-    },
-    "serviceTitle": "Nom du site / service",
-    "serviceTagline": "baseline - précisions sur l'organisation",
-    "quickAccessItems": [
-        {
-            "iconId": "fr-icon-add-circle-line",
-            "text": "Créer un espace",
-            "linkProps": {
-                "href": "#"
-            }
-        },
-        {
-            "iconId": "fr-icon-lock-line",
-            "text": "Se connecter",
-            "linkProps": {
-                "href": "#"
-            }
-        },
-        {
-            "iconId": "fr-icon-account-line",
-            "text": "S’enregistrer",
-            "linkProps": {
-                "href": "#"
-            }
-        }
-    ],
-    "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`),
-    "operatorLogo": {
-        "orientation": "horizontal",
-        "imgUrl": placeholder_16x9ImgUrl,
-        "alt": "[À MODIFIER - texte alternatif de l’image]",
-        "linkProps": {
-            "href": "#",
-            "title":
-                "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République d'Astoria"
-        }
-    }
-});
 
 export const NavigationAsCustomNode = getStory(
     {
-        "id": "fr-header-navigation-as-custom-node",
-        "brandTop": (
-            <>
-                INTITULE
-                <br />
-                OFFICIEL
-            </>
-        ),
+        "identity": {
+            imgUrl: astoriaGouvImgUrl,
+            alt: "République d'Astoria",
+            institution: "Gouvernement"
+        },
         "homeLinkProps": {
             "href": "/",
-            "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+            "title": "Accueil - Gouvernement de la République d'Astoria"
         },
         "navigation": (
             <MainNavigation
@@ -836,15 +587,22 @@ export const NavigationAsCustomNode = getStory(
         )
     },
     {
-        "description": `You can provide a custom \`ReactNode\` as \`navigation\` prop.  
-    It is useful to keep the Header as a server component in Next 13 AppDir.  
+        "description": `You can provide a custom \`ReactNode\` as the \`navigation\` prop.
+It is useful to keep the Header as a server component in Next 13 AppDir.
 
 \`\`\`tsx
-        
-import { MainNavigation } from "@codegouvaor/react-ads/MainNavigation";  
-        
-\`\`\`
+import { MainNavigation } from "@codegouvaor/react-ads/MainNavigation";
 
-    `
+<Header
+    identity={identity}
+    navigation={
+        <MainNavigation
+            items={[
+                // ...
+            ]}
+        />
+    }
+/>
+\`\`\``
     }
 );

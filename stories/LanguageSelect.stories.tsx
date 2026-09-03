@@ -4,6 +4,7 @@ import { sectionName } from "./sectionName";
 import { getStoryFactory } from "./getStory";
 import { Header } from "../dist/Header";
 import "./utils.css";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
@@ -95,17 +96,15 @@ export default meta;
 
 export const SimpleHeader = getStory({});
 
-const brandTop = (
-    <>
-        INTITULE
-        <br />
-        OFFICIEL
-    </>
-);
+const identity = {
+    imgUrl: astoriaGouvImgUrl,
+    alt: "République d'Astoria",
+    institution: "Gouvernement"
+};
 
 const homeLinkProps = {
     "href": "#",
-    "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+    "title": "Accueil - Gouvernement de la République d'Astoria"
 };
 
 type Language = "fr" | "en";
@@ -133,7 +132,7 @@ function Story() {
     return (
         <Header
             className="margin-bottom-50px"
-            brandTop={brandTop}
+            identity={identity}
             homeLinkProps={homeLinkProps}
             quickAccessItems={[<LanguageSelect />]}
         />

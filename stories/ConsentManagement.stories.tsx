@@ -7,6 +7,7 @@ import { Placeholder } from "../dist/consentManagement/Placeholder";
 import { Footer } from "../dist/Footer";
 import { Button } from "../dist/Button";
 import { fr } from "../dist/fr";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
@@ -312,17 +313,14 @@ function Story() {
                 Retrouvez toutes les informations et démarches administratives nécessaires à la création, 
                 à la gestion et au développement de votre entreprise.
             `}
-                brandTop={
-                    <>
-                        INTITULE
-                        <br />
-                        OFFICIEL
-                    </>
-                }
+                identity={{
+                    imgUrl: astoriaGouvImgUrl,
+                    alt: "République d'Astoria",
+                    institution: "Gouvernement"
+                }}
                 homeLinkProps={{
                     "href": "/",
-                    "title":
-                        "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
+                    "title": "Accueil - Gouvernement de la République d'Astoria"
                 }}
                 bottomItems={[<FooterPersonalDataPolicyItem />, <FooterConsentManagementItem />]}
             />

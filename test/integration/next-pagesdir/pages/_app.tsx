@@ -57,13 +57,15 @@ function App({ Component, pageProps }: AppProps) {
                 }}
             >
                 <Header
-                    brandTop={
-                        <>INTITULE<br />OFFICIEL</>
-                    }
+                    identity={{
+                        imgUrl: "/astoria-gouv.png",
+                        alt: "République d'Astoria",
+                        institution: "Gouvernement"
+                    }}
                     serviceTitle="Nom du site / service"
-                    homeLinkProps={{ 
-                        "href": "/", 
-                        "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)" 
+                    homeLinkProps={{
+                        "href": "/",
+                        "title": "Accueil - République d'Astoria"
                     }}
                     navigation={[
                         {

@@ -3,6 +3,13 @@ import { Header } from "../dist/Header";
 import { sectionName } from "./sectionName";
 import { getStoryFactory } from "./getStory";
 import "./utils.css";
+import astoriaGouvImgUrl from "../src/assets/astoria-gouv.png";
+
+const identity = {
+    imgUrl: astoriaGouvImgUrl,
+    alt: "République d'Astoria",
+    institution: "Gouvernement"
+};
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
@@ -12,7 +19,7 @@ const { meta, getStory } = getStoryFactory({
 
 This component isn't meant to be used directly but via the [\\<Header \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-header)`,
     "argTypes": {
-        "brandTop": {
+        "identity": {
             "control": { "type": null }
         },
         "homeLinkProps": {
@@ -26,13 +33,7 @@ This component isn't meant to be used directly but via the [\\<Header \\/\\>](ht
 export default meta;
 
 export const DirectLinks = getStory({
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
+    "identity": identity,
     "homeLinkProps": {
         "href": "/",
         "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
@@ -73,13 +74,7 @@ export const DirectLinks = getStory({
 
 export const DropdownMenu = getStory({
     "className": "margin-bottom-300px",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
+    "identity": identity,
     "homeLinkProps": {
         "href": "/",
         "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"
@@ -189,13 +184,7 @@ export const DropdownMenu = getStory({
 
 export const MegaMenu = getStory({
     "className": "margin-bottom-600px",
-    "brandTop": (
-        <>
-            INTITULE
-            <br />
-            OFFICIEL
-        </>
-    ),
+    "identity": identity,
     "homeLinkProps": {
         "href": "/",
         "title": "Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)"

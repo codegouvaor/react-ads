@@ -13,6 +13,21 @@ project adheres to [Semantic Versioning](https://semver.org).
 
 ### Changed
 
+- **Breaking — `Header` reworked into the institutional header of the Republic of
+  Astoria.** The `brandTop` and `operatorLogo` props are replaced by a single `identity`
+  prop describing the national identity (official flag/emblem lockup as an image, with
+  `alt`) and the administrative authority hosting the site (`institution`, e.g.
+  `"Gouvernement"` or `"Ministère de l'Économie"`). The identity block links to the home
+  page; `navigation`, `quickAccessItems` and the search props are unchanged and remain
+  strictly separated from the identity. The product/portal name still lives in the
+  optional `serviceTitle` / `serviceTagline` zone.
+- **Breaking — `Footer`** mirrors the same institutional identity: the `brandTop` prop is
+  replaced by an optional `identity` prop that falls back to the one of the `<Header />`
+  when the Footer is rendered after it.
+- The Header/Footer brand zone no longer renders the legacy DSFR tricolor block
+  (`.fr-logo`): it displays the Astoria lockup via the new companion stylesheet
+  `src/assets/astoria-identity.css` (provisional until the ADS stylesheet lands —
+  [MIGRATION.md](MIGRATION.md)).
 - Rebranded the package as `@codegouvaor/react-ads` (Astoria Design System — React),
   with its own version line starting at `0.1.0`.
 - New root entry: generic components (`Button`, `Alert`, `Card`, …) can now be imported
@@ -25,6 +40,12 @@ project adheres to [Semantic Versioning](https://semver.org).
 
 ### Added
 
+- `src/assets/astoria-gouv.png` — official Government of Astoria identity lockup (flag/
+  emblem + "République d'Astoria"), used by the Header/Footer stories and demo apps. A
+  web-optimized SVG should eventually replace the raster in production.
+- `src/assets/astoria-identity.css` — companion stylesheet of the Header and Footer
+  institutional brand zone.
+- `src/global.d.ts` now declares `*.css` modules (side-effect stylesheet imports).
 - `src/ads/` — ADS design-token contracts (colors, typography, spacing, radius, elevation,
   motion, breakpoints) exposed as typed constants and CSS custom properties
   (`--ads-*`). Values are placeholders pending the official Astoria identity.

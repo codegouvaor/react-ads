@@ -21,8 +21,6 @@ import type { MainNavigationProps } from "../MainNavigation";
 import { MainNavigation } from "../MainNavigation";
 import { Display } from "../Display/Display";
 import { setIdentityAndHomeLinkProps } from "../zz_internal/identityAndHomeLinkProps";
-// The CSS file is handled by the bundler; TypeScript has no declaration for side-effect CSS imports.
-// @ts-expect-error -- side-effect CSS import
 import "../assets/astoria-identity.css";
 import { typeGuard } from "tsafe/typeGuard";
 import { SearchButton } from "../SearchBar/SearchButton";
