@@ -20,7 +20,10 @@ import type { FrIconClassName, RiIconClassName } from "../fr/generatedFromCss/cl
 import type { MainNavigationProps } from "../MainNavigation";
 import { MainNavigation } from "../MainNavigation";
 import { Display } from "../Display/Display";
-import { setBrandTopAndHomeLinkProps } from "../zz_internal/brandTopAndHomeLinkProps";
+import { setIdentityAndHomeLinkProps } from "../zz_internal/identityAndHomeLinkProps";
+// The CSS file is handled by the bundler; TypeScript has no declaration for side-effect CSS imports.
+// @ts-expect-error -- side-effect CSS import
+import "../assets/astoria-identity.css";
 import { typeGuard } from "tsafe/typeGuard";
 import { SearchButton } from "../SearchBar/SearchButton";
 import { useTranslation as useSearchBarTranslation } from "../SearchBar/SearchBar";
@@ -28,28 +31,22 @@ import { useTranslation as useSearchBarTranslation } from "../SearchBar/SearchBa
 export type HeaderProps = {
     className?: string;
     id?: string;
-    brandTop: ReactNode;
+    /**
+     * The institutional signature of the site: the national mark of the Republic of Astoria
+     * (official flag/emblem lockup) and the administrative authority the site belongs to.
+     *
+     * ```txt
+     *  🇦🇴  République d'Astoria        ← identity.imgUrl (the lockup includes the name of the Republic)
+     *      Gouvernement                ← identity.institution
+     * ```
+     */
+    identity: HeaderProps.Identity;
     homeLinkProps: RegisteredLinkProps & { title: string };
     serviceTitle?: ReactNode;
     serviceTagline?: ReactNode;
     navigation?: MainNavigationProps.Item[] | ReactNode;
     /** There should be at most three of them */
     quickAccessItems?: (HeaderProps.QuickAccessItem | JSX.Element | null)[];
-    operatorLogo?: {
-        orientation: "horizontal" | "vertical";
-        /**
-         * Expected ratio:
-         * If "vertical": 9x16
-         * If "horizontal": 16x9
-         */
-        imgUrl: string;
-        /** Textual alternative of the image, it MUST include the text present in the image */
-        alt: string;
-        /**
-         * Custom link props, if not provided, the operator logo will be wrapped in a link that points to the home page
-         */
-        linkProps?: RegisteredLinkProps & { title: string };
-    };
     renderSearchInput?: (
         /**
          * id and name must be forwarded to the <input /> component
@@ -77,7 +74,9 @@ export type HeaderProps = {
             | "brand"
             | "brandTop"
             | "logo"
-            | "operator"
+            | "identity"
+            | "identityImg"
+            | "institution"
             | "navbar"
             | "service"
             | "serviceTitle"
@@ -94,6 +93,24 @@ export type HeaderProps = {
 };
 
 export namespace HeaderProps {
+    export type Identity = {
+        /**
+         * URL of the official Astoria mark. It must feature the national flag/emblem and the
+         * "République d'Astoria" wordmark (SVG preferred, no emoji flag).
+         */
+        imgUrl: string;
+        /**
+         * Accessible alternative of the image. As the image contains the name of the Republic,
+         * the alt text should name it (e.g. "République d'Astoria").
+         */
+        alt: string;
+        /**
+         * Administrative authority hosting the site, displayed under the identity as the second
+         * level of the institutional hierarchy: "Gouvernement", "Ministère de l'Économie", …
+         */
+        institution: string;
+    };
+
     export type QuickAccessItem = QuickAccessItem.Link | QuickAccessItem.Button;
 
     export namespace QuickAccessItem {
@@ -123,13 +140,12 @@ export const Header = memo(
         const {
             className,
             id: id_props,
-            brandTop,
+            identity,
             serviceTitle,
             serviceTagline,
             homeLinkProps,
             navigation = undefined,
             quickAccessItems = [],
-            operatorLogo,
             renderSearchInput,
             clearSearchInputOnSearch = false,
             allowEmptySearch = false,
@@ -153,7 +169,7 @@ export const Header = memo(
         const isSearchBarEnabled =
             renderSearchInput !== undefined || onSearchButtonClick !== undefined;
 
-        setBrandTopAndHomeLinkProps({ brandTop, homeLinkProps });
+        setIdentityAndHomeLinkProps({ identity, homeLinkProps });
 
         const { t } = useTranslation();
         const { t: tSearchBar } = useSearchBarTranslation();
@@ -195,8 +211,6 @@ export const Header = memo(
             </ul>
         );
 
-        const hasOperatorLink = operatorLogo?.linkProps !== undefined;
-
         return (
             <>
                 {!disableDisplay && <Display />}
@@ -215,7 +229,7 @@ export const Header = memo(
                                     className={cx(
                                         fr.cx(
                                             "fr-header__brand",
-                                            !hasOperatorLink && "fr-enlarge-link"
+                                            serviceTitle === undefined && "fr-enlarge-link"
                                         ),
                                         classes.brand
                                     )}
@@ -227,62 +241,31 @@ export const Header = memo(
                                         )}
                                     >
                                         <div className={cx(fr.cx("fr-header__logo"), classes.logo)}>
-                                            {(() => {
-                                                const children = (
-                                                    <p className={fr.cx("fr-logo")}>{brandTop}</p>
-                                                );
-
-                                                return serviceTitle !== undefined ? (
-                                                    children
-                                                ) : (
-                                                    <Link {...homeLinkProps}>{children}</Link>
-                                                );
-                                            })()}
-                                        </div>
-                                        {operatorLogo !== undefined && (
-                                            <div
+                                            <Link
+                                                {...homeLinkProps}
                                                 className={cx(
-                                                    fr.cx(
-                                                        "fr-header__operator",
-                                                        hasOperatorLink && "fr-enlarge-link"
-                                                    ),
-                                                    classes.operator
+                                                    "ads-identity__link",
+                                                    classes.identity
                                                 )}
                                             >
-                                                {(() => {
-                                                    const children = (
-                                                        <img
-                                                            className={cx(
-                                                                fr.cx("fr-responsive-img"),
-                                                                classes.operator
-                                                            )}
-                                                            style={(() => {
-                                                                switch (operatorLogo.orientation) {
-                                                                    case "vertical":
-                                                                        return {
-                                                                            "width": "3.5rem"
-                                                                        };
-                                                                    case "horizontal":
-                                                                        return {
-                                                                            "maxWidth": "9.0625rem"
-                                                                        };
-                                                                }
-                                                            })()}
-                                                            src={operatorLogo.imgUrl}
-                                                            alt={operatorLogo.alt}
-                                                        />
-                                                    );
-
-                                                    return hasOperatorLink ? (
-                                                        <Link {...operatorLogo.linkProps}>
-                                                            {children}
-                                                        </Link>
-                                                    ) : (
-                                                        children
-                                                    );
-                                                })()}
-                                            </div>
-                                        )}
+                                                <img
+                                                    className={cx(
+                                                        "ads-identity__img",
+                                                        classes.identityImg
+                                                    )}
+                                                    src={identity.imgUrl}
+                                                    alt={identity.alt}
+                                                />
+                                                <span
+                                                    className={cx(
+                                                        "ads-identity__institution",
+                                                        classes.institution
+                                                    )}
+                                                >
+                                                    {identity.institution}
+                                                </span>
+                                            </Link>
+                                        </div>
 
                                         {(quickAccessItems.length > 0 ||
                                             navigation !== undefined ||
@@ -319,16 +302,12 @@ export const Header = memo(
                                             </div>
                                         )}
                                     </div>
-                                    {serviceTitle !== undefined && (
-                                        <div
-                                            className={cx(
-                                                fr.cx(
-                                                    "fr-header__service",
-                                                    hasOperatorLink && "fr-enlarge-link"
-                                                ),
-                                                classes.service
-                                            )}
-                                        >
+                                    {serviceTitle !== undefined && (                                            <div
+                                                className={cx(
+                                                    fr.cx("fr-header__service"),
+                                                    classes.service
+                                                )}
+                                            >
                                             <Link {...homeLinkProps}>
                                                 <p
                                                     className={cx(

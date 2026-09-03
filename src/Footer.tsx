@@ -9,7 +9,9 @@ import { assert } from "tsafe/assert";
 import type { Equals } from "tsafe";
 import { createComponentI18nApi } from "./i18n";
 import type { FrIconClassName, RiIconClassName } from "./fr/generatedFromCss/classNames";
-import { getBrandTopAndHomeLinkProps } from "./zz_internal/brandTopAndHomeLinkProps";
+import { getIdentityAndHomeLinkProps } from "./zz_internal/identityAndHomeLinkProps";
+import type { HeaderProps } from "./Header";
+import "./assets/astoria-identity.css";
 import { typeGuard } from "tsafe/typeGuard";
 import { id } from "tsafe/id";
 
@@ -35,11 +37,13 @@ export type FooterProps = {
         alt: string;
     };
     license?: ReactNode;
-    /** If not provided the brandTop from the Header will be used,
-     *  Be aware that if your Header is not used as a server component while the Footer is
-     *  you need to provide the brandTop to the Footer.
+    /**
+     * The institutional identity of the Republic of Astoria (same prop as the one of the
+     * `<Header />`). If not provided, the identity of the `<Header />` will be used.
+     * Be aware that if your Header is not used as a server component while the Footer is
+     * you need to provide the identity to the Footer.
      */
-    brandTop?: ReactNode;
+    identity?: HeaderProps.Identity;
     /** If not provided the homeLinkProps from the Header will be used,
      *  Be aware that if your Header is not used as a server component while the Footer is
      *  you need to provide the homeLinkProps to the Footer.
@@ -62,6 +66,9 @@ export type FooterProps = {
             | "bottomCopy"
             | "brandLink"
             | "logo"
+            | "identity"
+            | "identityImg"
+            | "institution"
             | "operatorLogo"
             | "partners"
             | "partnersTitle"
@@ -167,7 +174,7 @@ export const Footer = memo(
             partnersLogos,
             operatorLogo,
             license,
-            brandTop: brandTop_prop,
+            identity: identity_prop,
             homeLinkProps: homeLinkProps_prop,
             style,
             linkList,
@@ -180,24 +187,26 @@ export const Footer = memo(
 
         const rootId = id_props ?? "fr-footer";
 
-        const { brandTop, homeLinkProps } = (() => {
-            const wrap = getBrandTopAndHomeLinkProps();
+        const { identity, homeLinkProps } = (() => {
+            const wrap = getIdentityAndHomeLinkProps();
 
-            const brandTop = brandTop_prop ?? wrap?.brandTop;
+            const identity = identity_prop ?? wrap?.identity;
             const homeLinkProps = homeLinkProps_prop ?? wrap?.homeLinkProps;
 
             const exceptionMessage =
                 " hasn't been provided to the Footer and we cannot retrieve it from the Header (it's probably client side)";
 
-            if (brandTop === undefined) {
-                throw new Error(symToStr({ brandTop }) + exceptionMessage);
+            if (identity === undefined && operatorLogo === undefined) {
+                throw new Error(
+                    symToStr({ identity }) + " or " + symToStr({ operatorLogo }) + exceptionMessage
+                );
             }
 
             if (homeLinkProps === undefined) {
                 throw new Error(symToStr({ homeLinkProps }) + exceptionMessage);
             }
 
-            return { brandTop, homeLinkProps };
+            return { identity, homeLinkProps };
         })();
 
         const { Link } = getLink();
@@ -276,11 +285,36 @@ export const Footer = memo(
                             )}
                         >
                             {(() => {
-                                const children = (
-                                    <p className={cx(fr.cx("fr-logo"), classes.logo)}>{brandTop}</p>
-                                );
+                                const children =
+                                    identity === undefined ? null : (
+                                        <div
+                                            className={cx(
+                                                "ads-identity__footer",
+                                                classes.identity
+                                            )}
+                                        >
+                                            <img
+                                                className={cx(
+                                                    "ads-identity__img",
+                                                    classes.identityImg
+                                                )}
+                                                src={identity.imgUrl}
+                                                alt={identity.alt}
+                                            />
+                                            <span
+                                                className={cx(
+                                                    "ads-identity__institution",
+                                                    classes.institution
+                                                )}
+                                            >
+                                                {identity.institution}
+                                            </span>
+                                        </div>
+                                    );
 
-                                return operatorLogo !== undefined ? (
+                                /* If there is an operator logo it carries the home link,
+                                   the identity mark is then displayed unlinked */
+                                return operatorLogo !== undefined || children === null ? (
                                     children
                                 ) : (
                                     <Link {...homeLinkProps}>{children}</Link>
