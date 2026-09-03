@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose a new component or improvement for the Astoria Design System React library
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for proposing an improvement! For new components, please also check the [component inventory](https://github.com/codegouvaor/react-ads/blob/main/AUDIT.md) first."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / use case
+      description: What do you need to build? What is missing today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the component or the API you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: a11y
+    attributes:
+      label: Accessibility considerations
+      description: Keyboard behavior, ARIA patterns, focus management, labels — as specific as possible.

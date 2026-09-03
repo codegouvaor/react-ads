@@ -26,7 +26,7 @@ export type MultiLineChartBaseProps = MultiChartProps & ChartLineProps;
 
 export type MultiLineChartProps = MultiLineChartBaseProps & BaseChartProps;
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/charts-multilinechart> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/charts-multilinechart> */
 export const MultiLineChart = chartWrapper(
     (props: MultiLineChartBaseProps) => <multiline-chart {...stringifyObjectValue(props)} />,
     "multiline-chart"

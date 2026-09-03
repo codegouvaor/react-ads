@@ -1,10 +1,13 @@
 import { create } from "@storybook/theming";
 
-const brandImage= "logo.png";
-const brandTitle= "@codegouvfr/react-dsfr";
-const brandUrl= "https://github.com/codegouvfr/react-dsfr";
-const fontBase= '"Marianne", arial, sans-serif';
-const fontCode= "monospace";
+// NOTE: The Astoria official visual identity (colors, logo, fonts) is not defined yet.
+// Storybook chrome below uses neutral placeholders so the branding can be centralized
+// later without touching components. See the "Design tokens" section of the README.
+const brandImage = "logo.png";
+const brandTitle = "Astoria Design System — React";
+const brandUrl = "https://github.com/codegouvaor/react-ads";
+const fontBase = '"Segoe UI", arial, sans-serif';
+const fontCode = "monospace";
 
 export const darkTheme = create({
     "base": "dark",
@@ -25,7 +28,7 @@ export const lightTheme = create({
     "appBg": "#F6F6F6",
     "appContentBg": "#FFFFFF",
     "barBg": "#FFFFFF",
-    "colorSecondary": "#000091",
+    "colorSecondary": "#3A3A3A",
     "textColor": "#212121",
     brandImage,
     brandTitle,

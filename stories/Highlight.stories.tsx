@@ -9,13 +9,13 @@ const { meta, getStory } = getStoryFactory<HighlightProps>({
     wrappedComponent: { Highlight },
     description: `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Highlight.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Highlight.tsx)`,
     argTypes: {
         size: {
             options: (() => {
                 const sizes = ["sm", "lg"] as const;
 
-                assert<Equals<typeof sizes[number], HighlightProps.Size>>();
+                assert<Equals<(typeof sizes)[number], HighlightProps.Size>>();
 
                 return [null, ...sizes];
             })(),

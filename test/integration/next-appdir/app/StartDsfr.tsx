@@ -1,11 +1,11 @@
 "use client";
 
-import { startReactDsfr } from "@codegouvfr/react-dsfr/next-appdir";
+import { startReactDsfr } from "@codegouvaor/react-ads/next-appdir";
 import { defaultColorScheme } from "./defaultColorScheme";
-import { addAlertTranslations } from "@codegouvfr/react-dsfr/Alert";
+import { addAlertTranslations } from "@codegouvaor/react-ads/Alert";
 import Link from "next/link";
 
-declare module "@codegouvfr/react-dsfr/next-appdir" {
+declare module "@codegouvaor/react-ads/next-appdir" {
     interface RegisterLink { 
         Link: typeof Link;
     }

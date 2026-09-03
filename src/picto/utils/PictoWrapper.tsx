@@ -28,7 +28,7 @@ export namespace PictoProps {
         "brown-opera",
         "beige-gris-galet"
     ] as const;
-    export type Color = typeof colors[number];
+    export type Color = (typeof colors)[number];
 }
 
 const getSize = (size: PictoProps.Size) => {

@@ -1,14 +1,14 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
+import { startReactDsfr } from "@codegouvaor/react-ads/spa";
 import { Home } from "./Home";
 import { Mui } from "./Mui";
 import { Picto } from "./Picto";
 import { useRoute, RouteProvider } from "./router";
-import { Header } from "@codegouvfr/react-dsfr/Header";
-import { fr } from "@codegouvfr/react-dsfr";
+import { Header } from "@codegouvaor/react-ads/Header";
+import { fr } from "@codegouvaor/react-ads";
 import { routes } from "./router";
-import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
+import { headerFooterDisplayItem } from "@codegouvaor/react-ads/Display";
 
 
 startReactDsfr({

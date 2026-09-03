@@ -18,7 +18,7 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile)
 - [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/tile/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Tile.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Tile.tsx)`,
     "disabledProps": ["lang"],
     // https://storybook.js.org/docs/essentials/controls#configuration
     "argTypes": {
@@ -44,7 +44,7 @@ const { meta, getStory } = getStoryFactory({
             },
             "options": (() => {
                 const headings = ["h2", "h3", "h4", "h5", "h6"] as const;
-                assert<Equals<typeof headings[number] | undefined, TileProps["titleAs"]>>();
+                assert<Equals<(typeof headings)[number] | undefined, TileProps["titleAs"]>>();
                 return headings;
             })()
         },

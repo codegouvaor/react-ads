@@ -7,136 +7,182 @@ on:
     branches:
       - main
 
-permissions:
-  id-token: write
-  contents: write
+env:
+  PNPM_VERSION: 11.21.0
 
 jobs:
-  test_format:
+  format_and_lint:
     runs-on: ubuntu-latest
-    if: ${{ !github.event.created && github.repository != 'garronej/ts-ci' }}
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-      - uses: bahmutov/npm-install@v1
-      - name: If this step fails run 'yarn format' then commit again.
-        run: yarn format:check
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Prettier check
+        run: pnpm format:check
+      - name: ESLint check
+        run: pnpm lint:check
+
+  build:
+    runs-on: ubuntu-latest
+    needs: format_and_lint
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build (types + assets + dist, includes the full TypeScript typecheck)
+        run: pnpm build
+      - name: Package validation (dry-run content of the npm tarball)
+        run: pnpm pack --dry-run
+
   test:
-    runs-on: ${{ matrix.os }}
-    needs: test_format
-    strategy:
-      matrix:
-        #node: [ '16', '17' ]
-        node: ["22"]
-        #os: [ windows-latest, ubuntu-latest ]
-        os: [ubuntu-latest]
-    name: Test with Node v${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v5
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-      - uses: bahmutov/npm-install@v1
-      - run: yarn build
-      - run: yarn test
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Unit tests
+        run: pnpm test
+
+  audit:
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Audit runtime dependencies
+        run: pnpm audit --prod --audit-level high
 
   deploy_storybook:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     needs: test
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-      - uses: bahmutov/npm-install@v1
-      - run: yarn build-storybook -o ./build_storybook
-      - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{github.repository}}.git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npx -y -p gh-pages@3.1.0 gh-pages -d ./build_storybook -u "github-actions-bot <actions@github.com>"
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build Storybook
+        run: pnpm build-storybook -o ./build_storybook
+      - name: Deploy to GitHub Pages (gh-pages branch)
+        run: npx -y -p gh-pages@6.3.0 gh-pages -d ./build_storybook -u "github-actions-bot <actions@github.com>"
 
-  check_if_version_upgraded:
-    name: Check if version upgrade
-    # When someone forks the repo and opens a PR we want to enables the tests to be run (the previous jobs)
-    # but obviously only us should be allowed to release.
-    # In the following check we make sure that we own the branch this CI workflow is running on before continuing.
-    # Without this check, trying to release would fail anyway because only us have the correct secret.NPM_TOKEN but
-    # it's cleaner to stop the execution instead of letting the CI crash.
-    if: |
-      github.event_name == 'push' || 
-      github.event.pull_request.head.repo.owner.login == github.event.pull_request.base.repo.owner.login
+  release_and_publish:
+    name: Release and publish on npm
+    if: github.event_name == 'push' && github.repository == 'codegouvaor/react-ads'
     runs-on: ubuntu-latest
-    needs: test
+    needs:
+      - test
+      - audit
+    permissions:
+      contents: write
+      id-token: write
+      packages: write
     outputs:
-      from_version: ${{ steps.step1.outputs.from_version }}
-      to_version: ${{ steps.step1.outputs.to_version }}
-      is_upgraded_version: ${{ steps.step1.outputs.is_upgraded_version }}
-      is_pre_release: ${{steps.step1.outputs.is_pre_release }}
+      tag: ${{ steps.version.outputs.tag }}
+      is_upgraded: ${{ steps.version.outputs.is_upgraded }}
+      is_prerelease: ${{ steps.version.outputs.is_prerelease }}
     steps:
-      - uses: garronej/ts-ci@v2.1.5
-        id: step1
+      - uses: actions/checkout@v4
         with:
-          action_name: is_package_json_version_upgraded
-
-  create_github_release:
-    runs-on: ubuntu-latest
-    # We create release only if the version in the package.json have been upgraded and this CI is running against the main branch.
-    # We allow branches with a PR open on main to publish pre-release (x.y.z-rc.u) but not actual releases.
-    if: |
-      needs.check_if_version_upgraded.outputs.is_upgraded_version == 'true' &&
-      (
-        github.event_name == 'push' ||
-        needs.check_if_version_upgraded.outputs.is_pre_release == 'true'
-      )
-    needs:
-      - check_if_version_upgraded
-    steps:
-      - uses: softprops/action-gh-release@v2
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
         with:
-          name: Release v${{ needs.check_if_version_upgraded.outputs.to_version }}
-          tag_name: v${{ needs.check_if_version_upgraded.outputs.to_version }}
-          target_commitish: ${{ github.head_ref || github.ref }}
-          generate_release_notes: true
-          draft: false
-          prerelease: ${{ needs.check_if_version_upgraded.outputs.is_pre_release == 'true' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  publish_on_npm:
-    runs-on: ubuntu-latest
-    needs:
-      - create_github_release
-      - check_if_version_upgraded
-    steps:
-      - uses: actions/checkout@v3
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
         with:
-          ref: ${{ github.ref }}
-      - uses: actions/setup-node@v5
-        with:
-          # npm@latest requires node >=22 since npm 12, keep this in step with the test job
-          node-version: '22'
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      - run: npm install -g npm@latest
-      - run: yarn install --frozen-lockfile
-      - run: yarn build --prePublish
-      - run: npx -y -p denoify@1.5.1 enable_short_npm_import_path
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Detect version upgrade
+        id: version
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if git tag -l "v${VERSION}" | grep -q "v${VERSION}"; then
+            echo "Version ${VERSION} is already released (tag v${VERSION} exists)."
+            echo "is_upgraded=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Version ${VERSION} not released yet."
+            echo "is_upgraded=true" >> "$GITHUB_OUTPUT"
+            echo "tag=v${VERSION}" >> "$GITHUB_OUTPUT"
+            case "$VERSION" in
+              *-*) echo "is_prerelease=true" >> "$GITHUB_OUTPUT" ;;
+              *) echo "is_prerelease=false" >> "$GITHUB_OUTPUT" ;;
+            esac
+          fi
+      - name: Build for publish (prePublish: no local-linking artifacts)
+        if: steps.version.outputs.is_upgraded == 'true'
+        run: pnpm build --prePublish
+      - name: Enable short npm import paths (subpath exports)
+        if: steps.version.outputs.is_upgraded == 'true'
+        run: npx -y -p denoify@1.5.1 enable_short_npm_import_path
         env:
           DRY_RUN: "0"
-      - uses: garronej/ts-ci@v2.1.5
+      - name: Create GitHub release
+        if: steps.version.outputs.is_upgraded == 'true'
+        uses: softprops/action-gh-release@v2
         with:
-          action_name: remove_dark_mode_specific_images_from_readme
-      - name: Publishing on NPM
-        run: |
-          if [ "$(npm show . version)" = "$VERSION" ]; then
-            echo "This version is already published"
-            exit 0
-          fi
-          EXTRA_ARGS=""
-          if [ "$IS_PRE_RELEASE" = "true" ]; then
-              EXTRA_ARGS="--tag next"
-          fi
-          npm publish $EXTRA_ARGS
+          name: Release v${{ steps.version.outputs.tag }}
+          tag_name: ${{ steps.version.outputs.tag }}
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ steps.version.outputs.is_prerelease == 'true' }}
         env:
-          VERSION: ${{ needs.check_if_version_upgraded.outputs.to_version }}
-          IS_PRE_RELEASE: ${{ needs.check_if_version_upgraded.outputs.is_pre_release }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish on npm
+        if: steps.version.outputs.is_upgraded == 'true'
+        run: |
+          EXTRA_ARGS=""
+          if [ "${{ steps.version.outputs.is_prerelease }}" = "true" ]; then
+            EXTRA_ARGS="--tag next"
+          fi
+          npm publish --provenance $EXTRA_ARGS
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -10,7 +10,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { "LanguageSelect": Story },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/selecteur-de-langue/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Header/LanguageSelect.tsx)  
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/LanguageSelect.tsx)  
   
 
 
@@ -18,7 +18,7 @@ const { meta, getStory } = getStoryFactory({
 
 \`\`\`tsx  
 
-import { Header as DsfrHeader } from "@codegouvfr/react-dsfr/Header";
+import { Header as DsfrHeader } from "@codegouvaor/react-ads/Header";
 import { LanguageSelect } from "./LanguageSelect";
 
 export function Header() {
@@ -40,7 +40,7 @@ export function Header() {
 import { 
     LanguageSelect as LanguageSelect_base, 
     addLanguageSelectTranslations 
-} from "@codegouvfr/react-dsfr/LanguageSelect";
+} from "@codegouvaor/react-ads/LanguageSelect";
 import { useLang, languages } from "i18n"; // i18nifty
 
 type Props = {

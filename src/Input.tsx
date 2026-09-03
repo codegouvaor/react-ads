@@ -79,7 +79,7 @@ export namespace InputProps {
 }
 
 /**
- * @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-input>
+ * @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-input>
  * */
 export const Input = memo(
     forwardRef<HTMLDivElement, InputProps>((props, ref) => {

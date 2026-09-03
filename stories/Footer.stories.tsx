@@ -27,7 +27,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Footer },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Footer.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Footer.tsx)`,
     "argTypes": {
         "accessibility": {
             "options": (() => {
@@ -37,7 +37,7 @@ const { meta, getStory } = getStoryFactory({
                     "fully compliant"
                 ] as const;
 
-                assert<Equals<typeof accessibility[number], FooterProps["accessibility"]>>();
+                assert<Equals<(typeof accessibility)[number], FooterProps["accessibility"]>>();
 
                 return accessibility;
             })(),
@@ -54,7 +54,7 @@ const { meta, getStory } = getStoryFactory({
         },
         "bottomItems": {
             "description":
-                "To integrate the Dark mode switch head over to the documentation of the [Display component](https://components.react-dsfr.codegouv.studio/?path=/docs/components-display)"
+                "To integrate the Dark mode switch head over to the documentation of the [Display component](https://codegouvaor.github.io/react-ads/?path=/docs/components-display)"
         },
         "license": {
             "description":
@@ -145,7 +145,7 @@ export const WithCustomLicense = getStory({
     "license": (
         <>
             Unless stated otherwise all content of this website are under{" "}
-            <a href="https://github.com/codegouvfr/react-dsfr/blob/main/LICENSE" target="_blank">
+            <a href="https://github.com/codegouvaor/react-ads/blob/main/LICENSE" target="_blank">
                 licence MIT
             </a>{" "}
         </>

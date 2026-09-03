@@ -7,7 +7,7 @@ const { meta, getStory } = getStoryFactory({
     wrappedComponent: { SegmentedControl },
     description: `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/SegmentedControl.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SegmentedControl.tsx)`,
     argTypes: {
         small: {
             control: { type: "boolean" }

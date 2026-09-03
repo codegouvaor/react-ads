@@ -1,6 +1,6 @@
-import { fr } from "@codegouvfr/react-dsfr";
+import { fr } from "@codegouvaor/react-ads";
 
-import * as Pictogrammes from '@codegouvfr/react-dsfr/picto';
+import * as Pictogrammes from '@codegouvaor/react-ads/picto';
 
 export function Picto() {
     return (

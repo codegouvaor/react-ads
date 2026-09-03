@@ -16,7 +16,7 @@ export type DsfrProviderProps = {
     /** Default: false */
     verbose?: boolean;
     /**
-     * When true, the nonce of the script tag will be checked, fetched from {@link DsfrHead} component and injected in react-dsfr scripts.
+     * When true, the nonce of the script tag will be checked, fetched from {@link DsfrHead} component and injected in react-ads scripts.
      *
      * @see https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes/nonce
      * @default false
@@ -31,15 +31,15 @@ export type DsfrProviderProps = {
      *
      * For example:
      * ```txt
-     * With a policy name of "react-dsfr":
+     * With a policy name of "react-ads":
      * Content-Security-Policy:
      *  require-trusted-types-for 'script';
-     *  trusted-types react-dsfr react-dsfr-asap nextjs nextjs#bundler;
+     *  trusted-types react-ads react-ads-asap nextjs nextjs#bundler;
      * ```
      *
      * @see https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types
      * @see {@link DEFAULT_TRUSTED_TYPES_POLICY_NAME}
-     * @default "react-dsfr"
+     * @default "react-ads"
      */
     trustedTypesPolicyName?: string;
 };
@@ -57,7 +57,7 @@ export function DsfrProviderBase(
         defaultColorScheme,
         verbose = false,
         doCheckNonce = false,
-        trustedTypesPolicyName = "react-dsfr"
+        trustedTypesPolicyName = "react-ads"
     } = props;
 
     /*

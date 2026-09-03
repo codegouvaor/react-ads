@@ -48,14 +48,14 @@ export type CreateNextDsfrIntegrationApiParams = {
      *
      * For example:
      * ```txt
-     * With a policy name of "react-dsfr":
+     * With a policy name of "react-ads":
      * Content-Security-Policy:
      *  require-trusted-types-for 'script';
-     *  trusted-types react-dsfr react-dsfr-asap nextjs nextjs#bundler;
+     *  trusted-types react-ads react-ads-asap nextjs nextjs#bundler;
      * ```
      *
      * @see https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types
-     * @default "react-dsfr"
+     * @default "react-ads"
      */
     trustedTypesPolicyName?: string;
     /**
@@ -113,7 +113,7 @@ export function createNextDsfrIntegrationApi(
         preloadFonts = [],
         doPersistDarkModePreferenceWithCookie = false,
         useLang,
-        trustedTypesPolicyName = "react-dsfr",
+        trustedTypesPolicyName = "react-ads",
         doDisableFavicon = false
     } = params;
 

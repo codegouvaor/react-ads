@@ -7,7 +7,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Download },
     description: `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Download.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Download.tsx)`,
     "argTypes": {
         "label": {
             "description": `Required - the label of the anchor element. In case the file to download is in a different language than the current document one, it should contains the mention of the language.`

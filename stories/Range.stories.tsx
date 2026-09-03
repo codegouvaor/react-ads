@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     wrappedComponent: { Range },
     description: `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Range.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Range.tsx)`,
     argTypes: {
         disabled: {
             control: { type: "boolean" }
@@ -18,7 +18,7 @@ const { meta, getStory } = getStoryFactory({
             options: (() => {
                 const options = ["default", "success", "error"] as const;
 
-                assert<Equals<typeof options[number] | undefined, RangeProps["state"]>>();
+                assert<Equals<(typeof options)[number] | undefined, RangeProps["state"]>>();
 
                 return options;
             })(),

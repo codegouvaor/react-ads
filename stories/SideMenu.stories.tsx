@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/menu-lateral)
 - [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/sidemenu/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/SideMenu.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SideMenu.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {
         "title": {

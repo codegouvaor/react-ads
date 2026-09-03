@@ -1,6 +1,6 @@
 "use client";
 
-import { createConsentManagement } from "@codegouvfr/react-dsfr/consentManagement";
+import { createConsentManagement } from "@codegouvaor/react-ads/consentManagement";
 
 export const { 
     ConsentBannerAndConsentManagement, 

@@ -7,7 +7,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { FranceConnectButton },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/bouton-franceconnect/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/FranceConnectButton.tsx)`
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/FranceConnectButton.tsx)`
 });
 
 export default meta;

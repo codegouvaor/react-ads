@@ -7,7 +7,7 @@ import {
 } from "../../../../src/bin/only-include-css-of-used-components";
 
 /**
- * The component CSS optimizer maps every imported react-dsfr module to the DSFR CSS
+ * The component CSS optimizer maps every imported react-ads module to the DSFR CSS
  * components it renders. A module that is in neither REACT_DSFR_MODULE_TO_DSFR_COMPONENTS
  * nor NON_COMPONENT_MODULE_IDS makes resolveModuleIdToDsfrComponents() return undefined,
  * which trips the include-everything fail-safe: the script warns and exits 0, so a
@@ -21,7 +21,7 @@ import {
  * so the published subpaths are not an explicit list to compare against. They are exactly
  * whatever `tsc -p src` emits: the publish job runs denoify's `enable_short_npm_import_path`
  * (.github/workflows/ci.yaml), which moves the content of the tsconfig `outDir` up one level
- * onto the package root, so `@codegouvfr/react-dsfr/<subpath>` resolves straight into it.
+ * onto the package root, so `@codegouvaor/react-ads/<subpath>` resolves straight into it.
  * The enumeration below therefore replays that emission: the entries of `src/`, minus what
  * `src/tsconfig.json` excludes (read from the file, not hardcoded, so a future exclude stays
  * in sync) and minus the files tsc does not emit a module for.
@@ -52,7 +52,7 @@ describe("REACT_DSFR_MODULE_TO_DSFR_COMPONENTS exhaustiveness", () => {
         fs.readdirSync(dirPath).some(childName => /^index\.tsx?$/.test(childName));
 
     /**
-     * The `@codegouvfr/react-dsfr/<subpath>` a consumer can import, one per module the
+     * The `@codegouvaor/react-ads/<subpath>` a consumer can import, one per module the
      * script has to resolve. Not every importable path: `tools/powerhooks/useConst` is
      * importable too, but yields the same module id as `tools/cx`, so listing the
      * shallowest path per module is enough and keeps failure messages readable.
@@ -75,6 +75,13 @@ describe("REACT_DSFR_MODULE_TO_DSFR_COMPONENTS exhaustiveness", () => {
 
             if (!dirent.isDirectory()) {
                 if (isModuleSourceFileName(dirent.name)) {
+                    // A top-level index (src/index.ts, the package main entry) is not an
+                    // importable subpath: consumers reach it through the bare package name,
+                    // which the root-import handling covers (ROOT_IMPORT_MODULE_ID).
+                    if (dirent.name === "index.ts" || dirent.name === "index.tsx") {
+                        continue;
+                    }
+
                     subpaths.push(removeExtension(dirent.name));
                 }
                 continue;
@@ -111,7 +118,7 @@ describe("REACT_DSFR_MODULE_TO_DSFR_COMPONENTS exhaustiveness", () => {
             getPublicSubpaths().map(subpath => [
                 subpath,
                 getReactDsfrImportedModuleIds({
-                    "rawFileContent": `import "@codegouvfr/react-dsfr/${subpath}";`
+                    "rawFileContent": `import "@codegouvaor/react-ads/${subpath}";`
                 })
             ])
         );

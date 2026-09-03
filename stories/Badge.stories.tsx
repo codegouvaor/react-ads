@@ -9,13 +9,13 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Badge },
     description: `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/badge)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Badge.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Badge.tsx)`,
     "argTypes": {
         "severity": {
             "options": (() => {
                 const options = ["success", "warning", "info", "error", "new", undefined] as const;
 
-                assert<Equals<typeof options[number], BadgeProps["severity"]>>();
+                assert<Equals<(typeof options)[number], BadgeProps["severity"]>>();
 
                 return options;
             })(),
@@ -33,7 +33,7 @@ const { meta, getStory } = getStoryFactory({
             "options": (() => {
                 const options = ["p", "span", undefined] as const;
 
-                assert<Equals<typeof options[number], BadgeProps["as"]>>();
+                assert<Equals<(typeof options)[number], BadgeProps["as"]>>();
 
                 return options;
             })(),

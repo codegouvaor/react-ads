@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Alert } from "@codegouvfr/react-dsfr/Alert";
-import { SideMenu } from "@codegouvfr/react-dsfr/SideMenu";
-import { Tabs } from "@codegouvfr/react-dsfr/Tabs";
-import { Table } from "@codegouvfr/react-dsfr/Table";
-import { fr } from "@codegouvfr/react-dsfr";
-import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
+import { Alert } from "@codegouvaor/react-ads/Alert";
+import { SideMenu } from "@codegouvaor/react-ads/SideMenu";
+import { Tabs } from "@codegouvaor/react-ads/Tabs";
+import { Table } from "@codegouvaor/react-ads/Table";
+import { fr } from "@codegouvaor/react-ads";
+import { useIsDark } from "@codegouvaor/react-ads/useIsDark";
 import { useStyles } from "tss-react/dsfr";
 
 export default function App() {

@@ -88,7 +88,7 @@ export const breakpoints = {
      * Warning: It reflects the values at a given time, if the root font size changes so will the breakpointsValues.
      * Plus this function is rather expensive to call.
      * If you're in react you should use the
-     * import { useBreakpointsValuesPx } from "@codegouvfr/react-dsfr/useBreakpointsValuesPx";
+     * import { useBreakpointsValuesPx } from "@codegouvaor/react-ads/useBreakpointsValuesPx";
      */
     "getPxValues": (): BreakpointsValues => {
         assert<Equals<typeof unit, "em">>();

@@ -7,7 +7,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { ProConnectButton },
     "description": `
 - [See DSFR documentation](https://github.com/numerique-gouv/agentconnect-documentation/blob/main/doc_fs/bouton_proconnect.md)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/ProConnectButton.tsx)`
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ProConnectButton.tsx)`
 });
 
 export default meta;

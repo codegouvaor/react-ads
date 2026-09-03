@@ -8,7 +8,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Tag },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Tag.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Tag.tsx)`,
     "argTypes": {
         "dismissible": {
             "control": { "type": "boolean" }
@@ -22,7 +22,7 @@ const { meta, getStory } = getStoryFactory({
                 type AllIconIds = NonNullable<TagProps["iconId"]>;
 
                 assert<
-                    Equals<typeof options[number], Extract<AllIconIds, typeof options[number]>>
+                    Equals<(typeof options)[number], Extract<AllIconIds, (typeof options)[number]>>
                 >();
 
                 return options;
@@ -40,7 +40,7 @@ const { meta, getStory } = getStoryFactory({
             "options": (() => {
                 const options = ["p", "span", "button", "a", undefined] as const;
 
-                assert<Equals<typeof options[number], TagProps["as"]>>();
+                assert<Equals<(typeof options)[number], TagProps["as"]>>();
 
                 return options;
             })(),

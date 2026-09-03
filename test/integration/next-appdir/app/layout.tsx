@@ -1,14 +1,14 @@
 import { NextAppDirEmotionCacheProvider } from "tss-react/next";
-import { DsfrHead } from "@codegouvfr/react-dsfr/next-appdir/DsfrHead";
-import { DsfrProvider } from "@codegouvfr/react-dsfr/next-appdir/DsfrProvider";
-import { getHtmlAttributes } from "@codegouvfr/react-dsfr/next-appdir/getHtmlAttributes";
+import { DsfrHead } from "@codegouvaor/react-ads/next-appdir/DsfrHead";
+import { DsfrProvider } from "@codegouvaor/react-ads/next-appdir/DsfrProvider";
+import { getHtmlAttributes } from "@codegouvaor/react-ads/next-appdir/getHtmlAttributes";
 import { StartDsfr } from "./StartDsfr";
 import { defaultColorScheme } from "./defaultColorScheme";
-import MuiDsfrThemeProvider from "@codegouvfr/react-dsfr/mui";
-import { Header } from "@codegouvfr/react-dsfr/Header";
-import { Footer } from "@codegouvfr/react-dsfr/Footer";
-import { headerFooterDisplayItem, addDisplayTranslations } from "@codegouvfr/react-dsfr/Display";
-import { fr } from "@codegouvfr/react-dsfr";
+import MuiDsfrThemeProvider from "@codegouvaor/react-ads/mui";
+import { Header } from "@codegouvaor/react-ads/Header";
+import { Footer } from "@codegouvaor/react-ads/Footer";
+import { headerFooterDisplayItem, addDisplayTranslations } from "@codegouvaor/react-ads/Display";
+import { fr } from "@codegouvaor/react-ads";
 import { Navigation } from "./Navigation";
 import Link from "next/link";
 import {
@@ -21,7 +21,7 @@ import { ClientHeaderQuickAccessItem } from "../ui/ClientHeaderQuickAccessItem";
 import { headers } from "next/headers";
 import { getScriptNonceFromHeader } from "next/dist/server/app-render/get-script-nonce-from-header"; // or use your own implementation
 import style from "./main.module.css";
-import { cx } from "@codegouvfr/react-dsfr/tools/cx";
+import { cx } from "@codegouvaor/react-ads/tools/cx";
 import { Follow } from "./Follow";
 
 export default function RootLayout({ children }: { children: JSX.Element }) {

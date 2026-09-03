@@ -20,7 +20,7 @@ export type StepperProps = {
     nextStepText?: ReactNode;
 };
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-stepper> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-stepper> */
 export const Stepper = memo(
     forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
         const {

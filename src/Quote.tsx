@@ -29,7 +29,7 @@ export namespace QuoteProps {
     export type AccentColor = ExtractAccentColor<FrClassName>;
 }
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-quote> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-quote> */
 export const Quote = memo(
     forwardRef<HTMLDivElement, QuoteProps>((props, ref) => {
         const {

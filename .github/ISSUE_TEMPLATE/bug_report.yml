@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a bug in @codegouvaor/react-ads
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        **Security issue?** Do not open an issue — see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: Which version of @codegouvaor/react-ads do you use?
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Where does the bug occur?
+      options:
+        - Next.js (Pages Router)
+        - Next.js (App Router)
+        - Vite
+        - Create React App
+        - Other / SSR
+        - Storybook
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Minimal code or a link to a repository reproducing the issue.
+      render: tsx
+  - type: textarea
+    id: a11y
+    attributes:
+      label: Accessibility impact
+      description: If relevant, describe the impact for keyboard users, screen readers, contrast, or reduced motion.

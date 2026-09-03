@@ -9,10 +9,10 @@ import { Equals } from "tsafe";
 const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { "Modal": Template },
-    "description": `\`import { createModal } from "@codegouvfr/react-dsfr/Modal";\` (Click **show code** for usage details)
+    "description": `\`import { createModal } from "@codegouvaor/react-ads/Modal";\` (Click **show code** for usage details)
 
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Modal/Modal.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Modal/Modal.tsx)
 
 \`\`\`tsx
 "use client"; 
@@ -20,9 +20,9 @@ const { meta, getStory } = getStoryFactory({
 // modal.buttonProps instead of modal.open() the Modal component can be used as a 
 // server component (you can remove "use client";) 
 
-import { createModal } from "@codegouvfr/react-dsfr/Modal";
-import { useIsModalOpen } from "@codegouvfr/react-dsfr/Modal/useIsModalOpen";
-import { Button } from "@codegouvfr/react-dsfr/Button";
+import { createModal } from "@codegouvaor/react-ads/Modal";
+import { useIsModalOpen } from "@codegouvaor/react-ads/Modal/useIsModalOpen";
+import { Button } from "@codegouvaor/react-ads/Button";
 
 const modal = createModal({
     id: "foo-modal", 
@@ -96,8 +96,8 @@ function MyModalWithCustomButton() {
 
 
 To create a Dialog component, something that you would use to ask the user a question, like "Do you want to proceed?", you can implement this pattern:  
-- [Component](https://github.com/codegouvfr/react-dsfr/blob/main/test/integration/cra/src/MyDialog.tsx), 
-- [Usage](https://github.com/codegouvfr/react-dsfr/blob/d5c0f304ed3416c8d10bba83e7a075a304d2caa0/test/integration/cra/src/Home.tsx#L117-L132). 
+- [Component](https://github.com/codegouvaor/react-ads/blob/main/test/integration/cra/src/MyDialog.tsx), 
+- [Usage](https://github.com/codegouvaor/react-ads/blob/d5c0f304ed3416c8d10bba83e7a075a304d2caa0/test/integration/cra/src/Home.tsx#L117-L132). 
 
 `,
     "argTypes": {
@@ -112,7 +112,7 @@ To create a Dialog component, something that you would use to ask the user a que
             "options": (() => {
                 const options = ["fr-icon-checkbox-circle-line", "ri-ancient-gate-fill"] as const;
 
-                assert<typeof options[number] extends ModalProps["iconId"] ? true : false>();
+                assert<(typeof options)[number] extends ModalProps["iconId"] ? true : false>();
 
                 return options;
             })(),
@@ -122,7 +122,7 @@ To create a Dialog component, something that you would use to ask the user a que
             "options": (() => {
                 const options = ["small", "medium", "large"] as const;
 
-                assert<Equals<typeof options[number] | undefined, ModalProps["size"]>>();
+                assert<Equals<(typeof options)[number] | undefined, ModalProps["size"]>>();
 
                 return options;
             })(),
@@ -196,8 +196,8 @@ Default.parameters = {
     "docs": {
         "source": {
             "code": `
-import { createModal } from "@codegouvfr/react-dsfr/Modal";
-import { Button } from "@codegouvfr/react-dsfr/Button";
+import { createModal } from "@codegouvaor/react-ads/Modal";
+import { Button } from "@codegouvaor/react-ads/Button";
 
 const modal = createModal({
     name: "terms-modal",

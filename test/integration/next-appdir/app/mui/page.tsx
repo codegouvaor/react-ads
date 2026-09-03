@@ -1,9 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { MuiDsfrThemeProvider } from "@codegouvfr/react-dsfr/mui";
+import { MuiDsfrThemeProvider } from "@codegouvaor/react-ads/mui";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
+import { useIsDark } from "@codegouvaor/react-ads/useIsDark";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Stack from '@mui/material/Stack';

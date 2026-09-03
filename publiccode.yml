@@ -3,78 +3,46 @@
 # More info at https://github.com/publiccodeyml/publiccode.yml
 
 publiccodeYmlVersion: "0"
-name: "react-dsfr"
-url: "https://github.com/codegouvfr/react-dsfr"
-landingURL: "https://components.react-dsfr.codegouv.studio"
-releaseDate: "2022-10-05"
+name: "react-ads"
+url: "https://github.com/codegouvaor/react-ads"
+releaseDate: "2026-09-03"
 platforms:
   - web
 developmentStatus: beta
 softwareType: library
-logo: |-
-  https://user-images.githubusercontent.com/6702424/192099597-567442d1-e6e1-4c17-ae3d-cac1e3bac5a0.png
 categories:
   - website-builder
+  - it-development
 legal:
   license: MIT
 maintenance:
   type: community
   contacts:
-    - name: Joseph Garrone
-      email: Joseph.garrone@protonmail.com
-    - name: Julien Bouquillon
-      affiliation: DNUM des ministères sociaux
-    - name: Dylan DECRULLE
-      affiliation: Insee
-    - name: Enguerran Weiss
-      affiliation: Plat
-intendedAudience:
-  scope:
-    - science-and-technology
-  countries:
-    - FR
+    - name: codegouvaor organization (Astoria Design System)
+      email: codegouvaor@users.noreply.github.com
+      affiliation: Republic of Astoria
 localisation:
   localisationReady: true
   availableLanguages:
-    - fr
     - en
+    - fr
 description:
   en:
-    documentation: "https://react-dsfr.codegouv.studio/"
-    shortDescription: French State Design System React integration
+    shortDescription: Official React implementation of the Astoria Design System
     features:
-      - Always up to date with the latest DSFR evolutions
-      - Integration with Next.js, Create React App and Vite
-      - All DSFR components implemented
+      - Accessible, typed and tree-shakable React components
+      - SSR helpers for Next.js (Pages Router and App Router)
+      - Design tokens exposed as CSS custom properties
+      - Interactive component documentation (Storybook)
     longDescription: |
-      This module is a wrapper/compatibility layer for [@gouvfr/dsfr](https://github.com/GouvernementFR/dsfr), the vanilla JS/CSS
-      implementation of the DSFR.  
+      ADS React is the official React implementation of the Astoria Design System (ADS),
+      the design system for the digital ecosystem of the Republic of Astoria.
 
-       > For TypeScript and JavaScript projects.
+      It provides accessible, fully typed and tree-shakable React components (Button,
+      Alert, Card, Header, Footer, Modal, Tabs, Tables, forms…), integration helpers for
+      Next.js (Pages Router and App Router), SPA setups (Vite, CRA) and optional MUI and
+      chart layers.
 
-      - Fully TypeSafe, well documented API.
-
-      - Always in up to date with latest the DSFR evolutions. Code and Types generated from [@gouvfr/dsfr](https://www.npmjs.com/package/@gouvfr/dsfr).
-
-      - Exactly the same look and feel than with [@gouvfr/dsfr](https://www.npmjs.com/package/@gouvfr/dsfr).
-
-      - No [white flash when reloading in SSR setup](https://github.com/codegouvfr/@codegouvfr/react-dsfr/issues/2#issuecomment-1257263480).
-
-      - Most components are server component ready. The others are labeled with `"use client";`
-
-      - Perfect integration with all major React framework: Next.js (PagesDir and AppDir), Create React App, Vue.
-
-      - All [the components](https://www.systeme-de-design.gouv.fr/elements-d-interface) are implemented.
-
-      - Three shakable distribution, cherry pick the components you import.
-
-      - Optional integration with [MUI](https://mui.com/). If you use MUI components they will be automatically adapted to look like [DSFR components](https://www.systeme-de-design.gouv.fr/elements-d-interface). See [documentation](https://react-dsfr.codegouv.studio/mui-integration).
-
-      - Enable CSS in JS by providing a `useTheme()` hooks that exposes the correct colors options and decision for the currently enabled color scheme.
-
-      - Opt-in i18n, built in text can be displayed in multiple languages and user can provide extra translations.
-
-      - [Support routing libraries](https://react-dsfr.codegouv.studio/routing) like react-router.
-
-    videos:
-      - "https://www.youtube.com/watch?v=5q88JgXUAY4"
+      The project started as a fork of the French react-dsfr library and is being
+      progressively transformed into an independent design system: audit and roadmap are
+      documented in the repository (AUDIT.md, MIGRATION.md, PROVENANCE.md).

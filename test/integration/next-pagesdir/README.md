@@ -1,8 +1,8 @@
 Run the App:  
 
 ```bash
-git clone https://github.com/codegouvfr/react-dsfr
-cd react-dsfr
+git clone https://github.com/codegouvaor/react-ads
+cd react-ads
 yarn
 yarn start-next-pagesdir
 ```

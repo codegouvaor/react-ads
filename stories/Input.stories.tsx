@@ -11,7 +11,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Input },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/champ-de-saisie)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Input.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Input.tsx)`,
     "argTypes": {
         "disabled": {
             "control": { "type": "boolean" }
@@ -21,7 +21,9 @@ const { meta, getStory } = getStoryFactory({
                 const options = ["fr-icon-checkbox-circle-line", "ri-ancient-gate-fill"] as const;
 
                 assert<
-                    typeof options[number] extends NonNullable<InputProps["iconId"]> ? true : false
+                    (typeof options)[number] extends NonNullable<InputProps["iconId"]>
+                        ? true
+                        : false
                 >();
 
                 return options;
@@ -32,7 +34,7 @@ const { meta, getStory } = getStoryFactory({
             "options": (() => {
                 const options = ["default", "success", "info", "error"] as const;
 
-                assert<Equals<typeof options[number] | undefined, InputProps["state"]>>();
+                assert<Equals<(typeof options)[number] | undefined, InputProps["state"]>>();
 
                 return options;
             })(),

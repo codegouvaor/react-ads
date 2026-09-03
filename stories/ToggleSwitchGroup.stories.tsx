@@ -10,7 +10,7 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur)
 - [See DSFR demo](https://main--ds-gouv.netlify.app/example/component/toggle/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/ToggleSwitchGroup.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ToggleSwitchGroup.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {
         "labelPosition": {
@@ -21,7 +21,7 @@ const { meta, getStory } = getStoryFactory({
 
                     assert<
                         Equals<
-                            typeof options[number] | undefined,
+                            (typeof options)[number] | undefined,
                             ToggleSwitchGroupProps["labelPosition"]
                         >
                     >();

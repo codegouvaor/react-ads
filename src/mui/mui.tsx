@@ -95,7 +95,7 @@ export function getMuiDsfrThemeOptions(params: {
             }
         } as const,
         "typography": (() => {
-            const getBySelector = (selector: typeof typography[number]["selector"]) => {
+            const getBySelector = (selector: (typeof typography)[number]["selector"]) => {
                 const variant = typography.find(variant => variant.selector === selector);
                 assert(variant !== undefined);
 
@@ -196,7 +196,7 @@ export function getMuiDsfrThemeOptions(params: {
                         "margin": "unset"
                     },
                     "selectLabel": {
-                        //Fixes: https://github.com/codegouvfr/react-dsfr/assets/6702424/678a7f69-d4e8-4897-85f0-65c605b46900
+                        //Fixes: https://github.com/codegouvaor/react-ads/assets/6702424/678a7f69-d4e8-4897-85f0-65c605b46900
                         "margin": "unset"
                     }
                 }

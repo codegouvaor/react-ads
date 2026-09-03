@@ -49,7 +49,7 @@ export namespace SideMenuProps {
     }
 }
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-sidemenu> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-sidemenu> */
 export const SideMenu = memo(
     forwardRef<HTMLDivElement, SideMenuProps>((props, ref) => {
         const {

@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { ButtonsGroup },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/ButtonsGroup.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ButtonsGroup.tsx)`,
     "argTypes": {
         "inlineLayoutWhen": {
             "options": (() => {
@@ -21,7 +21,7 @@ const { meta, getStory } = getStoryFactory({
 
                 assert<
                     Equals<
-                        typeof options[number] | undefined,
+                        (typeof options)[number] | undefined,
                         ButtonsGroupProps["inlineLayoutWhen"]
                     >
                 >();
@@ -46,7 +46,7 @@ const { meta, getStory } = getStoryFactory({
                 const options = ["left", "center", "right", "between"] as const;
 
                 assert<
-                    Equals<typeof options[number] | undefined, ButtonsGroupProps["alignment"]>
+                    Equals<(typeof options)[number] | undefined, ButtonsGroupProps["alignment"]>
                 >();
 
                 return options;
@@ -59,7 +59,7 @@ const { meta, getStory } = getStoryFactory({
                 const options = ["small", "medium", "large"] as const;
 
                 assert<
-                    Equals<typeof options[number] | undefined, ButtonsGroupProps["buttonsSize"]>
+                    Equals<(typeof options)[number] | undefined, ButtonsGroupProps["buttonsSize"]>
                 >();
 
                 return options;
@@ -75,7 +75,7 @@ const { meta, getStory } = getStoryFactory({
 
                 assert<
                     Equals<
-                        typeof options[number] | undefined,
+                        (typeof options)[number] | undefined,
                         ButtonsGroupProps["buttonsIconPosition"]
                     >
                 >();

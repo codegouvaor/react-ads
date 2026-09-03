@@ -10,7 +10,7 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur)
 - [See DSFR demo](https://main--ds-gouv.netlify.app/example/component/toggle/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/ToggleSwitch.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ToggleSwitch.tsx)
 
 ## Uncontrolled
 
@@ -58,7 +58,7 @@ function ControlledToggleSwitch() {
 
                     assert<
                         Equals<
-                            typeof options[number] | undefined,
+                            (typeof options)[number] | undefined,
                             ToggleSwitchProps["labelPosition"]
                         >
                     >();

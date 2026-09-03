@@ -13,17 +13,17 @@ const { meta, getStory } = getStoryFactory({
 A button that opens a dialog to enable the user to select light or dark mode.  
 
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametre-d-affichage),
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Display/Display.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Display/Display.tsx)
 
-Optionally, you can also use \`import { useIsDark } from "@codegouvfr/react-dsfr"\` to manually monitor and controls 
+Optionally, you can also use \`import { useIsDark } from "@codegouvaor/react-ads"\` to manually monitor and controls 
 the theme state.
 
 ## Usage example 
 
 \`\`\`tsx
-import { Header } from "@codegouvfr/react-dsfr/Header";
-import { Footer } from "@codegouvfr/react-dsfr/Footer";
-import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
+import { Header } from "@codegouvaor/react-ads/Header";
+import { Footer } from "@codegouvaor/react-ads/Footer";
+import { headerFooterDisplayItem } from "@codegouvaor/react-ads/Display";
 
 function App(){
 

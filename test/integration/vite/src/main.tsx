@@ -3,20 +3,20 @@ import ReactDOM from "react-dom/client";
 import { Home } from "./Home";
 import { Mui } from "./Mui";
 import { Picto } from "./Picto";
-import { startReactDsfr } from "@codegouvfr/react-dsfr/spa";
-import { Header } from "@codegouvfr/react-dsfr/Header";
-import { Footer } from "@codegouvfr/react-dsfr/Footer";
+import { startReactDsfr } from "@codegouvaor/react-ads/spa";
+import { Header } from "@codegouvaor/react-ads/Header";
+import { Footer } from "@codegouvaor/react-ads/Footer";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
-import { fr } from "@codegouvfr/react-dsfr";
+import { headerFooterDisplayItem } from "@codegouvaor/react-ads/Display";
+import { fr } from "@codegouvaor/react-ads";
 import { ConsentBannerAndConsentManagement, FooterConsentManagementItem, FooterPersonalDataPolicyItem } from "./consentManagement";
-import { createDsfrCustomBrandingProvider } from "@codegouvfr/react-dsfr/mui";
+import { createDsfrCustomBrandingProvider } from "@codegouvaor/react-ads/mui";
 import { createTheme } from "@mui/material/styles";
 
 startReactDsfr({ "defaultColorScheme": "system", Link });
 
-declare module "@codegouvfr/react-dsfr/spa" {
+declare module "@codegouvaor/react-ads/spa" {
     interface RegisterLink {
         Link: typeof Link;
     }

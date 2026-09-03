@@ -90,11 +90,10 @@ export function ColorHelper() {
                         "children": "Start searching"
                     }}
                 >
-                    This tool help you find the perfect DSFR color decision for your usecase.
+                    This tool helps you find the perfect color decision for your use case.
                     <br />
                     <br />
-                    Use se search filters to the DSFR compliant color decision that best fit your
-                    needs.
+                    Use the search filters to find the color decision that best fits your needs.
                 </CallOut>
                 <Search
                     evtAction={evtSearchAction}

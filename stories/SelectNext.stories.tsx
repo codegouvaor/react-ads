@@ -11,11 +11,11 @@ const { meta, getStory } = getStoryFactory<SelectProps<SelectProps.Option[]>>({
     "description": `
 \`\`\`tsx
 
-import { Select } from "@codegouvfr/react-dsfr/SelectNext";
+import { Select } from "@codegouvaor/react-ads/SelectNext";
 
 \`\`\`
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/SelectNext.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SelectNext.tsx)
 
 
 ## Controlled
@@ -34,7 +34,7 @@ type Value = typeof values[number]; // "foo" | "bar" | "baz";
 
 \`\`\`tsx
 import { useState } from "react";
-import { Select } from "@codegouvfr/react-dsfr/Select";
+import { Select } from "@codegouvaor/react-ads/Select";
 
 function MyComponent(){
 
@@ -72,7 +72,7 @@ function MyComponent(){
 
 \`\`\`tsx
 import { useState } from "react";
-import { Select } from "@codegouvfr/react-dsfr/Select";
+import { Select } from "@codegouvaor/react-ads/Select";
 
 function MyComponent(){
 
@@ -99,7 +99,7 @@ function MyComponent(){
 
 \`\`\`tsx
 import { useState } from "react";
-import { Select } from "@codegouvfr/react-dsfr/Select";
+import { Select } from "@codegouvaor/react-ads/Select";
 
 function MyComponent(){
 
@@ -181,9 +181,9 @@ function MyComponent(){
 
                 assert<
                     Equals<
-                        typeof options[number],
+                        (typeof options)[number],
                         NonNullable<
-                            SelectProps<SelectProps.Option<typeof options[number]>[]>["state"]
+                            SelectProps<SelectProps.Option<(typeof options)[number]>[]>["state"]
                         >
                     >
                 >();

@@ -1,15 +1,15 @@
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
-import { createNextDsfrIntegrationApi } from "@codegouvfr/react-dsfr/next-pagesdir";
-import { headerFooterDisplayItem } from "@codegouvfr/react-dsfr/Display";
-import { Header } from "@codegouvfr/react-dsfr/Header";
-import { Footer } from "@codegouvfr/react-dsfr/Footer";
+import { createNextDsfrIntegrationApi } from "@codegouvaor/react-ads/next-pagesdir";
+import { headerFooterDisplayItem } from "@codegouvaor/react-ads/Display";
+import { Header } from "@codegouvaor/react-ads/Header";
+import { Footer } from "@codegouvaor/react-ads/Footer";
 import { createEmotionSsrAdvancedApproach } from "tss-react/next/pagesDir";
 import { useStyles } from "tss-react/dsfr";
-import { fr } from "@codegouvfr/react-dsfr";
+import { fr } from "@codegouvaor/react-ads";
 import Link from "next/link";
 
-declare module "@codegouvfr/react-dsfr/next-pagesdir" {
+declare module "@codegouvaor/react-ads/next-pagesdir" {
     interface RegisterLink {
         Link: typeof Link;
     }

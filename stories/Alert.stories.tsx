@@ -9,12 +9,12 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Alert },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Alert.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Alert.tsx)
 
 ## Uncontrolled mode  
 
 \`\`\`tsx
-import { Alert } from "@codegouvfr/react-dsfr/Alert";
+import { Alert } from "@codegouvaor/react-ads/Alert";
 
 <Alert
     severity="success"
@@ -28,7 +28,7 @@ import { Alert } from "@codegouvfr/react-dsfr/Alert";
 ## Controlled mode
 
 \`\`\`tsx
-import { Alert } from "@codegouvfr/react-dsfr/Alert";
+import { Alert } from "@codegouvaor/react-ads/Alert";
 import { useState } from "react";
 
 const [ isClosed, setIsClosed ] = useState(false);
@@ -53,7 +53,7 @@ const [ isClosed, setIsClosed ] = useState(false);
             "options": (() => {
                 const severities = ["success", "warning", "info", "error"] as const;
 
-                assert<Equals<typeof severities[number], AlertProps["severity"]>>();
+                assert<Equals<(typeof severities)[number], AlertProps["severity"]>>();
 
                 return severities;
             })(),

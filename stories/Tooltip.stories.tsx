@@ -11,7 +11,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Tooltip },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/infobulle)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Tooltip.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Tooltip.tsx)`,
     "argTypes": {
         "id": {
             "control": { "type": "text" },
@@ -27,7 +27,7 @@ const { meta, getStory } = getStoryFactory({
             "options": (() => {
                 const options = ["hover", "click"] as const;
 
-                assert<Equals<typeof options[number] | undefined, TooltipProps["kind"]>>();
+                assert<Equals<(typeof options)[number] | undefined, TooltipProps["kind"]>>();
 
                 return options;
             })(),

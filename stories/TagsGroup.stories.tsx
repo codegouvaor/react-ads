@@ -8,7 +8,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { TagsGroup },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/tag)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/TagsGroup.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/TagsGroup.tsx)`,
     "argTypes": {
         "smallTags": {
             "description": ` 

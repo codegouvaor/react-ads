@@ -151,7 +151,7 @@ export namespace FooterProps {
     }
 }
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-footer> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-footer> */
 export const Footer = memo(
     forwardRef<HTMLDivElement, FooterProps>((props, ref) => {
         const {

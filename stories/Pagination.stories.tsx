@@ -8,7 +8,7 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pagination)
 - [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/pagination/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Pagination.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Pagination.tsx)`,
     "disabledProps": ["lang"]
 });
 

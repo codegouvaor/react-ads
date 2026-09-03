@@ -19,7 +19,7 @@ export type BadgeProps = {
     children: NonNullable<ReactNode>;
 };
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-badge> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-badge> */
 export const Badge = memo(
     forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
         const {

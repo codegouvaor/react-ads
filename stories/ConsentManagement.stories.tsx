@@ -15,20 +15,20 @@ const { meta, getStory } = getStoryFactory({
     },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/gestionnaire-de-consentement),
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/consentManagement)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/consentManagement)
 
 \`src/consentManagement.tsx\` (This is a file you should create in your project)  
 
-Refer to [this section of the Guides](https://react-dsfr.codegouv.studio/analytics) to see how to setup the the 
+Refer to [this section of the Guides](https://codegouvaor.github.io/react-ads/analytics) to see how to setup the the 
 mandated solution for analytics in your project.  
   
-You can find a complete example setup in [the Demo repo for Next.js App Router](https://github.com/garronej/react-dsfr-next-appdir-demo/blob/main/ui/consentManagement.tsx) 
+You can find a complete example setup in [the Demo repo for Next.js App Router](https://github.com/garronej/react-ads-next-appdir-demo/blob/main/ui/consentManagement.tsx) 
 which is live [here](https://stackblitz.com/edit/nextjs-j2wba3?file=pages/index.tsx). You should be able to easily adapt it to other meta frameworks (Vite, Next Pages Router, CRA).
   
 \`\`\`tsx
 "use client";
 
-import { createConsentManagement } from "@codegouvfr/react-dsfr/consentManagement";
+import { createConsentManagement } from "@codegouvaor/react-ads/consentManagement";
 
 export const { 
     ConsentBannerAndConsentManagement, 
@@ -163,7 +163,7 @@ Placeholders are also provided to help you display content conditionally based o
 
 \`\`\`tsx
 import { useConsent } from "./consentManagement";
-import { Placeholder } from "@codegouvfr/react-dsfr/consentManagement/Placeholder";
+import { Placeholder } from "@codegouvaor/react-ads/consentManagement/Placeholder";
 
 export function MyComponent(){
 
@@ -188,7 +188,7 @@ You can also register a \`consentCallback\` in a component.
 
 \`\`\`tsx
 import { useConsent } from "./consentManagement";
-import { Placeholder } from "@codegouvfr/react-dsfr/consentManagement/Placeholder";
+import { Placeholder } from "@codegouvaor/react-ads/consentManagement/Placeholder";
 
 export function MyComponent(){
 

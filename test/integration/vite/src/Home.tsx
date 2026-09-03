@@ -1,19 +1,19 @@
-import { Alert } from "@codegouvfr/react-dsfr/Alert";
-import { Button } from "@codegouvfr/react-dsfr/Button";
-import { ButtonsGroup } from "@codegouvfr/react-dsfr/ButtonsGroup";
-import { Highlight } from "@codegouvfr/react-dsfr/Highlight";
+import { Alert } from "@codegouvaor/react-ads/Alert";
+import { Button } from "@codegouvaor/react-ads/Button";
+import { ButtonsGroup } from "@codegouvaor/react-ads/ButtonsGroup";
+import { Highlight } from "@codegouvaor/react-ads/Highlight";
 
-import { Input } from "@codegouvfr/react-dsfr/Input";
-import { Select } from "@codegouvfr/react-dsfr/SelectNext";
+import { Input } from "@codegouvaor/react-ads/Input";
+import { Select } from "@codegouvaor/react-ads/SelectNext";
 
-import { fr } from "@codegouvfr/react-dsfr";
-import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
+import { fr } from "@codegouvaor/react-ads";
+import { useIsDark } from "@codegouvaor/react-ads/useIsDark";
 import { useState } from "react";
-import { Table } from "@codegouvfr/react-dsfr/Table";
-import { Tile } from "@codegouvfr/react-dsfr/Tile";
+import { Table } from "@codegouvaor/react-ads/Table";
+import { Tile } from "@codegouvaor/react-ads/Tile";
 
-import { Accordion } from "@codegouvfr/react-dsfr/Accordion";
-import { Book, Money, Police, Sun, LocationFrance } from '@codegouvfr/react-dsfr/picto';
+import { Accordion } from "@codegouvaor/react-ads/Accordion";
+import { Book, Money, Police, Sun, LocationFrance } from '@codegouvaor/react-ads/picto';
 import CityHall from './assets/city-hall.svg';
 
 export function Home() {

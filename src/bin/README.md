@@ -1,10 +1,10 @@
-Here are the scripts exposed as utility to the user of `react-dsfr`
+Here are the scripts exposed as utility to the user of `react-ads`
 
-| Command                             | Standalone bin            | What it does                                                              |
-| ----------------------------------- | ------------------------- | ------------------------------------------------------------------------- |
-| `npx react-dsfr copy-static-assets` | `copy-dsfr-to-public`     | Copies the DSFR assets into `public/dsfr` (SPA setups: Vite, CRA).        |
-| `npx react-dsfr optimize-css`       | —                         | Rebuilds the DSFR stylesheets with only the icons and components you use. |
-| `npx react-dsfr update-icons`       | `only-include-used-icons` | Deprecated. Rebuilds the icon stylesheet with only the icons you use.     |
+| Command                            | Standalone bin            | What it does                                                              |
+| ---------------------------------- | ------------------------- | ------------------------------------------------------------------------- |
+| `npx react-ads copy-static-assets` | `copy-dsfr-to-public`     | Copies the DSFR assets into `public/dsfr` (SPA setups: Vite, CRA).        |
+| `npx react-ads optimize-css`       | —                         | Rebuilds the DSFR stylesheets with only the icons and components you use. |
+| `npx react-ads update-icons`       | `only-include-used-icons` | Deprecated. Rebuilds the icon stylesheet with only the icons you use.     |
 
 Every script accepts `--projectDir <path>` to point at the react project (monorepos),
 defaulting to the current working directory. `optimize-css` and the deprecated
@@ -27,15 +27,15 @@ JavaScript toggles at runtime (`data-fr-js-*`, `fr-collapse--expanded`, ...) kee
 ## Usage
 
 ```bash
-npx react-dsfr optimize-css
+npx react-ads optimize-css
 ```
 
 Typically as a `prebuild`/`predev` step:
 
 ```jsonc
 "scripts": {
-    "predev": "react-dsfr optimize-css",
-    "prebuild": "react-dsfr optimize-css"
+    "predev": "react-ads optimize-css",
+    "prebuild": "react-ads optimize-css"
 }
 ```
 
@@ -45,7 +45,7 @@ In SPA setups (Vite, CRA), run `copy-static-assets` **before**
 `optimize-css`, not after:
 
 ```jsonc
-"prebuild": "react-dsfr copy-static-assets && react-dsfr optimize-css"
+"prebuild": "react-ads copy-static-assets && react-ads optimize-css"
 ```
 
 `copy-static-assets` builds its keep list from the `url()` of the `dsfr.min.css` it finds
@@ -57,7 +57,7 @@ icons — but keeping the order above avoids relying on it.
 
 ## Detection of used components
 
-1.  **Imports** of `@codegouvfr/react-dsfr/<Module>` in your sources
+1.  **Imports** of `@codegouvaor/react-ads/<Module>` in your sources
     (`.ts`, `.tsx`, `.js`, `.jsx`, `.mdx`, `.html`, `.svelte`, `.vue`), resolved through a
     static table that includes transitive dependencies (a `Header` renders a navigation, a
     search bar and a modal).
@@ -75,18 +75,18 @@ components only referenced from a `@import`ed stylesheet), in your **`package.js
 
 ```jsonc
 {
-    "react-dsfr": {
+    "react-ads": {
         "additionalComponents": ["table", "Range"]
     }
 }
 ```
 
 Values are DSFR CSS component names (the `dsfr/component/<name>` directories) or
-react-dsfr component names. An unknown value is a hard warning, not a silent no-op.
+react-ads component names. An unknown value is a hard warning, not a silent no-op.
 
 ## Fail-safe and `--strict`
 
-If anything can't be resolved — typically a react-dsfr module added in a newer release that
+If anything can't be resolved — typically a react-ads module added in a newer release that
 this script does not know about — the script **warns and includes every component**. The
 output is then equivalent to the original bundle: never a broken page, but no trimming
 either, and the run still exits `0`.
@@ -95,10 +95,10 @@ Because nobody reads warnings in CI, add `--strict` there to turn that fallback 
 failure:
 
 ```bash
-npx react-dsfr optimize-css --strict
+npx react-ads optimize-css --strict
 ```
 
-Please [report](https://github.com/codegouvfr/react-dsfr/issues) any module that triggers
+Please [report](https://github.com/codegouvaor/react-ads/issues) any module that triggers
 the fail-safe, the static tables need to be updated.
 
 ## Known limitations
@@ -110,6 +110,6 @@ the fail-safe, the static tables need to be updated.
 
 ## Deprecated `update-icons` command
 
-`npx react-dsfr update-icons` remains available for compatibility, but emits a deprecation
-warning. Use `npx react-dsfr optimize-css`, which performs the icon optimization followed
+`npx react-ads update-icons` remains available for compatibility, but emits a deprecation
+warning. Use `npx react-ads optimize-css`, which performs the icon optimization followed
 by the component CSS optimization.

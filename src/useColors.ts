@@ -15,7 +15,7 @@ export type ColorTheme = {
  *
  *  Before you would do:
  * ```ts
- * import { useColors } from "@codegouvfr/react-dsfr/useColors";
+ * import { useColors } from "@codegouvaor/react-ads/useColors";
  * // ...
  * const theme = useColors();
  * // ...
@@ -23,7 +23,7 @@ export type ColorTheme = {
  * ```
  * Now you should do:
  * ```ts
- * import { fr } from "@codegouvfr/react-dsfr";
+ * import { fr } from "@codegouvaor/react-ads";
  * // ...
  * fr.colors.decisions.background.default.grey.default
  * ```
@@ -33,8 +33,8 @@ export type ColorTheme = {
  * If however you need the colors in the HEX format you can do:
  *
  * ```ts
- * import { fr } from "@codegouvfr/react-dsfr";
- * import { useIsDark } from "@codegouvfr/react-dsfr/useIsDark";
+ * import { fr } from "@codegouvaor/react-ads";
+ * import { useIsDark } from "@codegouvaor/react-ads/useIsDark";
  * // ...
  * const { isDark } = useIsDark();
  * const theme = fr.colors.getHex({ isDark });

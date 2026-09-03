@@ -20,7 +20,7 @@ export namespace HighlightProps {
     export type Size = "sm" | "lg";
 }
 
-/** @see <https://components.react-dsfr.codegouv.studio/?path=/docs/components-highlight> */
+/** @see <https://codegouvaor.github.io/react-ads/?path=/docs/components-highlight> */
 export const Highlight = memo(
     forwardRef<HTMLDivElement, HighlightProps>((props, ref) => {
         const {

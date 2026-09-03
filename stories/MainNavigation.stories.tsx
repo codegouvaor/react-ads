@@ -9,9 +9,9 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { "MainNavigation": Header },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale)
-- [See source code](https://github.com/codegouvfr/react-dsfr/tree/main/src/MainNavigation)
+- [See source code](https://github.com/codegouvaor/react-ads/tree/main/src/MainNavigation)
 
-This component isn't meant to be used directly but via the [\\<Header \\/\\>](https://components.react-dsfr.codegouv.studio/?path=/docs/components-header)`,
+This component isn't meant to be used directly but via the [\\<Header \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-header)`,
     "argTypes": {
         "brandTop": {
             "control": { "type": null }

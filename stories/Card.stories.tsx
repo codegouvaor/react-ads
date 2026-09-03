@@ -17,14 +17,14 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte)
 - [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/card/)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Card.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Card.tsx)`,
     "argTypes": {
         "title": { "description": `Required.` },
         "titleAs": {
             "description": `Heading level`,
             "options": (() => {
                 const headings = ["h2", "h3", "h4", "h5", "h6"] as const;
-                assert<Equals<typeof headings[number] | undefined, CardProps["titleAs"]>>();
+                assert<Equals<(typeof headings)[number] | undefined, CardProps["titleAs"]>>();
                 return headings;
             })(),
             "control": { "type": "radio" }
@@ -43,7 +43,7 @@ const { meta, getStory } = getStoryFactory({
                 const options = ["fr-icon-checkbox-circle-line", "ri-ancient-gate-fill"] as const;
 
                 assert<
-                    typeof options[number] extends NonNullable<CardProps["iconId"]> ? true : false
+                    (typeof options)[number] extends NonNullable<CardProps["iconId"]> ? true : false
                 >();
 
                 return options;
@@ -54,7 +54,7 @@ const { meta, getStory } = getStoryFactory({
             "description": "Card title text sizing",
             "options": (() => {
                 const sizes = ["small", "medium", "large"] as const;
-                assert<Equals<typeof sizes[number] | undefined, CardProps["size"]>>();
+                assert<Equals<(typeof sizes)[number] | undefined, CardProps["size"]>>();
                 return sizes;
             })(),
             "defaultValue": "medium",

@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory<NoticeProps>({
     "wrappedComponent": { Notice },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Notice.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Notice.tsx)`,
     "argTypes": {
         "title": {
             "description":
@@ -37,7 +37,7 @@ const { meta, getStory } = getStoryFactory<NoticeProps>({
                     "cyberattack"
                 ] as const;
 
-                assert<Equals<typeof severities[number] | undefined, NoticeProps["severity"]>>();
+                assert<Equals<(typeof severities)[number] | undefined, NoticeProps["severity"]>>();
 
                 return severities;
             })(),

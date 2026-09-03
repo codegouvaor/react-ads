@@ -1,6 +1,6 @@
 "use client";
 
-import { HeaderQuickAccessItem } from "@codegouvfr/react-dsfr/Header";
+import { HeaderQuickAccessItem } from "@codegouvaor/react-ads/Header";
 
 export function ClientHeaderQuickAccessItem() {
 

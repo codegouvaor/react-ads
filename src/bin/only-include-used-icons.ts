@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * This script is ran with `npx react-dsfr include-used-icons`
+ * This script is ran with `npx react-ads include-used-icons`
  * It scans your codebase to find which icons are used and only include those in the final build.
- * Do do that it patches the node_modules/@codegouvfr/react-dsfr/dist/utility/icons/icons.css file
+ * Do do that it patches the node_modules/@codegouvaor/react-ads/dist/utility/icons/icons.css file
  * and the public/dsfr/utility/icons/icons.css file (if applicable, not in Next.js for example).
  * The script can figure out where your node_modules and public directories are.
  *
@@ -349,7 +349,7 @@ async function getCommandContext(args: string[]): Promise<CommandContext> {
                         for (const packageName of [
                             CODEGOUV_REACT_DSFR,
                             "@gouvfr/dsfr",
-                            "@dataesr/react-dsfr"
+                            "@dataesr/react-ads"
                         ]) {
                             if (
                                 Object.keys({
@@ -428,7 +428,7 @@ export async function main(args: string[]) {
     const { usedIconClassNames } = await (async function getUsedIconClassNames() {
         const prefixes = { "prefixDsfr": "fr-icon-", "prefixRemixIcon": "ri-" } as const;
 
-        assert<Equals<typeof prefixes[keyof typeof prefixes], Icon["prefix"]>>();
+        assert<Equals<(typeof prefixes)[keyof typeof prefixes], Icon["prefix"]>>();
 
         const { prefixDsfr, prefixRemixIcon, ...rest } = prefixes;
 

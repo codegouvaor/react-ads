@@ -10,13 +10,13 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { RadioButtons },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton-radio)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/RadioButtons.tsx)  
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/RadioButtons.tsx)  
   
 ## Controlled
 
 \`\`\`tsx
 import { useState } from "react";
-import { RadioButtons } from "@codegouvfr/react-dsfr/RadioButtons";
+import { RadioButtons } from "@codegouvaor/react-ads/RadioButtons";
 
 function MyComponent(){
 
@@ -58,7 +58,7 @@ function MyComponent(){
 
 \`\`\`tsx
 import { useState } from "react";
-import { RadioButtons } from "@codegouvfr/react-dsfr/RadioButtons";
+import { RadioButtons } from "@codegouvaor/react-ads/RadioButtons";
 
 function MyComponent(){
 
@@ -114,7 +114,7 @@ function MyComponent(){
                 const options = ["horizontal", "vertical"] as const;
 
                 assert<
-                    Equals<typeof options[number] | undefined, RadioButtonsProps["orientation"]>
+                    Equals<(typeof options)[number] | undefined, RadioButtonsProps["orientation"]>
                 >();
 
                 return options;
@@ -126,7 +126,7 @@ function MyComponent(){
             "options": (() => {
                 const options = ["success", "error", "default"] as const;
 
-                assert<Equals<typeof options[number] | undefined, RadioButtonsProps["state"]>>();
+                assert<Equals<(typeof options)[number] | undefined, RadioButtonsProps["state"]>>();
 
                 return options;
             })(),

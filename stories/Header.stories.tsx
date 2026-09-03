@@ -13,16 +13,16 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Header },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Header/Header.tsx)  
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/Header.tsx)  
   
-See also [\\<MainNavigation \\/\\>](https://components.react-dsfr.codegouv.studio/?path=/docs/components-mainnavigation)  
+See also [\\<MainNavigation \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-mainnavigation)  
   
 *NOTE*: On small screens (mobile), you can click on the burger menu to open the menu modal.
 You can watch if the menu modal is open or not with the \`useIsHeaderMenuModalOpen\` hook.  
 
 \`\`\`tsx  
 
-import { useIsHeaderMenuModalOpen } from "@codegouvfr/react-dsfr/Header/useIsHeaderMenuModalOpen";
+import { useIsHeaderMenuModalOpen } from "@codegouvaor/react-ads/Header/useIsHeaderMenuModalOpen";
 
 const isOpen = useIsHeaderMenuModalOpen();
 
@@ -45,7 +45,7 @@ const isOpen = useIsHeaderMenuModalOpen();
         },
         "quickAccessItems": {
             "description":
-                "To integrate the Dark mode switch head over to the documentation of the [Display component](https://components.react-dsfr.codegouv.studio/?path=/docs/components-display)"
+                "To integrate the Dark mode switch head over to the documentation of the [Display component](https://codegouvaor.github.io/react-ads/?path=/docs/components-display)"
         },
         "onSearchButtonClick": {
             "description":
@@ -207,7 +207,7 @@ export const HeaderWithQuickAccessItems = getStory(
 
 \`\`\`tsx  
 
-import { Header as DsfrHeader } from "@codegouvfr/react-dsfr/Header";
+import { Header as DsfrHeader } from "@codegouvaor/react-ads/Header";
 import { LanguageSelect } from "./LanguageSelect";
 import { AuthButtons } from "./AuthButtons";
 
@@ -252,7 +252,7 @@ You can see this component live [here](https://vite-insee-starter.demo-domain.ov
 
 \`\`\`tsx  
 
-import { HeaderQuickAccessItem } from "@codegouvfr/react-dsfr/Header";
+import { HeaderQuickAccessItem } from "@codegouvaor/react-ads/Header";
 import { declareComponentKeys, useTranslation } from "i18n"; // i18nifty
 import { useOidc } from "oidc"; // oidc-spa
 
@@ -523,12 +523,12 @@ make sure you provide an overlay with the search results in the the \`renderSear
 As, to this day, the DSFR do not provide any component to help you with that, you are on your own for implementing the overlay.  
 You can achieve great result by using [MUI's autocomplete](https://mui.com/material-ui/react-autocomplete/) component.  
 [Video demo](https://youtu.be/AT3CvmY_Y7M?t=64).  
-If you go with MUI make sure to use the [\`<MuiDsfrProvider />\`](https://react-dsfr.codegouv.studio/mui).  
+If you go with MUI make sure to use the [\`<MuiDsfrProvider />\`](https://codegouvaor.github.io/react-ads/mui).  
 
 \`\`\`tsx
 
 import Autocomplete from "@mui/material/Autocomplete";
-import { cx } from "@codegouvfr/react-dsfr/tools/cx";
+import { cx } from "@codegouvaor/react-ads/tools/cx";
 
 type MySearchInputProps = {
     className?: string;
@@ -842,7 +842,7 @@ export const NavigationAsCustomNode = getStory(
 
 \`\`\`tsx
         
-import { MainNavigation } from "@codegouvfr/react-dsfr/MainNavigation";  
+import { MainNavigation } from "@codegouvaor/react-ads/MainNavigation";  
         
 \`\`\`
 

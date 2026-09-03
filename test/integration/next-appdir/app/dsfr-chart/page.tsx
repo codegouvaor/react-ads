@@ -5,28 +5,28 @@ import { DefaultTrustedPolicy } from "../DefaultTrustedPolicy";
 
 // Chart cannot be render on server, you nee to use lazy loading
 // https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
-const BarChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/BarChart"), {
+const BarChart = dynamic(() => import("@codegouvaor/react-ads/Chart/BarChart"), {
     ssr: false
 });
-const BarLineChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/BarLineChart"), {
+const BarLineChart = dynamic(() => import("@codegouvaor/react-ads/Chart/BarLineChart"), {
     ssr: false
 });
-const GaugeChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/GaugeChart"), {
+const GaugeChart = dynamic(() => import("@codegouvaor/react-ads/Chart/GaugeChart"), {
     ssr: false
 });
-const LineChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/LineChart"), {
+const LineChart = dynamic(() => import("@codegouvaor/react-ads/Chart/LineChart"), {
     ssr: false
 });
-const MultiLineChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/MultiLineChart"), {
+const MultiLineChart = dynamic(() => import("@codegouvaor/react-ads/Chart/MultiLineChart"), {
     ssr: false
 });
-const PieChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/PieChart"), {
+const PieChart = dynamic(() => import("@codegouvaor/react-ads/Chart/PieChart"), {
     ssr: false
 });
-const RadarChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/RadarChart"), {
+const RadarChart = dynamic(() => import("@codegouvaor/react-ads/Chart/RadarChart"), {
     ssr: false
 });
-const ScatterChart = dynamic(() => import("@codegouvfr/react-dsfr/Chart/ScatterChart"), {
+const ScatterChart = dynamic(() => import("@codegouvaor/react-ads/Chart/ScatterChart"), {
     ssr: false
 });
 

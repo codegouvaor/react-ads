@@ -2,9 +2,9 @@
 import React, { useMemo } from "react";
 import { objectKeys } from "tsafe/objectKeys";
 import { getAssetUrl } from "../tools/getAssetUrl";
-import AppleTouchIcon from "@codegouvfr/react-dsfr/dsfr/favicon/apple-touch-icon.png";
-import FaviconSvg from "@codegouvfr/react-dsfr/dsfr/favicon/favicon.svg";
-import FaviconIco from "@codegouvfr/react-dsfr/dsfr/favicon/favicon.ico";
+import AppleTouchIcon from "@codegouvaor/react-ads/dsfr/favicon/apple-touch-icon.png";
+import FaviconSvg from "@codegouvaor/react-ads/dsfr/favicon/favicon.svg";
+import FaviconIco from "@codegouvaor/react-ads/dsfr/favicon/favicon.ico";
 import { getScriptToRunAsap } from "../useIsDark/scriptToRunAsap";
 import { fontUrlByFileBasename } from "./zz_internal/fontUrlByFileBasename";
 import { getDefaultColorSchemeServerSide } from "./zz_internal/defaultColorScheme";
@@ -13,7 +13,7 @@ import { assert } from "tsafe/assert";
 //NOTE: As of now there is no way to enforce ordering in Next Appdir
 //See: https://github.com/vercel/next.js/issues/16630
 // @import url(...) doesn't work. Using Sass and @use is our last resort.
-import "@codegouvfr/react-dsfr/assets/dsfr_plus_icons.scss";
+import "@codegouvaor/react-ads/assets/dsfr_plus_icons.scss";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars -- used in doc
 
 export type DsfrHeadProps = {
@@ -36,7 +36,7 @@ export type DsfrHeadProps = {
      *
      * @see https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types
      * @see {@link DEFAULT_TRUSTED_TYPES_POLICY_NAME}
-     * @default "react-dsfr"
+     * @default "react-ads"
      */
     trustedTypesPolicyName?: string;
 
@@ -60,7 +60,7 @@ export function DsfrHeadBase(
         preloadFonts = [],
         Link,
         nonce,
-        trustedTypesPolicyName = "react-dsfr",
+        trustedTypesPolicyName = "react-ads",
         doDisableFavicon = false
     } = props;
 

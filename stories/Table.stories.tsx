@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Table },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Table.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Table.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {
         "caption": {
@@ -60,7 +60,7 @@ const { meta, getStory } = getStoryFactory({
                     undefined
                 ] as const;
 
-                assert<Equals<typeof options[number], TableProps["colorVariant"]>>();
+                assert<Equals<(typeof options)[number], TableProps["colorVariant"]>>();
 
                 return options;
             })(),

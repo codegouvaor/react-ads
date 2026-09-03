@@ -10,16 +10,16 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Select },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/liste-deroulante)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Select.tsx)
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Select.tsx)
 
 > 🗣️ This implementation of the <Select /> component is headless. It matched very closely the behavior of a native select input.  
-> Try out [\`SelectNext\`](https://components.react-dsfr.codegouv.studio/?path=/docs/components-selectnext--default) if you want a smarter component with better type inference.  
+> Try out [\`SelectNext\`](https://codegouvaor.github.io/react-ads/?path=/docs/components-selectnext--default) if you want a smarter component with better type inference.  
 
 ## Controlled
 
 \`\`\`tsx
 import { useState } from "react";
-import { Select } from "@codegouvfr/react-dsfr/Select";
+import { Select } from "@codegouvaor/react-ads/Select";
 
 function MyComponent(){
 
@@ -48,7 +48,7 @@ function MyComponent(){
 
 \`\`\`tsx
 import { useState } from "react";
-import { Select } from "@codegouvfr/react-dsfr/Select";
+import { Select } from "@codegouvaor/react-ads/Select";
 
 function MyComponent(){
 
@@ -92,7 +92,7 @@ function MyComponent(){
             "options": (() => {
                 const options = ["success", "error", "default"] as const;
 
-                assert<Equals<typeof options[number], NonNullable<SelectProps["state"]>>>();
+                assert<Equals<(typeof options)[number], NonNullable<SelectProps["state"]>>>();
 
                 return options;
             })(),

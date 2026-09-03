@@ -100,7 +100,7 @@ export const parameters = {
 const { getHardCodedWeight } = (() => {
 
     const orderedPagesPrefix = [
-        "🇫🇷 Introduction",
+        "Introduction",
         //"components",
         "components/Header",
         "components/Footer",

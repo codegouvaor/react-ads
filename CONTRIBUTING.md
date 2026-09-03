@@ -1,81 +1,111 @@
-`Hello friends 👋,
+# Contributing to ADS React (`@codegouvaor/react-ads`)
 
-Would you help us implement [the components](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon)?  
-Thank you so much to anyone that would!
+Hello friends 👋 — thank you for considering contributing to the official React
+implementation of the **Astoria Design System**.
 
-To get you started you can check out [the `<Alert />` component](https://components.react-dsfr.codegouv.studio/?path=/docs/components-alert--default).
+Everything here is developed in the open, for the digital services of the Republic of
+Astoria. Before anything else:
 
--   Here is it's definition from the SIG: [systeme-de-design.gouv.fr/elements-d-interface/composants/alerte](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte) (Pro tip: the real source of truth for DSFR component is [here](https://main--ds-gouv.netlify.app/example/component/))
--   Here is its implementation [src/Alert.tsx](https://github.com/codegouvfr/react-dsfr/blob/main/src/Alert.tsx)
--   Here is the file that generates its documentation: [stories/Alert.stories.tsx](https://github.com/codegouvfr/react-dsfr/blob/main/stories/Alert.stories.tsx)
+-   Read [AUDIT.md](AUDIT.md) — the state of the codebase and what is still inherited from the
+    upstream French `react-dsfr` project. **Do not reintroduce French-government branding or
+    dependencies** unless it is part of a documented migration step.
+-   Read [GOVERNANCE.md](GOVERNANCE.md) and [CODE_OF_CONDUCT-ish expectations](GOVERNANCE.md#code-of-conduct).
+-   Check [the open issues](https://github.com/codegouvaor/react-ads/issues) and say what you
+    are working on before opening a PR.
 
-[Here are the few commands](https://github.com/codegouvfr/react-dsfr#development) you need to run to set up your dev environment.
+## Setting up the development environment
 
-_If you want to link your development version into your own project it's possible, just [ask me how](https://github.com/codegouvfr/react-dsfr/discussions)._
-
-A few things:
-
--   🙏🏻 Don't be afraid to push even if you aren't 100% happy with your code or [if it's still WIP](https://github.com/codegouvfr/react-dsfr/blob/1fdcf15cb085c67d37c31badf6ffa4725795ba0f/stories/Accordion.stories.tsx#L6).
--   📣 Let everyone know what component you are working on by [oppening an issue](https://github.com/codegouvfr/react-dsfr/issues).
--   📚 You can draw inspiration from [`dataesr/react-dsfr`](https://github.com/dataesr/react-dsfr/tree/master/src/components/interface) and the implementation of [france connect](https://github.com/france-connect/sources/tree/main/front/libs/dsfr).
--   🔗 Use the component returned by `getLink()` instead of `<a />`. [Example in the `<Header />` component](https://github.com/codegouvfr/react-dsfr/blob/bbaf4a81d78de08d6fdcb059a9f4cb8a78ce4d5a/src/Header.tsx#L84-L87). We want to [play nice with all routing libraries](https://react-dsfr.codegouv.studio/integration-with-routing-libraries).
--   🕹️ When it's relevant, try to enable components to be used either in controlled or uncontrolled mode. [Example with <Tabs />](https://components.react-dsfr.codegouv.studio/?path=/docs/components-tabs--default).
--   🌎 Avoid hard coding text in JSX, use [the i18n mechanism](https://react-dsfr.codegouv.studio/i18n) instead. [Here is an example](https://github.com/codegouvfr/react-dsfr/blob/bbaf4a81d78de08d6fdcb059a9f4cb8a78ce4d5a/src/DarkModeSwitch.tsx#L162-L199). (Don't worry about providing translations other than French.)
--   🍳 If you have to arbitrate between ease of use and customisability I'd encourage you to favor ease of use. People that would need a greater level of customizability can always fall back to making their own wrapper from the reference documentation using [`fr.cx()`](https://react-dsfr.codegouv.studio/cx).
-
-## PR Reviews
-
-[Here is a video](https://youtu.be/RI6jEPvgKJ4) to show you how I review PRs. Please have a look at it, it's full of valuable information
-that will save you and I time.
-
-## Getting TypeScript error in VSCode but the console says everything's right?
-
-Because of how this project is setup TypeScript unaware that files have changed.  
-You don't need to restart VSCode, just restart the TypeScript server.
-
-https://user-images.githubusercontent.com/6702424/206942271-0dc9b94a-1c2b-4073-99d7-96f7fe862bc4.mov
-
-Assets imports error in Storybook can be solved by opening the `stories/global.d.ts` file:
-
-https://user-images.githubusercontent.com/6702424/206940923-8d2d1113-8b81-4f61-8c4e-66101c9fe67e.mov
-
-Thank You Very Much ❤️
-
-PS: If you want to contribute to the Doc website. You can edit [the source Markdown](https://github.com/codegouvfr/react-dsfr/tree/v1_docs) or ask me for access to our GitBook. (We'll migrate to Docusaurus once we have the DSFR theme for it ready.)
-
-## Linking your local copy of `@codegouvfr/react-dsfr` in your project
-
-This will enable you to see your react-dsfr changes in your main project.
+Requirements: Node ≥ 18, `pnpm` (the repository is managed with pnpm — see
+`pnpm-lock.yaml`).
 
 ```bash
-cd ~/github
-git clone https://github.com/ORG/YOUR-PROJECT-USING-REACT-DSFR
-cd YOUR-PROJECT-USING-REACT-DSFR
-yarn # or npm install or pnpm install depending of what you are using...
-
-cd ~/github
-git clone https://github.com/codegouvfr/react-dsfr
-cd react-dsfr
-yarn
-yarn build
-yarn link-external YOUR-PROJECT-USING-REACT-DSFR
-npx tsc -w -p src # Leave this running if you want hot reload.
+git clone https://github.com/codegouvaor/react-ads.git
+cd react-ads
+pnpm install
 ```
 
-## Linking a working version of `@gouvfr/dsfr` (For the SIG)
+Useful commands:
+
+| Command                                 | Purpose                                                     |
+| --------------------------------------- | ----------------------------------------------------------- |
+| `pnpm build`                            | Generates the CSS-derived types/assets and compiles `dist/` |
+| `pnpm storybook`                        | Interactive documentation (dev server, port 6006)           |
+| `pnpm test`                             | Unit tests (vitest, `test/runtime/**`)                      |
+| `pnpm lint:check` / `pnpm format:check` | ESLint / Prettier verification                              |
+| `pnpm format`                           | Auto-format the codebase                                    |
+
+> Storybook and the integration demo apps (`test/integration/*`) run against `dist/`, so run
+> `pnpm build` first (or keep `npx tsc -w -p src` running) when you change `src/`.
+
+## Where things live
+
+| Path                                            | Content                                                                                                       |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `src/<Component>.tsx`                           | One module per component (subpath import: `@codegouvaor/react-ads/<Component>`)                               |
+| `src/ads/`                                      | ADS foundations: design token contracts (colors, typography, spacing, radius, elevation, motion, breakpoints) |
+| `src/fr/`                                       | Legacy token helpers + CSS-derived types (to be renamed with the ADS CSS layer — see MIGRATION.md)            |
+| `src/next-app-router/`, `src/next-pagesdir.tsx` | Next.js integration helpers                                                                                   |
+| `src/mui/`                                      | Optional MUI adaptation layer                                                                                 |
+| `src/bin/`                                      | CLI tools (`react-ads optimize-css`, `copy-static-assets`, …)                                                 |
+| `stories/<Component>.stories.tsx`               | Component documentation (Storybook)                                                                           |
+| `test/runtime/`                                 | Unit tests (vitest)                                                                                           |
+| `test/integration/`                             | Demo apps: CRA, Vite, Next.js Pages/App Router (dev only)                                                     |
+
+## Contribution guidelines
+
+-   📣 **Say what you're doing**: open (or comment on) an issue and reference it from your PR.
+-   🧩 **Prefer small PRs.** One logical change per PR is much easier to review and release.
+-   🔗 **Use the link abstraction**: components that render links must use the component
+    returned by `getLink()` instead of `<a />`, so the library plays nice with all routing
+    libraries (see `src/Header` for an example).
+-   🕹️ **Controlled _and_ uncontrolled**: when relevant, components should support being used
+    either controlled or uncontrolled (see `<Tabs />`).
+-   🌎 **No hard-coded text in JSX**: use the i18n mechanism (`src/i18n.ts`) for built-in
+    strings, and register translations for the languages you add.
+-   ♿ **Accessibility is first class** (target WCAG 2.2 AA): keyboard navigation, visible
+    focus, ARIA, labels. Document the a11y properties of the component in its story.
+-   🎨 **Never hard-code visual values in components**: colors, spacing, radii etc. must come
+    from the token system (CSS custom properties / `src/ads`). If a value is missing, extend
+    the tokens — don't inline a color or a pixel value.
+-   🧹 Keep the code consistent with the existing style: 4-space indentation, Prettier
+    (`pnpm format`), ESLint clean.
+-   ✅ Add tests when you add behavior (`test/runtime/`), and run `pnpm test` before pushing.
+
+## Component conventions
+
+Components live one-per-module in `src/`, exporting both a named export and a default
+export of the same name (`export const Alert = …; export default Alert;`). Re-export new
+generic components from `src/index.ts` (the root import) **unless** they require an optional
+dependency (MUI, charts, Next.js…).
+
+Storybook: each component has a story file (`stories/<Component>.stories.tsx`) covering
+variants, states and examples — keep the import instructions shown in stories up to date.
+
+## Linking your local copy into your own project
+
+To develop against your own app with a local build of the library:
 
 ```bash
-cd ~/github
-git clone http://github.com/gouvernementfr/dsfr
-cd dsfr
-# git checkout my-working-branch
-yarn
-yarn build --clean
-yarn link
-cd ~/github/react-dsfr
-yarn
-yarn link @gouvfr/dsfr
-yarn build
+pnpm build
+node scripts/link-in-external-project.js YOUR-PROJECT-ABSOLUTE-PATH
+# keep the compiler watching while you edit:
+npx tsc -w -p src
 ```
 
-Now `~/github/react-dsfr/node_modules/@gouvfr/dsfr` links to `~/github/@gouvfr/dsfr`.
+(For the integration demo apps under `test/integration/`, use `pnpm start-*` scripts, which
+build, link and launch each app.)
+
+## Working on the legacy stylesheet layer
+
+The CSS layer is still generated from `@gouvfr/dsfr` at build time (`scripts/build/`,
+`src/bin/`, `patches/`). If you need to change it, see [MIGRATION.md](MIGRATION.md) — the
+long-term direction is to replace it with ADS-generated stylesheets, not to patch DSFR
+further.
+
+## Reporting issues
+
+-   Bugs, feature requests, component gaps: [issues](https://github.com/codegouvaor/react-ads/issues)
+    (use the templates).
+-   Security vulnerabilities: **do not** open a public issue — see [SECURITY.md](SECURITY.md).
+
+Thank you very much ❤️

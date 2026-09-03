@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Upload },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/ajout-de-fichier)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Upload.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Upload.tsx)`,
     "argTypes": {
         "disabled": {
             "control": { "type": "boolean" }
@@ -22,7 +22,7 @@ const { meta, getStory } = getStoryFactory({
             "options": (() => {
                 const options = ["default", "success", "error"] as const;
 
-                assert<Equals<typeof options[number] | undefined, UploadProps["state"]>>();
+                assert<Equals<(typeof options)[number] | undefined, UploadProps["state"]>>();
 
                 return options;
             })(),

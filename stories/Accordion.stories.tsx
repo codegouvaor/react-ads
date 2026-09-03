@@ -23,14 +23,14 @@ const { meta, getStory } = getStoryFactory({
         }
     },
     "description": `- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/Accordion.tsx)  
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Accordion.tsx)  
 
 ## Accordion group 
 
 If you want to use a group of accordion, you just have to wrap your accordion in a div with a class \`fr-accordions-group\` as bellow :
 
 \`\`\`tsx
-import { fr } from "@codegouvfr/react-dsfr";
+import { fr } from "@codegouvaor/react-ads";
 
 <div className={fr.cx("fr-accordions-group")}>
     <Accordion label="Name of the Accordion 1">Content of the Accordion 1</Accordion>

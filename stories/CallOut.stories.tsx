@@ -9,7 +9,7 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { CallOut },
     "description": `
 - [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant)
-- [See source code](https://github.com/codegouvfr/react-dsfr/blob/main/src/CallOut.tsx)`,
+- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/CallOut.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {
         "title": {
@@ -38,7 +38,7 @@ const { meta, getStory } = getStoryFactory({
                     undefined
                 ] as const;
 
-                assert<Equals<typeof options[number], CallOutProps["colorVariant"]>>();
+                assert<Equals<(typeof options)[number], CallOutProps["colorVariant"]>>();
 
                 return options;
             })(),
@@ -53,7 +53,7 @@ const { meta, getStory } = getStoryFactory({
                     undefined
                 ] as const;
 
-                assert<typeof options[number] extends CallOutProps["iconId"] ? true : false>();
+                assert<(typeof options)[number] extends CallOutProps["iconId"] ? true : false>();
 
                 return options;
             })(),
