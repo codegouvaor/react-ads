@@ -56,7 +56,26 @@ jobs:
               run: npm publish --provenance --access public --tag ${{ steps.dist-tag.outputs.dist_tag }}
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            # Re-run setup-node so that $HOME/.npmrc points at GitHub Packages:
+            # npm binds NODE_AUTH_TOKEN to the registry configured in .npmrc, and the
+            # job is currently configured for registry.npmjs.org (npmjs publish above).
+            - name: Configure npm for the GitHub Packages registry
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  registry-url: https://npm.pkg.github.com
+                  scope: "@codegouvaor"
             - name: Publish on GitHub Packages
               run: |
-                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> "$HOME/.npmrc"
-                  npm publish --registry=https://npm.pkg.github.com
+                  VERSION="$(node -p "require('./package.json').version")"
+                  # npm refuses to overwrite a version that already exists on GitHub
+                  # Packages. Skip (instead of failing the run) when the tag was
+                  # already published there, e.g. on a workflow re-run.
+                  if npm view "@codegouvaor/react-ads@${VERSION}" version \
+                      --registry=https://npm.pkg.github.com >/dev/null 2>&1; then
+                      echo "react-ads@${VERSION} already published on GitHub Packages, skipping."
+                  else
+                      npm publish
+                  fi
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
