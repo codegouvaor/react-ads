@@ -1,0 +1,48 @@
+name: publish-on-tag
+on:
+  push:
+    tags:
+      - "v*"
+
+env:
+  PNPM_VERSION: 11.21.0
+
+jobs:
+  build_and_publish:
+    name: Build and publish on npm
+    if: github.repository == 'codegouvaor/react-ads'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build for publish
+        run: pnpm build --prePublish
+      - name: Enable short npm import paths (subpath exports)
+        run: npx -y -p denoify@1.5.1 enable_short_npm_import_path
+        env:
+          DRY_RUN: "0"
+      - name: Determine npm dist-tag (next for pre-releases)
+        id: dist-tag
+        run: |
+          case "${{ github.ref_name }}" in
+            *-*) echo "dist_tag=next" >> "$GITHUB_OUTPUT" ;;
+            *) echo "dist_tag=latest" >> "$GITHUB_OUTPUT" ;;
+          esac
+      - name: Package validation (dry-run content of the npm tarball)
+        run: pnpm pack --dry-run
+      - name: Publish on npm
+        run: npm publish --provenance --tag ${{ steps.dist-tag.outputs.dist_tag }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
