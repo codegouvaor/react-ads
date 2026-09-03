@@ -11,7 +11,6 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { "Modal": Template },
     "description": `\`import { createModal } from "@codegouvaor/react-ads/Modal";\` (Click **show code** for usage details)
 
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/modale)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Modal/Modal.tsx)
 
 \`\`\`tsx

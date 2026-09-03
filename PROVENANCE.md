@@ -33,10 +33,12 @@ The transformation is staged and documented in [AUDIT.md](AUDIT.md) (state of pl
 4. **Independent releases** — semantic versioning starting at `0.1.0`; no functional
    requirement on the French government's system remains at the end of the roadmap.
 
-Nothing French was silently relabeled: any component, asset or string that still refers to
-the French ecosystem (e.g. `FranceConnectButton`, French identity-provider buttons, the
-Marianne font, `fr-` classes) is either (a) explicitly documented as part of the legacy
-layer to be replaced, or (b) listed in [AUDIT.md](AUDIT.md) §6 as scheduled for removal.
+Nothing French was silently relabeled: the French identity-provider components
+(`FranceConnectButton`, `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`) and
+the Eulerian analytics bridge were **removed** (MIGRATION Stage 2), while what still refers
+to the French ecosystem (the Marianne/Spectral fonts, the `fr-` classes and the `dsfr/`
+assets) is explicitly documented as part of the legacy layer to be replaced — see
+[AUDIT.md](AUDIT.md) §2 and [MIGRATION.md](MIGRATION.md).
 
 ## Attribution and license obligations
 

@@ -23,7 +23,7 @@ export function createConsentManagement<
 >(params: {
     finalityDescription: ((params: { lang: string }) => FinalityDescription) | FinalityDescription;
     consentCallback?: ConsentCallback<ExtractFinalityFromFinalityDescription<FinalityDescription>>;
-    /** Optional: If you have a dedicated page that provides comprehensive information about your website's GDPR policies. */
+    /** Optional: If you have a dedicated page that provides comprehensive information about your website's data-protection policy. */
     personalDataPolicyLinkProps?: RegisteredLinkProps;
     localStorageKeyPrefix?: string;
 }) {

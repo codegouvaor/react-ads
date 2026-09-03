@@ -12,7 +12,6 @@ const { meta, getStory } = getStoryFactory({
     "description": `
 A button that opens a dialog to enable the user to select light or dark mode.  
 
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/parametre-d-affichage),
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Display/Display.tsx)
 
 Optionally, you can also use \`import { useIsDark } from "@codegouvaor/react-ads"\` to manually monitor and controls 

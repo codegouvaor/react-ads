@@ -53,7 +53,6 @@ export type RangeProps = {
     stateRelatedMessage?: ReactNode;
 } & (RangeProps.AsSingle | RangeProps.AsDouble);
 
-//https://main--ds-gouv.netlify.app/example/component/range/
 export namespace RangeProps {
     type NativeInputProps = ComponentProps<"input">;
 

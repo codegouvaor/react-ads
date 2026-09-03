@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { CallOut },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-avant)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/CallOut.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {

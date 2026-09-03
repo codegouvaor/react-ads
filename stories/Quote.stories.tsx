@@ -2,12 +2,12 @@ import React from "react";
 import { Quote } from "../dist/Quote";
 import { sectionName } from "./sectionName";
 import { getStoryFactory } from "./getStory";
+import placeholder_1x1ImgUrl from "./assets/placeholder.1x1.svg";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Quote },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/citation)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Quote.tsx)`,
     "disabledProps": ["lang"]
 });
@@ -35,7 +35,7 @@ export const Default = getStory({
             </li>
         </>
     ),
-    imageUrl: "//www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.1x1.png",
+    imageUrl: placeholder_1x1ImgUrl,
     size: "xlarge",
     className: ""
 });
@@ -61,7 +61,7 @@ export const QuoteMediumAndAccent = getStory({
             </li>
         </>
     ),
-    imageUrl: "//www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.1x1.png",
+    imageUrl: placeholder_1x1ImgUrl,
     size: "medium",
     accentColor: "pink-macaron"
 });
@@ -69,12 +69,12 @@ export const QuoteMediumAndAccent = getStory({
 export const QuoteWithoutDetails = getStory({
     text: "Lorem [...] elit ut. ",
     author: "Auteur",
-    imageUrl: "//www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.1x1.png"
+    imageUrl: placeholder_1x1ImgUrl
 });
 
 export const QuoteWithoutSource = getStory({
     text: "Lorem [...] elit ut. ",
-    imageUrl: "//www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.1x1.png"
+    imageUrl: placeholder_1x1ImgUrl
 });
 
 export const QuoteWithoutIllustration = getStory({
@@ -102,7 +102,7 @@ export const QuoteWithoutIllustration = getStory({
 
 export const QuoteWithAccent = getStory({
     text: "Lorem [...] elit ut. ",
-    imageUrl: "//www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.1x1.png",
+    imageUrl: placeholder_1x1ImgUrl,
     accentColor: "yellow-moutarde",
     author: "Someone"
 });

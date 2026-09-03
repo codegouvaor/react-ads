@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Table },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Table.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {
@@ -28,8 +27,7 @@ const { meta, getStory } = getStoryFactory({
             "type": { "name": "boolean" }
         },
         "noCaption": {
-            "description": `Hide caption, as mentioned [here](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tableau) 
-            for some RGAA purposes, the well named \`no-caption\` option should only visually hide the so 
+            "description": `Hide caption. For accessibility purposes, the well named \`no-caption\` option should only visually hide the so 
             called caption and not prevent its rendering.`,
             "type": { "name": "boolean" }
         },

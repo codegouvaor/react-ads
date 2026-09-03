@@ -6,7 +6,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Download },
     description: `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/telechargement-de-fichier)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Download.tsx)`,
     "argTypes": {
         "label": {

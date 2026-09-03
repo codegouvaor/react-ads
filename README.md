@@ -148,9 +148,9 @@ The library implements generic, accessible components, among which:
 `TagsGroup` · `Tile` · `ToggleSwitch` · `Tooltip` · `Upload` · plus `blocks/` composites and
 the legacy chart components (`Chart/*`, optional `@gouvfr/dsfr-chart` peer).
 
-> **Transition note:** a few components are France-specific leftovers from the fork
-> (`FranceConnectButton`, `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`,
-> `eulerianAnalytics`). They are scheduled for removal — see [AUDIT.md](AUDIT.md) §6.
+> The France-specific leftovers from the fork (`FranceConnectButton`, `AgentConnectButton`,
+> `ProConnectButton`, `MonCompteProButton`, `eulerianAnalytics`) have been removed — see
+> [CHANGELOG.md](CHANGELOG.md) and [MIGRATION.md](MIGRATION.md) §Stage 2.
 
 ## SSR / Next.js / Server Components
 

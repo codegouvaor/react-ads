@@ -46,24 +46,27 @@ Package name, description, repository metadata, READMEs, Storybook branding, CLI
 (`react-ads`), docblocks, test fixtures, workflows. No functional change. The `fr-*` class
 names and the `fr` namespace remain, documented as the legacy layer.
 
-### 🔜 Stage 2 — France-specific removal (next release)
+### ✅ Stage 2 — France-specific removal (done)
 
-Remove (with their stories and assets):
+Removed (with their stories and assets):
 
 -   `FranceConnectButton`, `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`
     (+ `src/assets/agentconnect*`, `proconnect*`, `moncomptepro*`, `agentconnect.css`,
     `proconnect-btn.css`, `moncomptepro.css`)
 -   `src/eulerianAnalytics.ts` (French analytics vendor)
+-   Storybook pages and `react-ads optimize-css` module-map entries for the above.
 
-Decide separately:
+Decision taken:
 
--   Chart components (`src/Chart/*`, optional peer `@gouvfr/dsfr-chart`): keep only if Astoria
-    needs charts backed by the legacy chart CSS, else remove.
+-   Chart components (`src/Chart/*`, optional peer `@gouvfr/dsfr-chart`): **kept for now**,
+    documented as a legacy module. Revisit when the ADS stylesheet (Stage 4) lands.
 
-### 🔜 Stage 3 — Consent management content
+### ✅ Stage 3 — Default content neutralized (done)
 
-`src/consentManagement/*` logic is generic and kept. The default strings and examples are
-RGPD-flavored: make the copy neutral/Astoria and keep everything i18n-able (it already is).
+`src/consentManagement/*` logic is generic and kept; the few GDPR/RGPD-flavored comments
+and demo strings were neutralized (i18n-able copy untouched). The `Footer` no longer
+renders French government domains or an Etalab licence mention by default: provide
+`domains` / `license` explicitly.
 
 ### 🔜 Stage 4 — ADS stylesheet (the big one, requires Astoria design input)
 
@@ -103,7 +106,7 @@ never hard-coded values.
 | Public API                 | no gratuitous breaking changes; the `fr`/`Dsfr*` symbol renames are grouped in the Stage-4 breaking release                       |
 | CLI                        | `react-ads` (main), `copy-dsfr-to-public`, `only-include-used-icons` kept as legacy asset tools until Stage 4                     |
 | Storybook docs URL         | GitHub Pages default (`codegouvaor.github.io/react-ads`), no invented domain                                                      |
-| France-specific components | kept in this release, removal scheduled (Stage 2)                                                                                 |
+| France-specific components | removed (Stage 2); charts kept as documented legacy until Stage 4                                                                    |
 
 ## Guardrails
 

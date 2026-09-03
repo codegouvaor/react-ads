@@ -24,7 +24,7 @@ export function Navigation() {
                     "isActive": segment === "mui"
                 },
                 {
-                    "text": "DSFR Chart",
+                    "text": "Charts",
                     "linkProps": {
                         "href": "/dsfr-chart"
                     },

@@ -71,7 +71,7 @@ function Root() {
                         {
                             iconId: "ri-mail-line",
                             linkProps: {
-                                to: `mailto:${"joseph.garrone@code.gouv.fr"}`,
+                                to: `mailto:${"contact@example.com"}`,
                             },
                             text: "Nous contacter",
                         }

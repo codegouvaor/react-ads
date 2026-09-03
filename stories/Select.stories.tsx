@@ -9,7 +9,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Select },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/liste-deroulante)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Select.tsx)
 
 > 🗣️ This implementation of the <Select /> component is headless. It matched very closely the behavior of a native select input.  

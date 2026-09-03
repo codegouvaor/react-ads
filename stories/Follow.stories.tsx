@@ -8,8 +8,6 @@ const { meta, getStory } = getStoryFactory<FollowProps>({
     sectionName,
     wrappedComponent: { Follow },
     description: `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/lettre-d-information-et-reseaux-sociaux)
-- [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/follow/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Follow.tsx)`,
     argTypes: {
         classes: {

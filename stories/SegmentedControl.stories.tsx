@@ -6,7 +6,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     wrappedComponent: { SegmentedControl },
     description: `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/controle-segmente/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SegmentedControl.tsx)`,
     argTypes: {
         small: {

@@ -12,7 +12,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Header },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/en-tete)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/Header.tsx)  
   
 See also [\\<MainNavigation \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-mainnavigation)  
@@ -184,7 +183,7 @@ export const HeaderWithQuickAccessItems = getStory(
             {
                 "iconId": "fr-icon-mail-fill",
                 "linkProps": {
-                    "href": "mailto:floss@numerique.gouv.fr"
+                    "href": "mailto:contact@example.com"
                 },
                 "text": "Contact us"
             },
@@ -207,14 +206,14 @@ export const HeaderWithQuickAccessItems = getStory(
 
 \`\`\`tsx  
 
-import { Header as DsfrHeader } from "@codegouvaor/react-ads/Header";
+import { Header as AdsHeader } from "@codegouvaor/react-ads/Header";
 import { LanguageSelect } from "./LanguageSelect";
 import { AuthButtons } from "./AuthButtons";
 
 export function Header() {
 
     return (
-        <DsfrHeader
+        <AdsHeader
             quickAccessItems={[
                 {
                     iconId: "fr-icon-add-circle-line",
@@ -383,7 +382,7 @@ callback that will be called when the user click on the search button or press e
 
 You can also have a use the \`clearSearchInputOnSearch\` and \`allowEmptySearch\` props to control the behavior of the search input.  
 
-> NOTE: There is a bug in the DSFR that prevent te input to be cleared when the user press the escape key.  
+> NOTE: There is a bug in the underlying stylesheet that prevents the input from being cleared when the user presses the escape key.  
 We hope it will be fixed soon.
 
 \`\`\`tsx
@@ -520,7 +519,7 @@ function Root(){
 If you want to feature a modern search experience with realtime hinting you can omit providing a \`onSearchButtonClick\` callback and instead
 make sure you provide an overlay with the search results in the the \`renderSearchInput\` function.  
 
-As, to this day, the DSFR do not provide any component to help you with that, you are on your own for implementing the overlay.  
+As, to this day, no component is provided to help you with that, you are on your own for implementing the overlay.  
 You can achieve great result by using [MUI's autocomplete](https://mui.com/material-ui/react-autocomplete/) component.  
 [Video demo](https://youtu.be/AT3CvmY_Y7M?t=64).  
 If you go with MUI make sure to use the [\`<MuiDsfrProvider />\`](https://codegouvaor.github.io/react-ads/mui).  
@@ -679,7 +678,7 @@ export const HeaderWithVerticalOperatorLogo = getStory({
     "homeLinkProps": {
         "href": "/",
         "title":
-            "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française"
+            "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République d'Astoria"
     },
     "onSearchButtonClick": text => alert(`TODO: implement search with text: ${text}`),
     "operatorLogo": {
@@ -781,7 +780,7 @@ export const WithOperatorLogoWithLink = getStory({
         "linkProps": {
             "href": "#",
             "title":
-                "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République Française"
+                "Accueil - [À MODIFIER - texte alternatif de l’image : nom de l'opérateur ou du site serviciel] - République d'Astoria"
         }
     }
 });

@@ -40,6 +40,6 @@ export const {
             await new Promise(()=> {/*never*/});
         }
 
-        console.log("callback from gdpr hook");
+        console.log("callback from consent hook");
     }
 });

@@ -32,11 +32,26 @@ project adheres to [Semantic Versioning](https://semver.org).
 - CI: pnpm-based pipeline with lint, typecheck (build), tests, package validation,
   dependency auditing and provenance-ready publishing.
 
+### Removed
+
+- France-specific components and modules (MIGRATION Stage 2): `FranceConnectButton`,
+  `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`, `eulerianAnalytics`, their
+  dedicated assets (`agentconnect*`, `proconnect-btn.css`, `moncomptepro.css`) and their
+  Storybook stories. The `react-ads optimize-css` module map and the Storybook navigation
+  were updated accordingly.
+
+### Changed
+
+- The `Footer` no longer ships French default content: the `domains` prop defaults to an
+  empty list (previously French government domains) and no licence mention is rendered when
+  the `license` prop is not provided (previously an Etalab licence-ouverte notice).
+  Consumers migrating from the fork must provide these props explicitly.
+- Removed French demo/DSFR doc URLs and references from Storybook stories, code comments
+  and default copy (consent management is now phrased around a generic data-protection
+  policy).
+
 ### Deprecated
 
 - The legacy DSFR layer (`dsfr/` assets, `fr-*` class names, `fr` namespace, `Dsfr*`
   helpers) is kept as an isolated, documented implementation layer. It will be removed in
   a single coordinated breaking release — see [MIGRATION.md](MIGRATION.md).
-- France-specific components (`FranceConnectButton`, `AgentConnectButton`,
-  `ProConnectButton`, `MonCompteProButton`, `eulerianAnalytics`) are scheduled for removal
-  (see [AUDIT.md](AUDIT.md)).

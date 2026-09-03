@@ -172,12 +172,7 @@ export const Footer = memo(
             style,
             linkList,
             linkListTitle,
-            domains = [
-                "info.gouv.fr",
-                "service-public.gouv.fr",
-                "legifrance.gouv.fr",
-                "data.gouv.fr"
-            ],
+            domains = [],
             ...rest
         } = props;
 
@@ -529,16 +524,13 @@ export const Footer = memo(
                                 </li>
                             ))}
                         </ul>
-                        <div className={cx(fr.cx("fr-footer__bottom-copy"), classes.bottomCopy)}>
-                            <p>
-                                {license === undefined
-                                    ? t("license mention", {
-                                          "licenseUrl":
-                                              "https://github.com/etalab/licence-ouverte/blob/master/LO.md"
-                                      })
-                                    : license}
-                            </p>
-                        </div>
+                        {license !== undefined && (
+                            <div
+                                className={cx(fr.cx("fr-footer__bottom-copy"), classes.bottomCopy)}
+                            >
+                                <p>{license}</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </footer>
@@ -562,20 +554,6 @@ const { useTranslation, addFooterTranslations } = createComponentI18nApi({
         "fully compliant": "totalement conforme",
         "terms": "Mentions légales",
         "cookies management": "Gestion des cookies",
-        "license mention": (p: { licenseUrl: string }) => (
-            <>
-                Sauf mention explicite de propriété intellectuelle détenue par des tiers, les
-                contenus de ce site sont proposés sous{" "}
-                <a
-                    href={p.licenseUrl}
-                    target="_blank"
-                    title="licence etalab-2.0 - nouvelle fenêtre"
-                    id="footer-etalab-licence-link"
-                >
-                    licence etalab-2.0
-                </a>
-            </>
-        ),
         "our partners": "Nos partenaires",
         "open new window": "nouvelle fenêtre"
         /* spell-checker: enable */
@@ -591,18 +569,6 @@ addFooterTranslations({
         "non compliant": "non compliant",
         "partially compliant": "partially compliant",
         "fully compliant": "fully compliant",
-        "license mention": p => (
-            <>
-                Unless stated otherwise, all content of this website is under the{" "}
-                <a
-                    href={p.licenseUrl}
-                    target="_blank"
-                    title="etalab-2.0 license - open a new window"
-                >
-                    etalab-2.0 license
-                </a>
-            </>
-        ),
         "open new window": "open new window"
     }
 });

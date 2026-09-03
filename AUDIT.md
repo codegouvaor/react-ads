@@ -11,6 +11,18 @@
 
 Repository audited: `main` @ `7f06079` (+ uncommitted pnpm migration and package rename start).
 
+> **Status updates since this audit was written** (the audit itself is kept as the historical
+> baseline; progress is tracked in [MIGRATION.md](MIGRATION.md)):
+>
+> -   0.1.0 — surface rebranding (package name/docs/CLI/Storybook) done (Stage 1).
+> -   0.2.0 (this session) — Stage 2 done: the French identity-provider components
+>     (`FranceConnectButton`, `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`)
+>     and `eulerianAnalytics` were removed with their assets and stories; the `optimize-css`
+>     module map and Storybook navigation were updated. Stage 3 done: French default content
+>     neutralized (`Footer` domains/licence, GDPR-flavored comments). Stories, code comments
+>     and docblocks were swept of French DSFR/demo URLs. The Chart module stays as documented
+>     legacy until the ADS stylesheet (Stage 4) lands.
+
 ---
 
 ## 1. What this repository is

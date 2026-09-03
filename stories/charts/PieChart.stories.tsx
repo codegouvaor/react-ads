@@ -6,7 +6,6 @@ const { meta, getStory } = getStoryFactory<PieChartProps>({
     sectionName: sectionName,
     "wrappedComponent": { PieChart },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants-beta/graphiques-charts/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Chart/BarChart.tsx)
 
 To use this component you need to add \`@gouvfr/dsfr-chart\` to your dependencies.  

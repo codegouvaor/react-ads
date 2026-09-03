@@ -7,7 +7,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Tag },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tag)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Tag.tsx)`,
     "argTypes": {
         "dismissible": {

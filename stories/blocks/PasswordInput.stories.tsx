@@ -7,7 +7,6 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { PasswordInput },
     "description": `\`import { PasswordInput } from "@codegouvaor/react-ads/blocks/PasswordInput"\`
 
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mot-de-passe/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/blocks/PasswordInput.tsx)  `,
     "argTypes": {
         "disabled": {

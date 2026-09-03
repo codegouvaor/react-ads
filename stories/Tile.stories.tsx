@@ -16,8 +16,6 @@ const { meta, getStory } = getStoryFactory({
     "wrappedComponent": { Tile },
     "defaultContainerWidth": 360,
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/tuile)
-- [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/tile/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Tile.tsx)`,
     "disabledProps": ["lang"],
     // https://storybook.js.org/docs/essentials/controls#configuration
@@ -112,8 +110,7 @@ const { meta, getStory } = getStoryFactory({
             }
         },
         "imageSvg": {
-            "description":
-                "Set to true if the image is type of SVG [Pictogramme DSFR](https://www.systeme-de-design.gouv.fr/fondamentaux/pictogramme/) compliant.",
+            "description": "Set to true if the image is an SVG pictogram of the pictogram gallery.",
             "defaultValue": false,
             "control": {
                 "type": "boolean"
@@ -122,7 +119,7 @@ const { meta, getStory } = getStoryFactory({
         },
         "pictogram": {
             "description":
-                "Instead of using an image with `imageUrl` and `imageSvg`, you can use [native DSFR pictogram components](/?path=/docs/🖼%EF%B8%8F-pictograms--page) or any other SVG component."
+                "Instead of using an image with `imageUrl` and `imageSvg`, you can use [native pictogram components](/?path=/docs/🖼%EF%B8%8F-pictograms--page) or any other SVG component."
         },
         "grey": {
             "description":
@@ -281,7 +278,7 @@ export const TileWithNativePictogram = getStory(
         imageHeight: undefined,
         pictogram: <CityHall />
     },
-    { "description": "Tuile avec Pictogramme natif DSFR" }
+    { "description": "Tuile avec pictogramme natif" }
 );
 
 export const TileMDVertical = getStory(

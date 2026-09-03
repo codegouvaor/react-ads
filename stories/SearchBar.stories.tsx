@@ -9,7 +9,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { SearchBar },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/barre-de-recherche)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SearchBar/SearchBar.tsx)`,
     "argTypes": {
         "big": {
@@ -41,7 +40,7 @@ export default meta;
 
 export const DefaultUncontrolled = getStory(
     {
-        "defaultValue": "France",
+        "defaultValue": "service",
         "label": undefined,
         "onButtonClick": text => alert(`TODO: implement search with text: ${text}`)
     },
@@ -167,7 +166,7 @@ export const WithMuiAutocomplete = getStory(
 If you want to feature a modern search experience with realtime hinting you can omit providing a \`onSearchButtonClick\` callback and instead
 make sure you provide an overlay with the search results in the the \`renderSearchInput\` function.  
         
-As, to this day, the DSFR do not provide any component to help you with that, you are on your own for implementing the overlay.  
+As, to this day, no component is provided to help you with that, you are on your own for implementing the overlay.  
 You can achieve great result by using [MUI's autocomplete](https://mui.com/material-ui/react-autocomplete/) component.  
 [Implementation example](https://github.com/mui/material-ui/issues/37838).  
 If you go with MUI make sure to use the [\`<MuiDsfrProvider />\`](https://codegouvaor.github.io/react-ads/mui).  

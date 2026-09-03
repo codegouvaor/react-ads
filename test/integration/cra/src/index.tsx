@@ -42,7 +42,7 @@ function Root() {
                     {
                         iconId: "ri-mail-line",
                         linkProps: {
-                            href: `mailto:${"joseph.garrone@code.gouv.fr"}`,
+                            href: `mailto:${"contact@example.com"}`,
                         },
                         text: "Nous contacter",
                     }

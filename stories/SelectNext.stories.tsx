@@ -14,7 +14,6 @@ const { meta, getStory } = getStoryFactory<SelectProps<SelectProps.Option[]>>({
 import { Select } from "@codegouvaor/react-ads/SelectNext";
 
 \`\`\`
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/liste-deroulante)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/SelectNext.tsx)
 
 

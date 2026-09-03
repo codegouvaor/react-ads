@@ -10,7 +10,6 @@ import * as Picto from "../../dist/picto";
 import { createModal } from "../../dist/Modal";
 import { Tooltip } from "../../dist/Tooltip";
 import CallOut from "../../dist/CallOut";
-import { getLink } from "../../dist/link";
 import { useColors } from "../../dist/useColors";
 
 const pictogrameEntries = Object.entries(Picto);
@@ -32,8 +31,6 @@ export function Pictograms() {
 
     const evtSearchAction = useConst(() => Evt.create<"scroll to">());
 
-    const { Link } = getLink();
-
     return (
         <div>
             <CallOut
@@ -45,15 +42,7 @@ export function Pictograms() {
                     "children": "Start searching"
                 }}
             >
-                This tool help you find the perfect DSFR compliant pictogram for your project.
-                <br />
-                <br />
-                <Link
-                    target="_blank"
-                    href="https://www.systeme-de-design.gouv.fr/fondamentaux/pictogramme"
-                >
-                    Learn more about pictograms
-                </Link>
+                This tool helps you find the perfect pictogram for your project.
             </CallOut>
             <Search evtAction={evtSearchAction} onSearchChange={setSearch} search={search} />
             <h3 style={{ marginTop: fr.spacing("6v") }}>

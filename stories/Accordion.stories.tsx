@@ -22,8 +22,7 @@ const { meta, getStory } = getStoryFactory({
             "control": { "type": "boolean" }
         }
     },
-    "description": `- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/accordeon)
-- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Accordion.tsx)  
+    "description": `- [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Accordion.tsx)  
 
 ## Accordion group 
 

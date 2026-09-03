@@ -123,7 +123,6 @@ export type DsfrComponentName = (typeof DSFR_COMPONENTS_CASCADE_ORDER)[number];
  */
 export const REACT_DSFR_MODULE_TO_DSFR_COMPONENTS: Record<string, DsfrComponentName[]> = {
     "Accordion": ["accordion"],
-    "AgentConnectButton": ["connect", "button"],
     "Alert": ["alert", "link", "button"],
     "Badge": ["badge"],
     "Breadcrumb": ["breadcrumb", "link"],
@@ -138,7 +137,6 @@ export const REACT_DSFR_MODULE_TO_DSFR_COMPONENTS: Record<string, DsfrComponentN
     "Download": ["download", "link"],
     "Follow": ["follow", "form", "input", "upload", "button", "link", "alert", "checkbox"],
     "Footer": ["footer", "logo", "button", "link"],
-    "FranceConnectButton": ["connect", "button"],
     "Header": [
         "header",
         "navigation",
@@ -155,10 +153,8 @@ export const REACT_DSFR_MODULE_TO_DSFR_COMPONENTS: Record<string, DsfrComponentN
     "LanguageSelect": ["translate", "navigation", "button", "link"],
     "MainNavigation": ["navigation", "link"],
     "Modal": ["modal", "button", "link"],
-    "MonCompteProButton": ["connect", "button"],
     "Notice": ["notice", "button", "link"],
     "Pagination": ["pagination", "link"],
-    "ProConnectButton": ["connect", "button"],
     "Quote": ["quote"],
     "RadioButtons": ["radio", "checkbox", "form"],
     "Range": ["range", "form"],
@@ -288,7 +284,6 @@ const NON_COMPONENT_MODULE_IDS = new Set<string>([
     "useBreakpointsValuesPx",
     "useColors",
     "useIsDark",
-    "eulerianAnalytics",
     "getHtmlAttributes",
     "zz_internal"
 ]);

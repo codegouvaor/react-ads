@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory<NoticeProps>({
     sectionName,
     "wrappedComponent": { Notice },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bandeau-d-information-importante)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Notice.tsx)`,
     "argTypes": {
         "title": {

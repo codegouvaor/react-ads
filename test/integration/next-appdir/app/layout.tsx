@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
     return (
         <html {...getHtmlAttributes({ defaultColorScheme, lang })}>
             <head>
-                <title>Next 13 AppDir Demo DSFR setup</title>
+                <title>Next 13 AppDir demo — ADS React</title>
                 <StartDsfr />
                 <DsfrHead
                     Link={Link}
@@ -83,7 +83,7 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
                                     {
                                         iconId: "ri-mail-line",
                                         linkProps: {
-                                            href: `mailto:${"joseph.garrone@code.gouv.fr"}`
+                                            href: `mailto:${"contact@example.com"}`
                                         },
                                         text: "Nous contacter"
                                     },

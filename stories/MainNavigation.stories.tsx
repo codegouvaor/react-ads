@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { "MainNavigation": Header },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/navigation-principale)
 - [See source code](https://github.com/codegouvaor/react-ads/tree/main/src/MainNavigation)
 
 This component isn't meant to be used directly but via the [\\<Header \\/\\>](https://codegouvaor.github.io/react-ads/?path=/docs/components-header)`,

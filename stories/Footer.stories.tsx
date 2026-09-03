@@ -26,7 +26,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Footer },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/pied-de-page)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Footer.tsx)`,
     "argTypes": {
         "accessibility": {
@@ -58,7 +57,7 @@ const { meta, getStory } = getStoryFactory({
         },
         "license": {
             "description":
-                "By default it's Etalab v2. [You can provide a custom React node](#with-custom-license)"
+                "The licence mention rendered at the bottom of the footer. If not provided, no licence mention is rendered. [You can provide a custom React node](#with-custom-license)"
         },
         "linkList": {
             "controls": { "type": null }
@@ -66,13 +65,13 @@ const { meta, getStory } = getStoryFactory({
         "brandTop": {
             "control": { "type": null },
             "description": `In the example here it's \`<>INTITULE<br />OFFICIEL</>\`
-If you are using the DSFR Header (as you should) this prop is optional, 
+If you are using the \`<Header />\` component of this library (as you should) this prop is optional, 
 the \`brandTop\` of the \`<Header />\` will be used.`
         },
         "homeLinkProps": {
             "control": { "type": null },
             "description": `A link to the home, when the user click on the logo he must navigate to the homepage of the website
-If you are using the DSFR Header (as you should) this prop is optional, 
+If you are using the \`<Header />\` component of this library (as you should) this prop is optional, 
 the \`homeLinkProps\` of the \`<Header />\` will be used.`
         }
     }

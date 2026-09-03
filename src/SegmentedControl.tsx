@@ -38,7 +38,6 @@ export type SegmentedControlProps = {
     | SegmentedControlProps.WithHiddenLegend
 );
 
-//https://main--ds-gouv.netlify.app/example/component/segmented/
 export namespace SegmentedControlProps {
     export type WithLegend = {
         inlineLegend?: boolean;

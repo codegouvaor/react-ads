@@ -39,7 +39,6 @@ export type FollowProps = {
     social?: FollowProps.Social;
 } & (FollowProps.EitherNewsletter | FollowProps.EitherSocial | FollowProps.EitherBoth);
 
-//https://main--ds-gouv.netlify.app/example/component/follow/
 export namespace FollowProps {
     export type EitherNewsletter = {
         newsletter: Newsletter;

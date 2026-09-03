@@ -6,7 +6,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Breadcrumb },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/fil-d-ariane)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Breadcrumb.tsx)`,
     "disabledProps": ["lang"]
 });

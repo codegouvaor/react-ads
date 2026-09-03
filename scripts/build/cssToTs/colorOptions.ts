@@ -12,7 +12,7 @@ import { threeDigitColorHexToSixDigitsColorHex } from "../../tools/threeDigitCol
 
 export type ColorScheme = "light" | "dark";
 
-// https://www.systeme-de-design.gouv.fr/elements-d-interface/fondamentaux-identite-de-l-etat/couleurs-palette
+// Color palette parsed from the (legacy) DSFR stylesheet. See PROVENANCE.md / MIGRATION.md.
 
 export type Variant = "main" | "sun" | "moon";
 

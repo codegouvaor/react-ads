@@ -140,9 +140,9 @@ Composants génériques et accessibles, parmi lesquels :
 `blocks/` et l'ancien module de graphiques (`Chart/*`, pair optionnel
 `@gouvfr/dsfr-chart`).
 
-> **Note de transition :** quelques composants sont des reliquats spécifiques à la France
-> (`FranceConnectButton`, `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`,
-> `eulerianAnalytics`). Leur suppression est programmée — voir [AUDIT.md](AUDIT.md) §6.
+> Les reliquats spécifiques à la France issus du fork (`FranceConnectButton`,
+> `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`, `eulerianAnalytics`) ont été
+> supprimés — voir [CHANGELOG.md](CHANGELOG.md) et [MIGRATION.md](MIGRATION.md) étape 2.
 
 ## SSR / Next.js / Server Components
 

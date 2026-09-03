@@ -8,8 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { ToggleSwitchGroup },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/interrupteur)
-- [See DSFR demo](https://main--ds-gouv.netlify.app/example/component/toggle/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ToggleSwitchGroup.tsx)`,
     "disabledProps": ["lang"],
     "argTypes": {

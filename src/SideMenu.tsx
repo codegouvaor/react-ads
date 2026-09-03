@@ -8,7 +8,6 @@ import { fr } from "./fr";
 import { cx } from "./tools/cx";
 import { useAnalyticsId } from "./tools/useAnalyticsId";
 
-//https://main--ds-gouv.netlify.app/example/component/sidemenu/
 export type SideMenuProps = {
     id?: string;
     title?: ReactNode;

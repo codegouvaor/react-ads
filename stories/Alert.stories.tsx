@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Alert },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/alerte)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Alert.tsx)
 
 ## Uncontrolled mode  

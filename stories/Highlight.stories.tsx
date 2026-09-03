@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory<HighlightProps>({
     sectionName,
     wrappedComponent: { Highlight },
     description: `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/mise-en-exergue)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Highlight.tsx)`,
     argTypes: {
         size: {

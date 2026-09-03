@@ -9,7 +9,6 @@ import { getLink, type RegisteredLinkProps } from "./link";
 import { cx } from "./tools/cx";
 import { useAnalyticsId } from "./tools/useAnalyticsId";
 
-//https://main--ds-gouv.netlify.app/example/component/tile/
 export type TileProps = {
     id?: string;
     className?: string;

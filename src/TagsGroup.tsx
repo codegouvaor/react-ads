@@ -8,7 +8,6 @@ import { fr } from "./fr";
 
 export type TagsGroupProps = TagsGroupProps.Common;
 
-//https://main--ds-gouv.netlify.app/example/component/tag/#:~:text=Groupe%20de%20tags
 export namespace TagsGroupProps {
     export type Common = {
         id?: string;

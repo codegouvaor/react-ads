@@ -9,14 +9,13 @@ import TechnicalError from "../dist/picto/TechnicalError";
 import { fr } from "../dist";
 import artworkOvoidSvgUrl from "../dist/dsfr/artwork/background/ovoid.svg";
 import artworkTechnicalErrorSvgUrl from "../dist/dsfr/artwork/pictograms/system/technical-error.svg";
+import placeholder_16x9ImgUrl from "./assets/placeholder.16x9.png";
 
 const { meta, getStory } = getStoryFactory({
     sectionName,
     defaultContainerWidth: 360,
     "wrappedComponent": { Card },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/carte)
-- [See DSFR demos](https://main--ds-gouv.netlify.app/example/component/card/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Card.tsx)`,
     "argTypes": {
         "title": { "description": `Required.` },
@@ -124,7 +123,7 @@ const defaultProps = {
         "href": "#"
     },
     "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing, incididunt, ut labore et dolore magna aliqua. Vitae sapien pellentesque habitant morbi tristique senectus et",
-    "imageUrl": "https://www.systeme-de-design.gouv.fr/v1.14/storybook/img/placeholder.16x9.png",
+    "imageUrl": placeholder_16x9ImgUrl,
     "imageAlt": "texte alternatif de l’image"
 };
 

@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { ButtonsGroup },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/groupe-de-boutons)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/ButtonsGroup.tsx)`,
     "argTypes": {
         "inlineLayoutWhen": {

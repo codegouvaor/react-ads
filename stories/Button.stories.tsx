@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Button },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/bouton)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Button.tsx)`,
     "argTypes": {
         "priority": {

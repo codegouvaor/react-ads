@@ -16,7 +16,6 @@ import { cx } from "./tools/cx";
 import { useAnalyticsId } from "./tools/useAnalyticsId";
 import { assert, type Equals } from "tsafe/assert";
 
-//https://main--ds-gouv.netlify.app/example/component/card/
 export type CardProps = {
     id?: string;
     className?: string;

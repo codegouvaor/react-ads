@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     wrappedComponent: { Range },
     description: `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/curseur-range)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Range.tsx)`,
     argTypes: {
         disabled: {

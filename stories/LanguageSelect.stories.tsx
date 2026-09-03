@@ -9,7 +9,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { "LanguageSelect": Story },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/composants-et-modeles/composants/selecteur-de-langue/)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Header/LanguageSelect.tsx)  
   
 
@@ -18,12 +17,12 @@ const { meta, getStory } = getStoryFactory({
 
 \`\`\`tsx  
 
-import { Header as DsfrHeader } from "@codegouvaor/react-ads/Header";
+import { Header as AdsHeader } from "@codegouvaor/react-ads/Header";
 import { LanguageSelect } from "./LanguageSelect";
 
 export function Header() {
     return (
-        <DsfrHeader
+        <AdsHeader
             quickAccessItems={[
                 <LanguageSelect />
             ]}

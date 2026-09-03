@@ -8,7 +8,6 @@ const { meta, getStory } = getStoryFactory({
     sectionName,
     "wrappedComponent": { Checkbox },
     "description": `
-- [See DSFR documentation](https://www.systeme-de-design.gouv.fr/elements-d-interface/composants/case-a-cocher)
 - [See source code](https://github.com/codegouvaor/react-ads/blob/main/src/Checkbox.tsx)`,
     "argTypes": {
         "options": {
