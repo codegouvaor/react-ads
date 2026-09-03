@@ -1,57 +1,62 @@
 name: publish-on-tag
 on:
-  push:
-    tags:
-      - "v*"
+    push:
+        tags:
+            - "v*"
 
 env:
-  PNPM_VERSION: 11.21.0
+    PNPM_VERSION: 11.21.0
 
 jobs:
-  build_and_publish:
-    name: Build and publish on npm
-    if: github.repository == 'codegouvaor/react-ads'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          registry-url: https://registry.npmjs.org/
-          cache: pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Align package.json version with tag
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
-            echo "Tag $GITHUB_REF_NAME does not look like a valid vX.Y.Z version." >&2
-            exit 1
-          fi
-          node -e "const fs=require('fs'); const p='package.json'; const pkg=JSON.parse(fs.readFileSync(p,'utf8')); pkg.version=process.argv[1]; fs.writeFileSync(p, JSON.stringify(pkg, null, 4) + '\n');" "$VERSION"
-          echo "Publishing version $VERSION (from tag $GITHUB_REF_NAME)"
-      - name: Build for publish
-        run: pnpm build --prePublish
-      - name: Enable short npm import paths (subpath exports)
-        run: npx -y -p denoify@1.5.1 enable_short_npm_import_path
-        env:
-          DRY_RUN: "0"
-      - name: Determine npm dist-tag (next for pre-releases)
-        id: dist-tag
-        run: |
-          case "${{ github.ref_name }}" in
-            *-*) echo "dist_tag=next" >> "$GITHUB_OUTPUT" ;;
-            *) echo "dist_tag=latest" >> "$GITHUB_OUTPUT" ;;
-          esac
-      - name: Package validation (dry-run content of the npm tarball)
-        run: pnpm pack --dry-run
-      - name: Publish on npm (public)
-        run: npm publish --provenance --access public --tag ${{ steps.dist-tag.outputs.dist_tag }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    build_and_publish:
+        name: Build and publish (npm + GitHub Packages)
+        if: github.repository == 'codegouvaor/react-ads'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            id-token: write
+            packages: write
+        steps:
+            - uses: actions/checkout@v4
+            - uses: pnpm/action-setup@v4
+              with:
+                  version: ${{ env.PNPM_VERSION }}
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  registry-url: https://registry.npmjs.org/
+                  cache: pnpm
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
+            - name: Align package.json version with tag
+              run: |
+                  VERSION="${GITHUB_REF_NAME#v}"
+                  if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+                    echo "Tag $GITHUB_REF_NAME does not look like a valid vX.Y.Z version." >&2
+                    exit 1
+                  fi
+                  node -e "const fs=require('fs'); const p='package.json'; const pkg=JSON.parse(fs.readFileSync(p,'utf8')); pkg.version=process.argv[1]; fs.writeFileSync(p, JSON.stringify(pkg, null, 4) + '\n');" "$VERSION"
+                  echo "Publishing version $VERSION (from tag $GITHUB_REF_NAME)"
+            - name: Build for publish
+              run: pnpm build --prePublish
+            - name: Enable short npm import paths (subpath exports)
+              run: npx -y -p denoify@1.5.1 enable_short_npm_import_path
+              env:
+                  DRY_RUN: "0"
+            - name: Determine npm dist-tag (next for pre-releases)
+              id: dist-tag
+              run: |
+                  case "${{ github.ref_name }}" in
+                    *-*) echo "dist_tag=next" >> "$GITHUB_OUTPUT" ;;
+                    *) echo "dist_tag=latest" >> "$GITHUB_OUTPUT" ;;
+                  esac
+            - name: Package validation (dry-run content of the npm tarball)
+              run: pnpm pack --dry-run
+            - name: Publish on npm (public)
+              run: npm publish --provenance --access public --tag ${{ steps.dist-tag.outputs.dist_tag }}
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Publish on GitHub Packages
+              run: |
+                  echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> "$HOME/.npmrc"
+                  npm publish --registry=https://npm.pkg.github.com
