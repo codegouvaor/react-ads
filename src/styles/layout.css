@@ -1,0 +1,156 @@
+/**
+ * ADS layout — the government page shell.
+ *
+ * Part of the official Astoria Design System CSS foundation, loaded by
+ * `@codegouvaor/react-ads/main.css`. These primitives are generic and usable by
+ * every ministry: an application should never have to restyle its page shell.
+ *
+ * ```tsx
+ * <div className="gov-page">
+ *     <header>… ADS <Header /> …</header>
+ *     <main className="gov-main" id="contenu">
+ *         <div className="gov-container">
+ *             <div className="gov-page-header">
+ *                 <h1 className="gov-page-title">…</h1>
+ *                 <p className="gov-page-description">…</p>
+ *             </div>
+ *             <section className="gov-section">…</section>
+ *         </div>
+ *     </main>
+ *     <footer>… ADS <Footer /> …</footer>
+ * </div>
+ * ```
+ */
+
+/* ---- Page shell ------------------------------------------------------------ */
+
+.gov-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.gov-main {
+    flex: 1 0 auto;
+}
+
+/* ---- Container ------------------------------------------------------------- */
+
+.gov-container {
+    width: 100%;
+    max-width: var(--ads-breakpoint-xl); /* 75rem — coherent with the ADS xl breakpoint */
+    margin-inline: auto;
+    padding-inline: var(--ads-space-4);
+}
+
+@media (min-width: 48rem) {
+    .gov-container {
+        padding-inline: var(--ads-space-6);
+    }
+}
+
+/* ---- Vertical sections ----------------------------------------------------- */
+
+.gov-section {
+    padding-block: var(--ads-space-6);
+}
+
+.gov-section--subtle {
+    background-color: var(--ads-color-surface-muted);
+}
+
+@media (min-width: 48rem) {
+    .gov-section {
+        padding-block: var(--ads-space-8);
+    }
+}
+
+/* Wide internal container of a section (kept separate from `.gov-container`
+   so a section can host its own centered column). */
+.gov-section__container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: var(--ads-space-4);
+}
+
+/* Section header with an optional action on the right. */
+.gov-section__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--ads-space-4) var(--ads-space-6);
+    margin-bottom: var(--ads-space-5);
+}
+
+.gov-section__header > div:first-child {
+    flex: 1 1 24rem;
+}
+
+.gov-section__title {
+    margin: 0 0 var(--ads-space-3);
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    line-height: var(--ads-line-height-tight);
+    font-weight: var(--ads-font-weight-bold);
+    color: var(--ads-color-text);
+}
+
+.gov-section__subtitle {
+    margin: var(--ads-space-6) 0 var(--ads-space-3);
+    font-size: var(--ads-font-size-xl);
+    line-height: var(--ads-line-height-normal);
+    font-weight: var(--ads-font-weight-bold);
+    color: var(--ads-color-text);
+}
+
+/* ---- Content columns ------------------------------------------------------- */
+
+/* Generic readable content column (editorial width without the prose typography). */
+.gov-content {
+    width: 100%;
+    max-width: 52rem;
+}
+
+/* ---- Page header ----------------------------------------------------------- */
+
+.gov-page-header {
+    padding-block: var(--ads-space-7) var(--ads-space-5);
+    margin-bottom: var(--ads-space-6);
+}
+
+.gov-page-title {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: var(--ads-line-height-heading);
+    font-weight: var(--ads-font-weight-bold);
+    color: var(--ads-color-text);
+}
+
+.gov-page-description {
+    margin: var(--ads-space-3) 0 0;
+    max-width: 52rem;
+    font-size: var(--ads-font-size-lg);
+    line-height: var(--ads-line-height-normal);
+    color: var(--ads-color-text-muted);
+}
+
+/* ---- Section helpers ------------------------------------------------------- */
+
+/* Section introduction paragraph, larger than body text. */
+.gov-lead {
+    margin: 0 0 var(--ads-space-5);
+    max-width: 52rem;
+    font-size: 1.1875rem;
+    line-height: var(--ads-line-height-body);
+}
+
+/* Small uppercase label above a title. */
+.gov-kicker {
+    margin: 0 0 var(--ads-space-2);
+    font-size: 0.85rem;
+    font-weight: var(--ads-font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ads-color-text-muted);
+}

@@ -1,6 +1,6 @@
 {
     "name": "@codegouvaor/react-ads",
-    "version": "0.1.0",
+    "version": "1.0.6",
     "packageManager": "pnpm@11.21.0",
     "description": "Official React implementation of the Astoria Design System (ADS), the design system for the digital ecosystem of the Republic of Astoria.",
     "repository": {

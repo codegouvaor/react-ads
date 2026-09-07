@@ -21,6 +21,7 @@ export * from "./ads";
 // Components — one module per component.
 export { Accordion } from "./Accordion";
 export { Alert } from "./Alert";
+export { BackToTop } from "./BackToTop";
 export { Badge } from "./Badge";
 export { Breadcrumb } from "./Breadcrumb";
 export { ButtonsGroup } from "./ButtonsGroup";

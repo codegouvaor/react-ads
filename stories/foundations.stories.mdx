@@ -1,0 +1,169 @@
+import { Meta } from "@storybook/addon-docs";
+
+import "../dist/main.css";
+import {
+    ColorTokens,
+    TypographyTokens,
+    SpacingTokens,
+    RadiusTokens,
+    ElevationTokens,
+    MotionTokens,
+    FoundationsSection
+} from "./Foundations";
+
+<Meta
+    title="Foundations/Introduction"
+    parameters={{
+        "viewMode": "docs",
+        "previewTabs": {
+            "canvas": { "hidden": true },
+            "zoom": { "hidden": true },
+            "storybook/background": { "hidden": true },
+            "storybook/viewport": { "hidden": true }
+        }
+    }}
+/>
+
+# Foundations — le socle CSS de l'Astoria Design System
+
+Depuis **v1.0.6**, `@codegouvaor/react-ads` fournit la **fondation CSS officielle** du
+système gouvernemental. Une application n'a plus besoin d'un `globals.css` pour ses
+règles communes :
+
+```tsx
+// app/layout.tsx — l'import unique de la fondation
+import "@codegouvaor/react-ads/main.css";
+```
+
+`main.css` charge, dans l'ordre : **tokens → reset → base → typographie → thèmes →
+accessibilité → layout → styles de composants → utilitaires**, puis la feuille
+historique qui style les classes `fr-*` des composants. La fondation est du CSS
+autonome — **Tailwind n'est pas requis** ; les applications restent libres de l'utiliser
+pour leurs layouts métier.
+
+Les valeurs affichées ci-dessous sont lues depuis les variables réellement chargées :
+elles suivent le thème actif (clair / sombre).
+
+<FoundationsSection title="Colors">
+    Tokens sémantiques de couleurs. Ils changent automatiquement avec le thème
+    (`themes.css`). Surchargez-les depuis `:root` de votre application pour ajuster
+    l'identité sans toucher aux composants :
+
+    <ColorTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Typography">
+    Polices, tailles, graisses et interlignes. La graisse et la taille de chaque
+    élément (`h1`…`h6`, `p`, `code`, `pre`…) sont définies dans `typography.css`.
+
+    <TypographyTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Spacing">
+    Échelle d'espacement sur une base de `0.25rem` (4px). Utilisez
+    `var(--ads-space-N)` partout plutôt que des valeurs arbitraires.
+
+    <SpacingTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Radius">
+    <RadiusTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Elevation">
+    Ombres de la hiérarchie d'élévation (boutons, cartes, popovers, modales…).
+
+    <ElevationTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Motion">
+    Durées, courbes et transitions prêtes à l'emploi. Sous
+    `prefers-reduced-motion`, les durées s'effondrent à `1ms` (`tokens.css`).
+    Survolez un échantillon pour voir le mouvement.
+
+    <MotionTokens />
+</FoundationsSection>
+
+<FoundationsSection title="Themes">
+    Les tokens sémantiques basculent avec le thème. Les deux conventions sont
+    supportées, à poser sur `<html>` :
+
+    ```html
+    <html class="dark">…</html>
+    <!-- ou -->
+    <html data-fr-theme="dark">…</html>
+    ```
+
+    Le choix **light / dark / system** est exposé par le composant `Display` (dialog
+    d'affichage du `Header`) et résolu par le runtime (`startReactDsfr`, helpers SSR
+    « early color scheme ») : en mode `system`, le runtime écrit la valeur résolue
+    dans `data-fr-theme`. Sans runtime, le défaut est le thème clair.
+
+    Les règles de `themes.css` ressemblent à :
+
+    ```css
+    .dark,
+    [data-fr-theme="dark"] {
+        --ads-color-background: oklch(0.2002 0 0);
+        /* … */
+    }
+    ```
+</FoundationsSection>
+
+<FoundationsSection title="Layout">
+    Primitives de coquille de page gouvernementale, génériques et utilisables par
+    tous les ministères (`layout.css`) :
+
+    - `.gov-page` — colonne pleine hauteur (`min-height: 100vh`),
+    - `.gov-main` — prend l'espace disponible (footer collé en bas),
+    - `.gov-container` — colonne centrée (largeur max cohérente avec ADS),
+    - `.gov-section` (+ `--subtle`, `__header`, `__title`, `__subtitle`) — rythme
+      vertical des sections,
+    - `.gov-page-header` / `.gov-page-title` / `.gov-page-description`,
+    - `.gov-content`, `.gov-lead`, `.gov-kicker`.
+
+    <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-md)", "overflow": "hidden" }}>
+        <div style={{ "background": "var(--ads-color-surface-muted)", "padding": "0.5rem 1rem", "fontSize": "0.8rem", "color": "var(--ads-color-text-muted)" }}>
+            Schéma — `.gov-page` &gt; `.gov-header-sticky` + `.gov-main` &gt; `.gov-container` + footer
+        </div>
+        <div style={{ "padding": "1rem" }}>
+            <div style={{ "border": "2px dashed var(--ads-color-primary)", "borderRadius": "var(--ads-radius-sm)", "padding": "1rem" }}>
+                <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-sm)", "padding": "0.5rem 1rem", "marginBottom": "1rem", "fontSize": "0.85rem", "color": "var(--ads-color-text-muted)" }}>
+                    &lt;header&gt; — .gov-header-sticky (sticky, z-index 750)
+                </div>
+                <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-sm)", "padding": "1rem" }}>
+                    &lt;main class="gov-main"&gt;
+                    <div style={{ "border": "1px dashed var(--ads-color-border)", "borderRadius": "var(--ads-radius-sm)", "padding": "0.75rem 1rem", "margin": "0.75rem 0" }}>
+                        &lt;div class="gov-container"&gt; — max-width 75rem, centré
+                    </div>
+                    <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-sm)", "padding": "0.75rem 1rem", "margin": "0.75rem 0" }}>
+                        &lt;section class="gov-section"&gt;…&lt;/section&gt;
+                    </div>
+                </div>
+                <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-sm)", "padding": "0.5rem 1rem", "marginTop": "1rem", "fontSize": "0.85rem", "color": "var(--ads-color-text-muted)" }}>
+                    &lt;footer&gt;
+                </div>
+            </div>
+        </div>
+    </div>
+</FoundationsSection>
+
+<FoundationsSection title="Accessibility">
+    Règles communes centralisées (`accessibility.css`) :
+
+    - `:focus-visible` — anneau de focus toujours visible au clavier ;
+    - `.ads-sr-only` — masque visuellement tout en gardant le contenu pour les
+      lecteurs d'écran ;
+    - `.ads-focus-ring`, `.ads-touch-target` — utilitaires ciblés ;
+    - `prefers-reduced-motion` — animations neutralisées, durées à `1ms` ;
+    - `prefers-contrast: more` — focus renforcé ;
+    - états `:disabled` / `[aria-disabled="true"]` cohérents via les tokens.
+
+    <div style={{ "border": "1px solid var(--ads-color-border)", "borderRadius": "var(--ads-radius-md)", "padding": "1rem" }}>
+        <p style={{ "margin": 0 }}>
+            Le texte qui suit est invisible à l'écran mais annoncé par les lecteurs
+            d'écran : <span className="ads-sr-only">« Ceci est un contenu
+            visuellement masqué, réservé aux technologies d'assistance. »</span>
+        </p>
+    </div>
+</FoundationsSection>

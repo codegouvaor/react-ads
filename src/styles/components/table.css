@@ -1,0 +1,89 @@
+/**
+ * ADS table — common table primitives.
+ *
+ * Part of the official Astoria Design System CSS foundation, loaded by
+ * `@codegouvaor/react-ads/main.css`.
+ *
+ * The library ships a <Table /> component (styled by the component layer). For
+ * hand-written tables, wrap the table in a `.gov-table` container (or add the
+ * class to the <table> itself for the plain variant) to get the shared look:
+ * responsive scroll on small screens, hairline rows, readable headers, hover —
+ * all token-driven so dark mode and density come for free.
+ *
+ * ```html
+ * <div class="gov-table">
+ *     <table>
+ *         <caption class="ads-sr-only">…</caption>
+ *         <thead>…</thead>
+ *         <tbody>…</tbody>
+ *     </table>
+ * </div>
+ * ```
+ */
+
+/* Overflow wrapper → the table scrolls horizontally on narrow screens instead of
+   breaking the layout. */
+.gov-table {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gov-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--ads-font-size-sm);
+    line-height: var(--ads-line-height-normal);
+}
+
+/* ---- Header ---------------------------------------------------------------- */
+
+.gov-table :where(th) {
+    text-align: left;
+    padding: var(--ads-space-3) var(--ads-space-4);
+    font-weight: var(--ads-font-weight-bold);
+    color: var(--ads-color-text);
+    border-bottom: 2px solid var(--ads-color-border);
+    white-space: nowrap;
+}
+
+/* ---- Cells ----------------------------------------------------------------- */
+
+.gov-table :where(td) {
+    padding: var(--ads-space-3) var(--ads-space-4);
+    border-bottom: 1px solid var(--ads-color-border);
+    vertical-align: top;
+}
+
+.gov-table :where(tbody tr:last-child td) {
+    border-bottom: 0;
+}
+
+/* Numbers align on the tabular column. */
+.gov-table :where(td, th)[align="right"],
+.gov-table :where(td, th).gov-table--numeric {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Hover / stripes ------------------------------------------------------- */
+
+.gov-table--hover :where(tbody tr:hover) {
+    background-color: var(--ads-color-surface-muted);
+}
+
+/* ---- Density --------------------------------------------------------------- */
+
+.gov-table--dense :where(th, td) {
+    padding: var(--ads-space-2) var(--ads-space-3);
+}
+
+/* ---- Caption --------------------------------------------------------------- */
+
+.gov-table :where(caption) {
+    caption-side: bottom;
+    padding-top: var(--ads-space-3);
+    text-align: left;
+    font-size: var(--ads-font-size-sm);
+    color: var(--ads-color-text-muted);
+}

@@ -1,104 +1,12 @@
 /**
  * ADS design tokens — CSS custom properties.
  *
- * Import once from your application entry point:
+ * Public import path kept for compatibility:
  *
  *     import "@codegouvaor/react-ads/assets/ads/tokens.css";
  *
- * The tokens are then available to any stylesheet (plain CSS, CSS-in-JS, Tailwind…)
- * through var(--ads-*), e.g.
- *
- *     .my-action {
- *         background-color: var(--ads-color-primary);
- *         border-radius: var(--ads-radius-medium);
- *     }
- *
- * ⚠️ The values below are PROVISIONAL working defaults: the official Astoria identity is
- * decided by the Astoria brand/design owners and will override this file without changing
- * the property names. Overriding them from your application is the supported theming
- * mechanism, e.g.
- *
- *     :root {
- *         --ads-color-primary: #yourcolor;
- *     }
+ * The canonical token stylesheet is `src/styles/tokens.css` (part of the official
+ * `main.css` foundation entry). This file re-exports it so both import paths stay
+ * in sync — see the canonical file for the full documentation of the tokens.
  */
-
-:root {
-    /* Colors */
-    --ads-color-primary: #1a5da6;
-    --ads-color-secondary: #5a6570;
-    --ads-color-success: #1f7a4d;
-    --ads-color-warning: #9a6b00;
-    --ads-color-danger: #c03434;
-    --ads-color-info: #2962a8;
-    --ads-color-background: #ffffff;
-    --ads-color-surface: #f4f6f8;
-    --ads-color-surface-muted: #e9edf1;
-    --ads-color-text: #1c232b;
-    --ads-color-text-muted: #5c6670;
-    --ads-color-border: #c9d1d9;
-    --ads-color-focus: #0a68b4;
-    --ads-color-disabled: #9aa3ab;
-    --ads-color-on-primary: #ffffff;
-
-    /* Typography */
-    --ads-font-family-base: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", arial,
-        sans-serif;
-    --ads-font-family-heading: "Segoe UI", system-ui, -apple-system, "Helvetica Neue",
-        arial, sans-serif;
-    --ads-font-size-xs: 0.75rem;
-    --ads-font-size-sm: 0.875rem;
-    --ads-font-size-md: 1rem;
-    --ads-font-size-lg: 1.25rem;
-    --ads-font-size-xl: 1.5rem;
-    --ads-font-weight-regular: 400;
-    --ads-font-weight-medium: 500;
-    --ads-font-weight-bold: 700;
-    --ads-line-height-body: 1.6;
-    --ads-line-height-heading: 1.2;
-
-    /* Spacing (4px base unit) */
-    --ads-space-base: 0.25rem;
-    --ads-space-1: 0.25rem;
-    --ads-space-2: 0.5rem;
-    --ads-space-3: 0.75rem;
-    --ads-space-4: 1rem;
-    --ads-space-5: 1.5rem;
-    --ads-space-6: 2rem;
-    --ads-space-7: 2.5rem;
-    --ads-space-8: 3rem;
-    --ads-space-9: 4rem;
-    --ads-space-10: 5rem;
-    --ads-space-11: 6rem;
-    --ads-space-12: 8rem;
-
-    /* Radius */
-    --ads-radius-none: 0;
-    --ads-radius-small: 0.25rem;
-    --ads-radius-medium: 0.5rem;
-    --ads-radius-large: 1rem;
-    --ads-radius-full: 9999px;
-
-    /* Elevation */
-    --ads-elevation-none: none;
-    --ads-elevation-small: 0 1px 2px rgba(28, 35, 43, 0.08);
-    --ads-elevation-medium: 0 4px 12px rgba(28, 35, 43, 0.12);
-    --ads-elevation-large: 0 12px 32px rgba(28, 35, 43, 0.18);
-
-    /* Motion */
-    --ads-duration-fast: 120ms;
-    --ads-duration-normal: 200ms;
-    --ads-duration-slow: 350ms;
-    --ads-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-    --ads-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
-    --ads-easing-exit: cubic-bezier(0.4, 0, 1, 1);
-}
-
-/* Respect users who prefer reduced motion. */
-@media (prefers-reduced-motion: reduce) {
-    :root {
-        --ads-duration-fast: 1ms;
-        --ads-duration-normal: 1ms;
-        --ads-duration-slow: 1ms;
-    }
-}
+@import url("../../styles/tokens.css");

@@ -1,0 +1,169 @@
+/**
+ * ADS editorial content — `.gov-prose`.
+ *
+ * Part of the official Astoria Design System CSS foundation, loaded by
+ * `@codegouvaor/react-ads/main.css`. Two ministries render the same default
+ * editorial content (law texts, press articles, guides…) by wrapping it in
+ * `.gov-prose`.
+ *
+ * The rules are element-scoped to the `.gov-prose` container and stay
+ * low-specificity, so application-level exceptions keep working.
+ */
+
+.gov-prose {
+    color: var(--ads-color-text);
+    font-size: var(--ads-font-size-md);
+    line-height: var(--ads-line-height-body);
+    max-width: 48rem;
+}
+
+/* ---- Paragraphs ------------------------------------------------------------ */
+
+.gov-prose :where(p) {
+    margin: 0 0 var(--ads-space-4);
+    line-height: var(--ads-line-height-body);
+}
+
+/* ---- Headings -------------------------------------------------------------- */
+
+.gov-prose :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--ads-color-text);
+    font-weight: var(--ads-font-weight-bold);
+}
+
+.gov-prose :where(h1) {
+    margin: 0 0 var(--ads-space-5);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: var(--ads-line-height-heading);
+}
+
+.gov-prose :where(h2) {
+    margin: var(--ads-space-7) 0 var(--ads-space-3);
+    font-size: var(--ads-font-size-2xl);
+    line-height: var(--ads-line-height-tight);
+}
+
+.gov-prose :where(h3) {
+    margin: var(--ads-space-6) 0 var(--ads-space-3);
+    font-size: var(--ads-font-size-xl);
+    line-height: var(--ads-line-height-tight);
+}
+
+.gov-prose :where(h4) {
+    margin: var(--ads-space-5) 0 var(--ads-space-2);
+    font-size: var(--ads-font-size-lg);
+    line-height: var(--ads-line-height-tight);
+}
+
+/* ---- Lists ----------------------------------------------------------------- */
+
+.gov-prose :where(ul, ol) {
+    margin: 0 0 var(--ads-space-4);
+    padding-left: var(--ads-space-5);
+}
+
+.gov-prose :where(li) {
+    margin-block: var(--ads-space-1);
+}
+
+.gov-prose :where(li > ul, li > ol) {
+    margin-bottom: 0;
+}
+
+/* ---- Links ----------------------------------------------------------------- */
+
+.gov-prose :where(a) {
+    color: var(--ads-color-link);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.gov-prose :where(a:hover, a:focus) {
+    color: var(--ads-color-link-hover);
+    background-color: color-mix(in srgb, var(--ads-color-link) 6%, transparent);
+}
+
+/* ---- Blockquotes ----------------------------------------------------------- */
+
+.gov-prose :where(blockquote) {
+    margin: var(--ads-space-5) 0;
+    padding: var(--ads-space-1) var(--ads-space-5);
+    border-left: 3px solid var(--ads-color-border);
+    color: var(--ads-color-text-muted);
+    font-style: italic;
+}
+
+.gov-prose :where(blockquote p:last-child) {
+    margin-bottom: 0;
+}
+
+/* ---- Code ------------------------------------------------------------------ */
+
+.gov-prose :where(code) {
+    font-family: var(--ads-font-family-mono);
+    font-size: 0.9em;
+    background-color: var(--ads-color-surface-muted);
+    padding: 0.125em 0.375em;
+    border-radius: var(--ads-radius-small);
+}
+
+.gov-prose :where(pre) {
+    margin: var(--ads-space-4) 0;
+    padding: var(--ads-space-4);
+    font-family: var(--ads-font-family-mono);
+    font-size: var(--ads-font-size-sm);
+    line-height: var(--ads-line-height-relaxed);
+    background-color: var(--ads-color-surface-muted);
+    border-radius: var(--ads-radius-medium);
+    overflow-x: auto;
+    color: var(--ads-color-text);
+}
+
+.gov-prose :where(pre code) {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+}
+
+/* ---- Tables ----------------------------------------------------------------- */
+
+.gov-prose :where(table) {
+    width: 100%;
+    margin: 0 0 var(--ads-space-5);
+    border-collapse: collapse;
+    font-size: var(--ads-font-size-sm);
+}
+
+.gov-prose :where(th, td) {
+    padding: var(--ads-space-3);
+    border-bottom: 1px solid var(--ads-color-border);
+    vertical-align: top;
+}
+
+.gov-prose :where(th) {
+    text-align: left;
+    font-weight: var(--ads-font-weight-bold);
+    border-bottom-width: 2px;
+}
+
+/* ---- Images & captions ------------------------------------------------------ */
+
+.gov-prose :where(img) {
+    border-radius: var(--ads-radius-medium);
+}
+
+.gov-prose :where(figure) {
+    margin: var(--ads-space-5) 0;
+}
+
+.gov-prose :where(figcaption) {
+    margin-top: var(--ads-space-2);
+    font-size: var(--ads-font-size-sm);
+    color: var(--ads-color-text-muted);
+}
+
+.gov-prose :where(hr) {
+    margin-block: var(--ads-space-6);
+    border: 0;
+    border-top: 1px solid var(--ads-color-border);
+}

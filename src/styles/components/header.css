@@ -1,0 +1,28 @@
+/**
+ * ADS header — generic rules around the institutional <Header />.
+ *
+ * Part of the official Astoria Design System CSS foundation, loaded by
+ * `@codegouvaor/react-ads/main.css`.
+ *
+ * The <Header /> component itself is styled by the component layer shipped with the
+ * library (legacy stylesheet + `astoria-identity.css`, imported by the component).
+ * This file adds the shell patterns that applications used to duplicate:
+ */
+
+/*
+ * Sticky header shell — the content scrolls underneath.
+ * `position: sticky` keeps the header's layout slot so nothing jumps when it
+ * sticks. The wrapper carries an opaque surface so no scrolled content shows
+ * through, and a z-index above the page content yet below the ADS overlays
+ * (modals start at ground + 2000).
+ *
+ *     <div className="gov-header-sticky">
+ *         <Header … />
+ *     </div>
+ */
+.gov-header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 750;
+    background-color: var(--ads-color-background);
+}

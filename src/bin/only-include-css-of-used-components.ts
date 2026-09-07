@@ -264,7 +264,10 @@ export const DSFR_COMPONENT_DETECTION_CLASS_PREFIXES: Record<DsfrComponentName, 
  * (hooks, utilities, integration helpers, assets...).
  */
 const NON_COMPONENT_MODULE_IDS = new Set<string>([
-    "ads", // ADS foundations (design tokens): no DSFR markup.
+    // ADS foundations (design tokens, BackToTop bubble): no DSFR component markup
+    // (BackToTop only uses an icon glyph from the always-included icon font).
+    "ads",
+    "BackToTop",
     "fr",
     "i18n",
     "spa",
