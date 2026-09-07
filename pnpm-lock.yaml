@@ -28,8 +28,8 @@ importers:
         specifier: 1.14.2
         version: 1.14.2
       '@gouvfr/dsfr-chart':
-        specifier: ^1.0.0
-        version: 1.0.0(webpack@5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3))
+        specifier: ^2.1.1
+        version: 2.1.1
       '@mui/icons-material':
         specifier: ^5.14.18
         version: 5.18.0(@mui/material@5.18.0(@emotion/react@11.14.0(@types/react@18.0.21)(react@18.2.0)(supports-color@8.1.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.0.21)(react@18.2.0)(supports-color@8.1.1))(@types/react@18.0.21)(react@18.2.0)(supports-color@8.1.1))(@types/react@18.0.21)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@types/react@18.0.21)(react@18.2.0)
@@ -1046,8 +1046,9 @@ packages:
   '@gar/promisify@1.1.3':
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
 
-  '@gouvfr/dsfr-chart@1.0.0':
-    resolution: {integrity: sha512-VzzLHNpGnjEVZHKq0F+KFlIuAEwz5x5PMBT44IFTKkY9iXqnderfMsZYlQBwdy+q1ReQumhEfUFXSnMzyEro+A==}
+  '@gouvfr/dsfr-chart@2.1.1':
+    resolution: {integrity: sha512-+d31EVpxqfA/O5xrPZzOTF8C4usHCVmt+fk00twyMyDp8Tpcz8J7hP4s4a6M+OgkOwnOriRoV5ET55gJmWoIZA==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
 
   '@gouvfr/dsfr@1.14.2':
     resolution: {integrity: sha512-EJ/ZZMLmSN4KISuuXp0X0lGf+gKVqYATyqgcM5IPhMQAkJ8s5pjzvthjv+Hu6zYk4jwf2NRVt+jQz7JRpw1yiA==}
@@ -2742,18 +2743,6 @@ packages:
   character-reference-invalid@1.1.4:
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
 
-  chart.js@2.9.4:
-    resolution: {integrity: sha512-B07aAzxcrikjAPyV+01j7BmOpxtQETxTSlQ26BEYJ+3iUkbNKaOJ/nDbT6JjyqYxseM0ON12COHYdU2cTIjC7A==}
-
-  chartjs-color-string@0.6.0:
-    resolution: {integrity: sha512-TIB5OKn1hPJvO7JcteW4WY/63v6KwEdt6udfnDE9iCAZgy+V4SrbSxoIbTw/xkUIapjEI4ExGtD0+6D3KyFd7A==}
-
-  chartjs-color@2.4.1:
-    resolution: {integrity: sha512-haqOg1+Yebys/Ts/9bLo/BqUcONQOdr/hoEr2LLTRl6C5LXctUdHxsCYfvQVg5JIxITrfCNUDr4ntqmQk9+/0w==}
-
-  chartjs-plugin-annotation@0.5.7:
-    resolution: {integrity: sha512-tKN5KLc69unyZGTvSdhVQEyAOhVNnSkFCCgefZhO4UaqFfABZGFU/d9p6WM2KB0eXFs/rR3Jayh7dvyASC7K0A==}
-
   check-error@1.0.3:
     resolution: {integrity: sha512-iKEoDYaRmd1mxM90a2OEfWhjsjPpYPuQ+lMYsoxB126+t8fw7ySEO48nmDg5COTjxDI65/Y2OWpeEHk3ZOe8zg==}
 
@@ -2774,12 +2763,6 @@ packages:
   chownr@2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
-
-  chroma-js@2.1.2:
-    resolution: {integrity: sha512-ri/ouYDWuxfus3UcaMxC1Tfp3IE9K5iQzxc2hSxbBRVNQFut1UuGAsZmiAf2mOUubzGJwgMSv9lHg+XqLaz1QQ==}
-
-  chroma@0.0.1:
-    resolution: {integrity: sha512-spXrvnDrn4IKEN/s0G9vri2+GGZhB15bDU22bbPRnOSEnkGgzGVSFoj/2TeRO5PBysOI4bcHor/8wIamocN09A==}
 
   chromatic@6.24.1:
     resolution: {integrity: sha512-XbpdWWHvFpEHtcq1Km71UcuQ07effB+8q8L47E1Y7HJmJ4ZCoKCuPd8liNrbnvwEAxqfBZvTcONYU/3BPz2i5w==}
@@ -3009,11 +2992,6 @@ packages:
   create-require@1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
 
-  cross-env@6.0.3:
-    resolution: {integrity: sha512-+KqxF6LCvfhWvADcDPqo64yVIB31gv/jQulX2NGzKS/g3GEVz6/pt4wjHFtFWsHMddebWD/sDthJemzM4MaAag==}
-    engines: {node: '>=8.0'}
-    hasBin: true
-
   cross-spawn@6.0.6:
     resolution: {integrity: sha512-VqCUuhcd1iB+dsv8gxPttb5iZh/D0iubSP21g36KXdEuf6I5JiioesUVjpCdHV9MZRUfVFlvwtIUyPfxo5trtw==}
     engines: {node: '>=4.8'}
@@ -3081,34 +3059,6 @@ packages:
 
   cyclist@1.0.2:
     resolution: {integrity: sha512-0sVXIohTfLqVIW3kb/0n6IiWF3Ifj5nm2XaSrLq2DI6fKIGa2fYAZdk917rUneaeLVpYfFcyXE2ft0fe3remsA==}
-
-  d3-array@3.2.4:
-    resolution: {integrity: sha512-tdQAmyA18i4J7wprpYq8ClcxZy3SC31QMeByyCFyRt7BVHdREQZ5lpzoe5mFEYZUWe+oq8HBvk9JjpibyEV4Jg==}
-    engines: {node: '>=12'}
-
-  d3-color@3.1.0:
-    resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
-    engines: {node: '>=12'}
-
-  d3-format@3.1.2:
-    resolution: {integrity: sha512-AJDdYOdnyRDV5b6ArilzCPPwc1ejkHcoyFarqlPqT7zRYjhavcT3uSrqcMvsgh2CgoPbK3RCwyHaVyxYcP2Arg==}
-    engines: {node: '>=12'}
-
-  d3-interpolate@3.0.1:
-    resolution: {integrity: sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==}
-    engines: {node: '>=12'}
-
-  d3-scale@4.0.2:
-    resolution: {integrity: sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ==}
-    engines: {node: '>=12'}
-
-  d3-time-format@4.1.0:
-    resolution: {integrity: sha512-dJxPBlzC7NugB2PDLwo9Q8JiTR3M3e4/XANkreKSUxF8vvXKqm1Yfq4Q5dl8budlunRVlUUaDUgFt7eA8D6NLg==}
-    engines: {node: '>=12'}
-
-  d3-time@3.1.0:
-    resolution: {integrity: sha512-VqKjzBLejbSMT4IgbmVgDjpkYrNWUYJnbCGo874u7MMKIWsILRX+OpX/gTk8MqjpT1A/c6HY2dCA77ZN0lkQ2Q==}
-    engines: {node: '>=12'}
 
   d@1.0.2:
     resolution: {integrity: sha512-MOqHvMWF9/9MX6nza0KgvFH4HpMU0EF5uUDXqX/BtxtU8NfB0QzRtJ8Oe/6SuS4kbhyzVJwjd97EA4PKrzJ8bw==}
@@ -3325,8 +3275,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.420:
-    resolution: {integrity: sha512-2yD6XreGusOfNV+dUcvipJEXc3n/n7fgr7996aszTG+YY5E4mqM4tOq/3uhP129cazL9YHbVWSpc79ePotWtPA==}
+  electron-to-chromium@1.5.417:
+    resolution: {integrity: sha512-4T+DTDWuMPM4aHlHwWdAVCVWwp7LDilnhzkj+c/Lbj91XSQrLuOmZSLtS9Q4iIqjlPUbPOnC624zDVVHCHaolQ==}
 
   element-resize-detector@1.2.4:
     resolution: {integrity: sha512-Fl5Ftk6WwXE0wqCgNoseKWndjzZlDCwuPTcoVZfCP9R3EHQF8qUtr3YUPNETegRBOKqQKPW3n4kiIWngGi8tKg==}
@@ -4301,10 +4251,6 @@ packages:
     resolution: {integrity: sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==}
     engines: {node: '>= 0.4'}
 
-  internmap@2.0.3:
-    resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
-    engines: {node: '>=12'}
-
   interpret@2.2.0:
     resolution: {integrity: sha512-Ju0Bz/cEia55xDwUWEa8+olFpCiQoypjnQySseKtmjNrnps3P+xfpUmGr90T7yjlVJmOtybRvPXhKMbHr+fWnw==}
     engines: {node: '>= 0.10'}
@@ -5119,12 +5065,6 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  mobile-device-detect@0.4.3:
-    resolution: {integrity: sha512-SN9EBE9SoJgkb83kuUVoIp3R9OGYE5dYEnLEz2oLooh0DzgtQ72BJmpNGqrgFvmfE4iLR2CaVJ3RjUcStheVZg==}
-
-  moment@2.30.1:
-    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
-
   move-concurrently@1.0.1:
     resolution: {integrity: sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ==}
     deprecated: This package is no longer supported.
@@ -5517,9 +5457,6 @@ packages:
 
   pathval@1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
-
-  patternomaly@1.3.2:
-    resolution: {integrity: sha512-70UhA5+ZrnNgdfDBKXIGbMHpP+naTzfx9vPT4KwIdhtWWs0x6FWZRJQMXXhV2jcK0mxl28FA/2LPAKArNG058Q==}
 
   pbkdf2@3.1.6:
     resolution: {integrity: sha512-BT6eelPB1EyGHo8pC0o9Bl6k6SYVhKO1jEbd3lcTrtr7XHdjP8BW1YpfCV3G9Kwkxgattk+S5q2/RvuttCsS1g==}
@@ -6093,22 +6030,6 @@ packages:
     engines: {node: 6.* || 8.* || >= 10.*}
     deprecated: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added
     hasBin: true
-
-  sass-loader@10.5.2:
-    resolution: {integrity: sha512-vMUoSNOUKJILHpcNCCyD23X34gve1TS7Rjd9uXHeKqhvBG39x6XbswFDtpbTElj6XdMFezoWhkh5vtKudf2cgQ==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      fibers: '>= 3.1.0'
-      node-sass: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
-      sass: ^1.3.0
-      webpack: ^4.36.0 || ^5.0.0
-    peerDependenciesMeta:
-      fibers:
-        optional: true
-      node-sass:
-        optional: true
-      sass:
-        optional: true
 
   sass@1.103.1:
     resolution: {integrity: sha512-9icZURbP51S6S0QGoyaeqk9uB06GNWxsFYWfH5RgpFgqK5FA8tJcM3AdVxrZEVJ7dz+L87nG95gBKf4VuaMHGw==}
@@ -7078,18 +6999,9 @@ packages:
   vm-browserify@1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
 
-  vue-custom-element@3.3.0:
-    resolution: {integrity: sha512-ePuy1EDDJd9/piwXLwsCyMQ964HsdhXPzypM9OX0r4JBa20EVN28U7RXeTWwXkoFKim/b3sP7xT2NEM0Di6tUQ==}
-    engines: {node: '>= 4.0.0', npm: '>= 3.0.0'}
-
   vue@2.7.16:
     resolution: {integrity: sha512-4gCtFXaAA3zYZdTp5s4Hl2sozuySsgz4jy1EnpBHNfpMa9dK1ZCG7viqBPCwXtmgc8nHqUsAu3G4gtmXkkY3Sw==}
     deprecated: Vue 2 has reached EOL and is no longer actively maintained. See https://v2.vuejs.org/eol/ for more details.
-
-  vuex@3.6.2:
-    resolution: {integrity: sha512-ETW44IqCgBpVomy520DT5jf8n0zoCac+sxWnn+hMe/CzaSejb/eVw2YToiXYX+Ex/AuHHia28vWTq4goAexFbw==}
-    peerDependencies:
-      vue: ^2.0.0
 
   w3c-xmlserializer@5.0.0:
     resolution: {integrity: sha512-o8qghlI8NZHU1lLPrpi2+Uq7abh4GGPpYANlalzWxyWteJOCsr/P+oPBA49TOLu5FTZO4d3F9MnWJfiMo4BkmA==}
@@ -8487,25 +8399,7 @@ snapshots:
 
   '@gar/promisify@1.1.3': {}
 
-  '@gouvfr/dsfr-chart@1.0.0(webpack@5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3))':
-    dependencies:
-      chart.js: 2.9.4
-      chartjs-plugin-annotation: 0.5.7
-      chroma: 0.0.1
-      chroma-js: 2.1.2
-      core-js: 3.50.0
-      d3-scale: 4.0.2
-      mobile-device-detect: 0.4.3
-      patternomaly: 1.3.2
-      sass: 1.103.1
-      sass-loader: 10.5.2(sass@1.103.1)(webpack@5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3))
-      vue: 2.7.16
-      vue-custom-element: 3.3.0
-      vuex: 3.6.2(vue@2.7.16)
-    transitivePeerDependencies:
-      - fibers
-      - node-sass
-      - webpack
+  '@gouvfr/dsfr-chart@2.1.1': {}
 
   '@gouvfr/dsfr@1.14.2': {}
 
@@ -10253,6 +10147,7 @@ snapshots:
       source-map: 0.6.1
     optionalDependencies:
       prettier: 2.8.8
+    optional: true
 
   '@webassemblyjs/ast@1.14.1':
     dependencies:
@@ -10957,7 +10852,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.20
       caniuse-lite: 1.0.30001810
-      electron-to-chromium: 1.5.420
+      electron-to-chromium: 1.5.417
       node-releases: 2.0.54
       update-browserslist-db: 1.3.2(browserslist@4.28.8)
 
@@ -11129,24 +11024,6 @@ snapshots:
 
   character-reference-invalid@1.1.4: {}
 
-  chart.js@2.9.4:
-    dependencies:
-      chartjs-color: 2.4.1
-      moment: 2.30.1
-
-  chartjs-color-string@0.6.0:
-    dependencies:
-      color-name: 1.1.4
-
-  chartjs-color@2.4.1:
-    dependencies:
-      chartjs-color-string: 0.6.0
-      color-convert: 1.9.3
-
-  chartjs-plugin-annotation@0.5.7:
-    dependencies:
-      chart.js: 2.9.4
-
   check-error@1.0.3:
     dependencies:
       get-func-name: 2.0.2
@@ -11185,16 +11062,11 @@ snapshots:
   chokidar@5.0.0:
     dependencies:
       readdirp: 5.1.1
+    optional: true
 
   chownr@1.1.4: {}
 
   chownr@2.0.0: {}
-
-  chroma-js@2.1.2:
-    dependencies:
-      cross-env: 6.0.3
-
-  chroma@0.0.1: {}
 
   chromatic@6.24.1: {}
 
@@ -11436,10 +11308,6 @@ snapshots:
 
   create-require@1.1.1: {}
 
-  cross-env@6.0.3:
-    dependencies:
-      cross-spawn: 7.0.6
-
   cross-spawn@6.0.6:
     dependencies:
       nice-try: 1.0.5
@@ -11553,34 +11421,6 @@ snapshots:
     optional: true
 
   cyclist@1.0.2: {}
-
-  d3-array@3.2.4:
-    dependencies:
-      internmap: 2.0.3
-
-  d3-color@3.1.0: {}
-
-  d3-format@3.1.2: {}
-
-  d3-interpolate@3.0.1:
-    dependencies:
-      d3-color: 3.1.0
-
-  d3-scale@4.0.2:
-    dependencies:
-      d3-array: 3.2.4
-      d3-format: 3.1.2
-      d3-interpolate: 3.0.1
-      d3-time: 3.1.0
-      d3-time-format: 4.1.0
-
-  d3-time-format@4.1.0:
-    dependencies:
-      d3-time: 3.1.0
-
-  d3-time@3.1.0:
-    dependencies:
-      d3-array: 3.2.4
 
   d@1.0.2:
     dependencies:
@@ -11824,7 +11664,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.420: {}
+  electron-to-chromium@1.5.417: {}
 
   element-resize-detector@1.2.4:
     dependencies:
@@ -13056,7 +12896,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
-  immutable@5.1.9: {}
+  immutable@5.1.9:
+    optional: true
 
   import-fresh@3.3.1:
     dependencies:
@@ -13090,8 +12931,6 @@ snapshots:
       es-errors: 1.3.0
       hasown: 2.0.4
       side-channel: 1.1.1
-
-  internmap@2.0.3: {}
 
   interpret@2.2.0: {}
 
@@ -13932,10 +13771,6 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  mobile-device-detect@0.4.3: {}
-
-  moment@2.30.1: {}
-
   move-concurrently@1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -14386,8 +14221,6 @@ snapshots:
 
   pathval@1.1.1: {}
 
-  patternomaly@1.3.2: {}
-
   pbkdf2@3.1.6:
     dependencies:
       create-hash: 1.2.0
@@ -14814,7 +14647,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.2
 
-  readdirp@5.1.1: {}
+  readdirp@5.1.1:
+    optional: true
 
   redent@1.0.0:
     dependencies:
@@ -15067,17 +14901,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  sass-loader@10.5.2(sass@1.103.1)(webpack@5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3)):
-    dependencies:
-      klona: 2.0.6
-      loader-utils: 2.0.4
-      neo-async: 2.6.2
-      schema-utils: 3.3.0
-      semver: 7.8.5
-      webpack: 5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3)
-    optionalDependencies:
-      sass: 1.103.1
-
   sass@1.103.1:
     dependencies:
       chokidar: 5.0.0
@@ -15085,6 +14908,7 @@ snapshots:
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.6.0
+    optional: true
 
   sax@1.6.1: {}
 
@@ -16115,16 +15939,11 @@ snapshots:
 
   vm-browserify@1.1.2: {}
 
-  vue-custom-element@3.3.0: {}
-
   vue@2.7.16:
     dependencies:
       '@vue/compiler-sfc': 2.7.16
       csstype: 3.2.3
-
-  vuex@3.6.2(vue@2.7.16):
-    dependencies:
-      vue: 2.7.16
+    optional: true
 
   w3c-xmlserializer@5.0.0:
     dependencies:
