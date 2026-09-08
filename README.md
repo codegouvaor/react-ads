@@ -24,12 +24,15 @@
 tree-shakable React components **and the official CSS foundation** for the web
 services, portals and applications of the Astoria government.
 
-> **Status: `1.0.6`.** Since 1.0.6 the package ships the official Astoria Design System
+> **Status: `1.0.7`.** Since 1.0.6 the package ships the official Astoria Design System
 > CSS foundation (`@codegouvaor/react-ads/main.css`): tokens, reset, base, typography,
 > themes (light/dark/system), accessibility, government layout primitives, editorial
-> content and utilities. A government application imports the foundation once and no
-> longer maintains a government-wide `globals.css` of its own — the application only
-> keeps its business CSS. The project is a fork of the French `react-dsfr` library
+> content and utilities. **Since 1.0.7 it also ships the ADS Native Foundation
+> (`@codegouvaor/react-ads/native`):** the first official React Native / Expo layer of
+> ADS, sharing the same tokens and conventions with the web implementation without
+> depending on the DOM/CSS stack. A government application imports the foundation once
+> and no longer maintains a government-wide `globals.css` of its own — the application
+> only keeps its business CSS. The project is a fork of the French `react-dsfr` library
 > being transformed into an independent design system; the migration state and what
 > still comes from the upstream DSFR stylesheet are documented in
 > [AUDIT.md](AUDIT.md), [MIGRATION.md](MIGRATION.md) and [PROVENANCE.md](PROVENANCE.md).
@@ -41,6 +44,7 @@ services, portals and applications of the Astoria government.
 -   [Quick start](#quick-start)
 -   [CSS foundation](#css-foundation)
 -   [Components](#components)
+-   [Native — React Native / Expo](#native--react-native--expo)
 -   [SSR / Next.js / Server Components](#ssr--nextjs--server-components)
 -   [Design tokens](#design-tokens)
 -   [Layout primitives](#layout-primitives)
@@ -188,6 +192,114 @@ components (`Chart/*`, optional `@gouvfr/dsfr-chart` peer).
 > `AgentConnectButton`, `ProConnectButton`, `MonCompteProButton`, `eulerianAnalytics`)
 > have been removed — see [CHANGELOG.md](CHANGELOG.md) and [MIGRATION.md](MIGRATION.md)
 > §Stage 2.
+
+## Native — React Native / Expo
+
+**`@codegouvaor/react-ads/native` is the official native support of ADS** (the
+**ADS Native Foundation**, introduced in 1.0.7). It lets React Native / Expo
+applications of the Astorian government (MyGouv Mobile, Économie Mobile,
+Éducation Mobile, …) use ADS as their shared native UI layer:
+
+```text
+               Astoria Design System
+                        │
+         ┌──────────────┴──────────────┐
+         │                             │
+     Web / React                 Native / React Native
+         │                             │
+@codegouvaor/               @codegouvaor/
+  react-ads                   react-ads/native
+         │                             │
+      Browser                      iOS / Android
+```
+
+The native layer shares the **ADS tokens and conventions** with the web
+implementation but is **not a port of the DOM/CSS components**: it is built on
+React Native primitives (`View`, `Text`, `Pressable`, `TextInput`, `Modal`,
+`FlatList`, …). It never imports the web/DOM stack, and the web bundle never
+imports the native layer.
+
+### Installation
+
+```bash
+npm install @codegouvaor/react-ads react-native
+```
+
+`react-native` is an optional peer dependency of the package (required only by
+the native entry, never by the web entry).
+
+### Usage
+
+```tsx
+import {
+  Button,
+  Card,
+  Heading,
+  Text,
+} from "@codegouvaor/react-ads/native";
+
+export function ExampleScreen() {
+  return (
+    <View>
+      <Heading>Mon espace MyGouv</Heading>
+      <Card>
+        <Text>Retrouvez vos services et démarches administratives.</Text>
+        <Button>Continuer</Button>
+      </Card>
+    </View>
+  );
+}
+```
+
+Metro resolves `@codegouvaor/react-ads/native` directly to the compiled native
+entry — no web code is pulled into an Expo bundle.
+
+### Components (ADS Native Foundation)
+
+-   **Foundations** — `Text`, `Heading`, `Icon`, `Divider`, `Stack`, `Container`.
+-   **Actions** — `Button`, `IconButton`, `Link`.
+-   **Forms** — `Input`, `TextArea`, `Checkbox`, `Radio`, `RadioGroup`, `Switch`, `Select`.
+-   **Feedback** — `Alert`, `Badge`, `Status`, `Progress`, `Loading`.
+-   **Layout / content** — `Card`, `List`, `ListItem`, `Section`, `Avatar`.
+-   **Navigation primitives (graphical only)** — `Header`, `TabBar`, `NavItem`.
+    ADS provides the graphics, **not a router**: routing stays in Expo Router or
+    React Navigation.
+-   **Government components** — `ServiceCard`, `ProcedureCard`, `DocumentCard`,
+    `NotificationCard`, `IdentityBadge`, `StatusBadge`, `GovernmentBanner`.
+    Generic across applications, no MyGouv-specific logic.
+
+### Tokens & theme
+
+Native tokens mirror the web ADS token contract (colors, typography, spacing,
+radius, elevation, dimensions, motion) with concrete values consumable by React
+Native styles:
+
+```tsx
+import { adsTokens } from "@codegouvaor/react-ads/native";
+
+adsTokens.spacing.md; // 16
+adsTokens.dimensions.touchTarget; // 44
+```
+
+Components are themed through the provider (defaults to the Astoria palette and
+to the system color scheme when no provider is present):
+
+```tsx
+import { ADSProvider } from "@codegouvaor/react-ads/native";
+
+<ADSProvider colorScheme="system">
+  <App />
+</ADSProvider>
+```
+
+### Accessibility & touch
+
+Native components ship with accessibility baked in (`accessibilityLabel`,
+`accessibilityHint`, `accessibilityRole`, `accessibilityState`, disabled/loading
+states announced to assistive technologies) and mobile-adapted **touch targets**
+(≥ 44 pt on interactive controls) — see [Accessibility](#accessibility).
+
+A complete consumption example lives in [`examples/native`](examples/native).
 
 ## SSR / Next.js / Server Components
 
@@ -374,6 +486,8 @@ src/
 │   │                  #  components/…) — published and loaded by main.css
 ├── assets/            # static assets shipped with the package
 ├── ads/               # ADS foundations: token contracts (colors, type, space, …)
+├── native/            # ADS Native Foundation (React Native / Expo) — published as
+│   │                  #  @codegouvaor/react-ads/native, no DOM/CSS dependency
 ├── fr/                # token helpers (legacy namespace, renamed with the CSS layer)
 ├── BackToTop.tsx      # floating "back to top" button (styles in styles/components/)
 ├── <Component>.tsx    # one module per component — subpath imports, tree-shakable

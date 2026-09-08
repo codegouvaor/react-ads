@@ -268,6 +268,12 @@ const NON_COMPONENT_MODULE_IDS = new Set<string>([
     // (BackToTop only uses an icon glyph from the always-included icon font).
     "ads",
     "BackToTop",
+    // ADS CSS foundation stylesheets (styles/*): the ADS layer replaces DSFR,
+    // it never renders DSFR component markup.
+    "styles",
+    // ADS Native (native/*): React Native implementation — no DSFR markup, and
+    // must never be pulled into the web CSS optimizer.
+    "native",
     "fr",
     "i18n",
     "spa",

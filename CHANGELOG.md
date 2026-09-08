@@ -11,8 +11,46 @@ project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+### Added
+
+- **ADS Native Foundation — official React Native / Expo support.** New public
+  entry `@codegouvaor/react-ads/native` (`src/native/`) implementing the Astoria
+  Design System on React Native primitives (`View`, `Text`, `Pressable`,
+  `TextInput`, `Modal`, `FlatList`, …). The native layer shares the ADS tokens
+  and conventions with the web implementation, never imports the DOM/CSS stack,
+  and is never pulled into the web bundle.
+  - **Native tokens** — colors (light + dark), typography, spacing (`xs`–`xl`),
+    radius (`sm`–`lg`/`full`), elevation (iOS shadow + Android elevation),
+    dimensions (touch targets ≥ 44 pt, control heights, gutters), motion.
+  - **Theme** — `ADSProvider`, `useADSTheme` with `light`/`dark`/`system` color
+    scheme, token overrides and an overridable icon renderer.
+  - **Primitives** — `Text`, `Heading`, `Icon`, `Divider`, `Stack`, `Container`.
+  - **Actions** — `Button`, `IconButton`, `Link`.
+  - **Forms** — `Input`, `TextArea`, `Checkbox`, `Radio`, `RadioGroup`,
+    `Switch`, `Select`.
+  - **Feedback** — `Alert`, `Badge`, `Status`, `Progress`, `Loading`.
+  - **Layout / content** — `Card`, `List`, `ListItem`, `Section`, `Avatar`.
+  - **Navigation primitives (graphical only, no router)** — `Header`, `TabBar`,
+    `NavItem`.
+  - **Government components** — `ServiceCard`, `ProcedureCard`, `DocumentCard`,
+    `NotificationCard`, `IdentityBadge`, `StatusBadge`, `GovernmentBanner`
+    (generic across applications).
+  - **Accessibility & touch** — `accessibilityLabel`/`Hint`/`Role`/`State`,
+    disabled and loading states announced to assistive technologies, thumb-sized
+    touch targets.
+- Runtime tests for the native layer (tokens, component rendering with a mocked
+  React Native, exports, module resolution/isolation) — see
+  `test/runtime/native/`.
+- `examples/native/ExampleScreen.tsx` — a minimal Expo consumption example
+  (demonstration only, no MyGouv logic).
+- `react-native` registered as an optional peer dependency (web consumers are
+  unaffected).
+
 ### Changed
 
+- Package version bumped to `1.0.7`.
+- The component CSS optimizer module map now treats `native` and `styles` as
+  non-DSFR modules (neither renders DSFR component markup).
 - **Breaking — `Header` reworked into the institutional header of the Republic of
   Astoria.** The `brandTop` and `operatorLogo` props are replaced by a single `identity`
   prop describing the national identity (official flag/emblem lockup as an image, with
