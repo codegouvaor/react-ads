@@ -144,6 +144,11 @@ describe("ADS CSS foundation", () => {
             "./styles/components/table.css",
             "./styles/components/prose.css",
             "./styles/components/back-to-top.css",
+            "./styles/components/ads-layout.css",
+            "./styles/components/ads-typography.css",
+            "./styles/components/ads-card.css",
+            "./styles/components/ads-portal.css",
+            "./styles/components/ads-search.css",
             "./styles/utilities.css",
             "./dsfr/utility/icons/icons.min.css",
             "./dsfr/dsfr.css"

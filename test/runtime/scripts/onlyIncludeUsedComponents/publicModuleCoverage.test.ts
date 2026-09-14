@@ -186,13 +186,39 @@ describe("REACT_DSFR_MODULE_TO_DSFR_COMPONENTS exhaustiveness", () => {
         expect(subpaths.some(subpath => subpath.startsWith("bin"))).toBe(false);
     });
 
-    it("has no package.json exports field to compare against", () => {
-        // The premise of the enumeration above. If an `exports` map is ever added, this
-        // fails and the public subpaths must be read from it instead of from src/.
+    it("public subpaths are reachable through the package.json exports map", () => {
+        // The premise of the enumeration above used to be "no exports field". An exports
+        // map was added to isolate the server-only Discord integration behind the
+        // dedicated subpath. It uses a `./*` wildcard that keeps every `src/` subpath
+        // importable, so the src/-based enumeration stays the source of truth — but we
+        // still guard that the wildcard exists and that the special subpaths (Discord,
+        // the CSS entries) are explicitly exposed, so the isolation contract holds.
         const packageJsonParsed = JSON.parse(
             fs.readFileSync(pathJoin(projectRootDirPath, "package.json")).toString("utf8")
         );
 
-        expect(packageJsonParsed["exports"]).toBe(undefined);
+        const exports = packageJsonParsed["exports"] as Record<string, unknown>;
+
+        expect(exports).toBeDefined();
+
+        // Every enumerated src/ subpath is reachable through the `./*` wildcard.
+        const wildcard = exports["./*"];
+        expect(wildcard).toBeDefined();
+
+        for (const subpath of getPublicSubpaths()) {
+            expect(
+                Object.keys(exports).includes(`./${subpath}`) || exports["./*"] !== undefined,
+                `src/${subpath} must be reachable via an explicit export or the ./ wildcard`
+            ).toBe(true);
+        }
+
+        // The Discord integration is only reachable through its dedicated subpaths.
+        expect(exports["./discord"]).toBeDefined();
+        expect(exports["./discord/server"]).toBeDefined();
+
+        // CSS / runtime entries stay importable.
+        expect(exports["./main.css"]).toBeDefined();
+        expect(exports["./early-color-scheme.js"]).toBeDefined();
+        expect(exports["./package.json"]).toBeDefined();
     });
 });

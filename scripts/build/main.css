@@ -56,6 +56,13 @@
 @import url(./styles/components/prose.css);
 @import url(./styles/components/back-to-top.css);
 
+/* ADS component families (layout, typography, portal, content). */
+@import url(./styles/components/ads-layout.css);
+@import url(./styles/components/ads-typography.css);
+@import url(./styles/components/ads-card.css);
+@import url(./styles/components/ads-portal.css);
+@import url(./styles/components/ads-search.css);
+
 /* 9. Utilities */
 @import url(./styles/utilities.css);
 

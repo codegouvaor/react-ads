@@ -294,7 +294,10 @@ const NON_COMPONENT_MODULE_IDS = new Set<string>([
     "useColors",
     "useIsDark",
     "getHtmlAttributes",
-    "zz_internal"
+    "zz_internal",
+    // ADS Discord integration (discord/*): server-only, never rendered as web
+    // markup — must never be pulled into the web CSS optimizer.
+    "discord"
 ]);
 
 /**

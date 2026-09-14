@@ -28,3 +28,9 @@ export type {
     AdsMotionTokens,
     AdsBreakpointTokens
 } from "./tokens";
+
+// ADS component families — layout, typography, government portal and content.
+export * from "./layout";
+export * from "./typography";
+export * from "./portal";
+export * from "./content";

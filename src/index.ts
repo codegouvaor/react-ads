@@ -15,7 +15,8 @@
 // Design tokens and helpers (fr namespace is the legacy layer, renamed with the ADS CSS).
 export * from "./fr";
 
-// ADS foundations (Astoria Design System tokens).
+// ADS foundations (Astoria Design System tokens) and component families
+// (layout primitives, typography, government portal and content).
 export * from "./ads";
 
 // Components — one module per component.
