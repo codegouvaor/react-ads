@@ -78,7 +78,7 @@
     "homepage": "https://github.com/codegouvaor/react-ads#readme",
     "dependencies": {
         "tsafe": "^1.8.5",
-        "yargs-parser": "^21.1.1"
+        "yargs-parser": "^22.0.0"
     },
     "peerDependencies": {
         "@gouvfr/dsfr-chart": "^1.0.0",
