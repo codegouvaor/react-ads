@@ -125,7 +125,7 @@
         "@typescript-eslint/eslint-plugin": "^5.43.0",
         "@typescript-eslint/parser": "^5.43.0",
         "babel-loader": "^8.3.0",
-        "chromatic": "^6.17.2",
+        "chromatic": "^18.7.1",
         "css": "^3.0.0",
         "eslint": "^7.26.0",
         "eslint-config-prettier": "^8.3.0",
