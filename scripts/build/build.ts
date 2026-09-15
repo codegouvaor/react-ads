@@ -8,6 +8,7 @@ import {
     PATH_OF_PATCHED_RAW_CSS_CODE_FOR_COMPAT_WITH_REMIXICON_RELATIVE_TO_DSFR,
     PATH_OF_ICONS_JSON
 } from "../../src/bin/only-include-used-icons";
+import { updatePackageJsonExports } from "./list-exports";
 import * as child_process from "child_process";
 import { patchCssForMui } from "./patchCssForMui";
 import yargsParser from "yargs-parser";
@@ -167,6 +168,12 @@ function removeCharset(rawCssCode: string): string {
             { "recursive": true }
         );
     }
+
+    // Recompute the `exports` map of the root package.json from the actual files emitted
+    // in `dist/`. Every declared target is therefore guaranteed to exist, and the
+    // `dist/package.json` written below (for local linking) derives from it. See
+    // `scripts/build/list-exports.ts` for why a `"./*"` wildcard cannot work here.
+    updatePackageJsonExports({ projectRootDirPath });
 
     //NOTE: From here it's only for local linking, required for storybook and running integration apps.
 

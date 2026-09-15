@@ -311,8 +311,8 @@ modules.
 ```tsx
 // app/layout.tsx
 import "@codegouvaor/react-ads/main.css"; // ← the whole ADS CSS foundation
-import { DsfrHead } from "@codegouvaor/react-ads/next-appdir/DsfrHead";
-import { DsfrProvider } from "@codegouvaor/react-ads/next-appdir/DsfrProvider";
+import { DsfrHead } from "@codegouvaor/react-ads/next-app-router/DsfrHead";
+import { DsfrProvider } from "@codegouvaor/react-ads/next-app-router/DsfrProvider";
 ```
 
 `DsfrProvider` renders the runtime for client components and `DsfrHead` handles fonts,

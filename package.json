@@ -1,6 +1,6 @@
 {
     "name": "@codegouvaor/react-ads",
-    "version": "1.0.7",
+    "version": "1.0.10",
     "packageManager": "pnpm@11.21.0",
     "description": "Official React implementation of the Astoria Design System (ADS), the design system for the digital ecosystem of the Republic of Astoria.",
     "repository": {
@@ -162,10 +162,6 @@
             "types": "./dist/index.d.ts",
             "default": "./dist/index.js"
         },
-        "./discord": {
-            "types": "./dist/discord/index.d.ts",
-            "default": "./dist/discord/index.js"
-        },
         "./discord/server": {
             "types": "./dist/discord/index.d.ts",
             "default": "./dist/discord/index.js"
@@ -173,9 +169,1440 @@
         "./main.css": "./dist/main.css",
         "./early-color-scheme.js": "./dist/early-color-scheme.js",
         "./package.json": "./package.json",
-        "./*": {
-            "types": "./dist/*",
-            "default": "./dist/*"
+        "./dsfr/*": "./dsfr/*",
+        "./Accordion": {
+            "types": "./dist/Accordion.d.ts",
+            "default": "./dist/Accordion.js"
+        },
+        "./Alert": {
+            "types": "./dist/Alert.d.ts",
+            "default": "./dist/Alert.js"
+        },
+        "./BackToTop": {
+            "types": "./dist/BackToTop.d.ts",
+            "default": "./dist/BackToTop.js"
+        },
+        "./Badge": {
+            "types": "./dist/Badge.d.ts",
+            "default": "./dist/Badge.js"
+        },
+        "./Breadcrumb": {
+            "types": "./dist/Breadcrumb.d.ts",
+            "default": "./dist/Breadcrumb.js"
+        },
+        "./Button": {
+            "types": "./dist/Button.d.ts",
+            "default": "./dist/Button.js"
+        },
+        "./ButtonsGroup": {
+            "types": "./dist/ButtonsGroup.d.ts",
+            "default": "./dist/ButtonsGroup.js"
+        },
+        "./CallOut": {
+            "types": "./dist/CallOut.d.ts",
+            "default": "./dist/CallOut.js"
+        },
+        "./Card": {
+            "types": "./dist/Card.d.ts",
+            "default": "./dist/Card.js"
+        },
+        "./Chart/BarChart": {
+            "types": "./dist/Chart/BarChart.d.ts",
+            "default": "./dist/Chart/BarChart.js"
+        },
+        "./Chart/BarLineChart": {
+            "types": "./dist/Chart/BarLineChart.d.ts",
+            "default": "./dist/Chart/BarLineChart.js"
+        },
+        "./Chart/GaugeChart": {
+            "types": "./dist/Chart/GaugeChart.d.ts",
+            "default": "./dist/Chart/GaugeChart.js"
+        },
+        "./Chart/LineChart": {
+            "types": "./dist/Chart/LineChart.d.ts",
+            "default": "./dist/Chart/LineChart.js"
+        },
+        "./Chart/MultiLineChart": {
+            "types": "./dist/Chart/MultiLineChart.d.ts",
+            "default": "./dist/Chart/MultiLineChart.js"
+        },
+        "./Chart/PieChart": {
+            "types": "./dist/Chart/PieChart.d.ts",
+            "default": "./dist/Chart/PieChart.js"
+        },
+        "./Chart/RadarChart": {
+            "types": "./dist/Chart/RadarChart.d.ts",
+            "default": "./dist/Chart/RadarChart.js"
+        },
+        "./Chart/ScatterChart": {
+            "types": "./dist/Chart/ScatterChart.d.ts",
+            "default": "./dist/Chart/ScatterChart.js"
+        },
+        "./Chart/chartWrapper": {
+            "types": "./dist/Chart/chartWrapper.d.ts",
+            "default": "./dist/Chart/chartWrapper.js"
+        },
+        "./Checkbox": {
+            "types": "./dist/Checkbox.d.ts",
+            "default": "./dist/Checkbox.js"
+        },
+        "./Display": {
+            "types": "./dist/Display/index.d.ts",
+            "default": "./dist/Display/index.js"
+        },
+        "./Display/Artwork": {
+            "types": "./dist/Display/Artwork/index.d.ts",
+            "default": "./dist/Display/Artwork/index.js"
+        },
+        "./Display/Artwork/Artwork": {
+            "types": "./dist/Display/Artwork/Artwork.d.ts",
+            "default": "./dist/Display/Artwork/Artwork.js"
+        },
+        "./Display/Artwork/ArtworkGov": {
+            "types": "./dist/Display/Artwork/ArtworkGov.d.ts",
+            "default": "./dist/Display/Artwork/ArtworkGov.js"
+        },
+        "./Display/Artwork/ArtworkWhiteLabel/ArtworkWhiteLabel": {
+            "types": "./dist/Display/Artwork/ArtworkWhiteLabel/ArtworkWhiteLabel.d.ts",
+            "default": "./dist/Display/Artwork/ArtworkWhiteLabel/ArtworkWhiteLabel.js"
+        },
+        "./Display/Artwork/ArtworkWhiteLabel/DisplayArtworkWhiteLabelProvider": {
+            "types": "./dist/Display/Artwork/ArtworkWhiteLabel/DisplayArtworkWhiteLabelProvider.d.ts",
+            "default": "./dist/Display/Artwork/ArtworkWhiteLabel/DisplayArtworkWhiteLabelProvider.js"
+        },
+        "./Display/Artwork/ArtworkWhiteLabel/context": {
+            "types": "./dist/Display/Artwork/ArtworkWhiteLabel/context.d.ts",
+            "default": "./dist/Display/Artwork/ArtworkWhiteLabel/context.js"
+        },
+        "./Display/Artwork/ArtworkWhiteLabel/useArtworkWhiteLabel": {
+            "types": "./dist/Display/Artwork/ArtworkWhiteLabel/useArtworkWhiteLabel.d.ts",
+            "default": "./dist/Display/Artwork/ArtworkWhiteLabel/useArtworkWhiteLabel.js"
+        },
+        "./Display/Display": {
+            "types": "./dist/Display/Display.d.ts",
+            "default": "./dist/Display/Display.js"
+        },
+        "./Download": {
+            "types": "./dist/Download.d.ts",
+            "default": "./dist/Download.js"
+        },
+        "./Follow": {
+            "types": "./dist/Follow.d.ts",
+            "default": "./dist/Follow.js"
+        },
+        "./Footer": {
+            "types": "./dist/Footer.d.ts",
+            "default": "./dist/Footer.js"
+        },
+        "./Header": {
+            "types": "./dist/Header/index.d.ts",
+            "default": "./dist/Header/index.js"
+        },
+        "./Header/Header": {
+            "types": "./dist/Header/Header.d.ts",
+            "default": "./dist/Header/Header.js"
+        },
+        "./Header/useIsHeaderMenuModalOpen": {
+            "types": "./dist/Header/useIsHeaderMenuModalOpen.d.ts",
+            "default": "./dist/Header/useIsHeaderMenuModalOpen.js"
+        },
+        "./Highlight": {
+            "types": "./dist/Highlight.d.ts",
+            "default": "./dist/Highlight.js"
+        },
+        "./Input": {
+            "types": "./dist/Input.d.ts",
+            "default": "./dist/Input.js"
+        },
+        "./LanguageSelect": {
+            "types": "./dist/LanguageSelect.d.ts",
+            "default": "./dist/LanguageSelect.js"
+        },
+        "./MainNavigation": {
+            "types": "./dist/MainNavigation/index.d.ts",
+            "default": "./dist/MainNavigation/index.js"
+        },
+        "./MainNavigation/MainNavigation": {
+            "types": "./dist/MainNavigation/MainNavigation.d.ts",
+            "default": "./dist/MainNavigation/MainNavigation.js"
+        },
+        "./MainNavigation/MegaMenu": {
+            "types": "./dist/MainNavigation/MegaMenu.d.ts",
+            "default": "./dist/MainNavigation/MegaMenu.js"
+        },
+        "./MainNavigation/Menu": {
+            "types": "./dist/MainNavigation/Menu.d.ts",
+            "default": "./dist/MainNavigation/Menu.js"
+        },
+        "./Modal": {
+            "types": "./dist/Modal/index.d.ts",
+            "default": "./dist/Modal/index.js"
+        },
+        "./Modal/Modal": {
+            "types": "./dist/Modal/Modal.d.ts",
+            "default": "./dist/Modal/Modal.js"
+        },
+        "./Modal/useIsModalOpen": {
+            "types": "./dist/Modal/useIsModalOpen.d.ts",
+            "default": "./dist/Modal/useIsModalOpen.js"
+        },
+        "./Notice": {
+            "types": "./dist/Notice.d.ts",
+            "default": "./dist/Notice.js"
+        },
+        "./Pagination": {
+            "types": "./dist/Pagination.d.ts",
+            "default": "./dist/Pagination.js"
+        },
+        "./Quote": {
+            "types": "./dist/Quote.d.ts",
+            "default": "./dist/Quote.js"
+        },
+        "./RadioButtons": {
+            "types": "./dist/RadioButtons.d.ts",
+            "default": "./dist/RadioButtons.js"
+        },
+        "./Range": {
+            "types": "./dist/Range.d.ts",
+            "default": "./dist/Range.js"
+        },
+        "./SearchBar": {
+            "types": "./dist/SearchBar/index.d.ts",
+            "default": "./dist/SearchBar/index.js"
+        },
+        "./SearchBar/SearchBar": {
+            "types": "./dist/SearchBar/SearchBar.d.ts",
+            "default": "./dist/SearchBar/SearchBar.js"
+        },
+        "./SearchBar/SearchButton": {
+            "types": "./dist/SearchBar/SearchButton.d.ts",
+            "default": "./dist/SearchBar/SearchButton.js"
+        },
+        "./SegmentedControl": {
+            "types": "./dist/SegmentedControl.d.ts",
+            "default": "./dist/SegmentedControl.js"
+        },
+        "./Select": {
+            "types": "./dist/Select.d.ts",
+            "default": "./dist/Select.js"
+        },
+        "./SelectNext": {
+            "types": "./dist/SelectNext.d.ts",
+            "default": "./dist/SelectNext.js"
+        },
+        "./SideMenu": {
+            "types": "./dist/SideMenu.d.ts",
+            "default": "./dist/SideMenu.js"
+        },
+        "./SkipLinks": {
+            "types": "./dist/SkipLinks.d.ts",
+            "default": "./dist/SkipLinks.js"
+        },
+        "./Stepper": {
+            "types": "./dist/Stepper.d.ts",
+            "default": "./dist/Stepper.js"
+        },
+        "./Summary": {
+            "types": "./dist/Summary.d.ts",
+            "default": "./dist/Summary.js"
+        },
+        "./Table": {
+            "types": "./dist/Table.d.ts",
+            "default": "./dist/Table.js"
+        },
+        "./Tabs": {
+            "types": "./dist/Tabs.d.ts",
+            "default": "./dist/Tabs.js"
+        },
+        "./Tag": {
+            "types": "./dist/Tag.d.ts",
+            "default": "./dist/Tag.js"
+        },
+        "./TagsGroup": {
+            "types": "./dist/TagsGroup.d.ts",
+            "default": "./dist/TagsGroup.js"
+        },
+        "./Tile": {
+            "types": "./dist/Tile.d.ts",
+            "default": "./dist/Tile.js"
+        },
+        "./ToggleSwitch": {
+            "types": "./dist/ToggleSwitch.d.ts",
+            "default": "./dist/ToggleSwitch.js"
+        },
+        "./ToggleSwitchGroup": {
+            "types": "./dist/ToggleSwitchGroup.d.ts",
+            "default": "./dist/ToggleSwitchGroup.js"
+        },
+        "./Tooltip": {
+            "types": "./dist/Tooltip.d.ts",
+            "default": "./dist/Tooltip.js"
+        },
+        "./Upload": {
+            "types": "./dist/Upload.d.ts",
+            "default": "./dist/Upload.js"
+        },
+        "./ads": {
+            "types": "./dist/ads/index.d.ts",
+            "default": "./dist/ads/index.js"
+        },
+        "./ads/content": {
+            "types": "./dist/ads/content/index.d.ts",
+            "default": "./dist/ads/content/index.js"
+        },
+        "./ads/content/ADSArticleCard": {
+            "types": "./dist/ads/content/ADSArticleCard.d.ts",
+            "default": "./dist/ads/content/ADSArticleCard.js"
+        },
+        "./ads/content/ADSCard": {
+            "types": "./dist/ads/content/ADSCard.d.ts",
+            "default": "./dist/ads/content/ADSCard.js"
+        },
+        "./ads/content/ADSDocument": {
+            "types": "./dist/ads/content/ADSDocument.d.ts",
+            "default": "./dist/ads/content/ADSDocument.js"
+        },
+        "./ads/content/ADSDownload": {
+            "types": "./dist/ads/content/ADSDownload.d.ts",
+            "default": "./dist/ads/content/ADSDownload.js"
+        },
+        "./ads/content/ADSEvent": {
+            "types": "./dist/ads/content/ADSEvent.d.ts",
+            "default": "./dist/ads/content/ADSEvent.js"
+        },
+        "./ads/content/ADSLinkList": {
+            "types": "./dist/ads/content/ADSLinkList.d.ts",
+            "default": "./dist/ads/content/ADSLinkList.js"
+        },
+        "./ads/content/ADSMeetingCard": {
+            "types": "./dist/ads/content/ADSMeetingCard.d.ts",
+            "default": "./dist/ads/content/ADSMeetingCard.js"
+        },
+        "./ads/content/ADSNewsList": {
+            "types": "./dist/ads/content/ADSNewsList.d.ts",
+            "default": "./dist/ads/content/ADSNewsList.js"
+        },
+        "./ads/content/ADSTeaserCard": {
+            "types": "./dist/ads/content/ADSTeaserCard.d.ts",
+            "default": "./dist/ads/content/ADSTeaserCard.js"
+        },
+        "./ads/layout": {
+            "types": "./dist/ads/layout/index.d.ts",
+            "default": "./dist/ads/layout/index.js"
+        },
+        "./ads/layout/ADSColumns": {
+            "types": "./dist/ads/layout/ADSColumns.d.ts",
+            "default": "./dist/ads/layout/ADSColumns.js"
+        },
+        "./ads/layout/ADSContainer": {
+            "types": "./dist/ads/layout/ADSContainer.d.ts",
+            "default": "./dist/ads/layout/ADSContainer.js"
+        },
+        "./ads/layout/ADSGrid": {
+            "types": "./dist/ads/layout/ADSGrid.d.ts",
+            "default": "./dist/ads/layout/ADSGrid.js"
+        },
+        "./ads/layout/ADSMain": {
+            "types": "./dist/ads/layout/ADSMain.d.ts",
+            "default": "./dist/ads/layout/ADSMain.js"
+        },
+        "./ads/layout/ADSPage": {
+            "types": "./dist/ads/layout/ADSPage.d.ts",
+            "default": "./dist/ads/layout/ADSPage.js"
+        },
+        "./ads/layout/ADSSection": {
+            "types": "./dist/ads/layout/ADSSection.d.ts",
+            "default": "./dist/ads/layout/ADSSection.js"
+        },
+        "./ads/layout/ADSStack": {
+            "types": "./dist/ads/layout/ADSStack.d.ts",
+            "default": "./dist/ads/layout/ADSStack.js"
+        },
+        "./ads/portal": {
+            "types": "./dist/ads/portal/index.d.ts",
+            "default": "./dist/ads/portal/index.js"
+        },
+        "./ads/portal/ADSBreadcrumb": {
+            "types": "./dist/ads/portal/ADSBreadcrumb.d.ts",
+            "default": "./dist/ads/portal/ADSBreadcrumb.js"
+        },
+        "./ads/portal/ADSGovernmentFooter": {
+            "types": "./dist/ads/portal/ADSGovernmentFooter.d.ts",
+            "default": "./dist/ads/portal/ADSGovernmentFooter.js"
+        },
+        "./ads/portal/ADSGovernmentHeader": {
+            "types": "./dist/ads/portal/ADSGovernmentHeader.d.ts",
+            "default": "./dist/ads/portal/ADSGovernmentHeader.js"
+        },
+        "./ads/portal/ADSHero": {
+            "types": "./dist/ads/portal/ADSHero.d.ts",
+            "default": "./dist/ads/portal/ADSHero.js"
+        },
+        "./ads/portal/ADSMegaMenu": {
+            "types": "./dist/ads/portal/ADSMegaMenu.d.ts",
+            "default": "./dist/ads/portal/ADSMegaMenu.js"
+        },
+        "./ads/portal/ADSMinistryHeader": {
+            "types": "./dist/ads/portal/ADSMinistryHeader.d.ts",
+            "default": "./dist/ads/portal/ADSMinistryHeader.js"
+        },
+        "./ads/portal/ADSNavigation": {
+            "types": "./dist/ads/portal/ADSNavigation.d.ts",
+            "default": "./dist/ads/portal/ADSNavigation.js"
+        },
+        "./ads/portal/ADSOfficialNotice": {
+            "types": "./dist/ads/portal/ADSOfficialNotice.d.ts",
+            "default": "./dist/ads/portal/ADSOfficialNotice.js"
+        },
+        "./ads/portal/ADSPagination": {
+            "types": "./dist/ads/portal/ADSPagination.d.ts",
+            "default": "./dist/ads/portal/ADSPagination.js"
+        },
+        "./ads/portal/ADSPortal": {
+            "types": "./dist/ads/portal/ADSPortal.d.ts",
+            "default": "./dist/ads/portal/ADSPortal.js"
+        },
+        "./ads/portal/ADSSearch": {
+            "types": "./dist/ads/portal/ADSSearch.d.ts",
+            "default": "./dist/ads/portal/ADSSearch.js"
+        },
+        "./ads/portal/ADSServiceBanner": {
+            "types": "./dist/ads/portal/ADSServiceBanner.d.ts",
+            "default": "./dist/ads/portal/ADSServiceBanner.js"
+        },
+        "./ads/portal/context": {
+            "types": "./dist/ads/portal/context.d.ts",
+            "default": "./dist/ads/portal/context.js"
+        },
+        "./ads/tokens": {
+            "types": "./dist/ads/tokens.d.ts",
+            "default": "./dist/ads/tokens.js"
+        },
+        "./ads/typography": {
+            "types": "./dist/ads/typography/index.d.ts",
+            "default": "./dist/ads/typography/index.js"
+        },
+        "./ads/typography/ADSHeading": {
+            "types": "./dist/ads/typography/ADSHeading.d.ts",
+            "default": "./dist/ads/typography/ADSHeading.js"
+        },
+        "./ads/typography/ADSLead": {
+            "types": "./dist/ads/typography/ADSLead.d.ts",
+            "default": "./dist/ads/typography/ADSLead.js"
+        },
+        "./ads/typography/ADSLink": {
+            "types": "./dist/ads/typography/ADSLink.d.ts",
+            "default": "./dist/ads/typography/ADSLink.js"
+        },
+        "./ads/typography/ADSText": {
+            "types": "./dist/ads/typography/ADSText.d.ts",
+            "default": "./dist/ads/typography/ADSText.js"
+        },
+        "./assets/ads/tokens.css": "./dist/assets/ads/tokens.css",
+        "./assets/astoria-gouv.png": "./dist/assets/astoria-gouv.png",
+        "./assets/astoria-identity.css": "./dist/assets/astoria-identity.css",
+        "./assets/blank-favicon.svg": "./dist/assets/blank-favicon.svg",
+        "./assets/dsfr_plus_icons.css": "./dist/assets/dsfr_plus_icons.css",
+        "./assets/dsfr_plus_icons.scss": "./dist/assets/dsfr_plus_icons.scss",
+        "./assets/language-select.css": "./dist/assets/language-select.css",
+        "./assets/search-bar.css": "./dist/assets/search-bar.css",
+        "./blocks/PasswordInput": {
+            "types": "./dist/blocks/PasswordInput.d.ts",
+            "default": "./dist/blocks/PasswordInput.js"
+        },
+        "./consentManagement": {
+            "types": "./dist/consentManagement/index.d.ts",
+            "default": "./dist/consentManagement/index.js"
+        },
+        "./consentManagement/ConsentBannerAndConsentManagement": {
+            "types": "./dist/consentManagement/ConsentBannerAndConsentManagement/index.d.ts",
+            "default": "./dist/consentManagement/ConsentBannerAndConsentManagement/index.js"
+        },
+        "./consentManagement/ConsentBannerAndConsentManagement/ConsentBanner": {
+            "types": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentBanner.d.ts",
+            "default": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentBanner.js"
+        },
+        "./consentManagement/ConsentBannerAndConsentManagement/ConsentBannerAndConsentManagement": {
+            "types": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentBannerAndConsentManagement.d.ts",
+            "default": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentBannerAndConsentManagement.js"
+        },
+        "./consentManagement/ConsentBannerAndConsentManagement/ConsentManagement": {
+            "types": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentManagement.d.ts",
+            "default": "./dist/consentManagement/ConsentBannerAndConsentManagement/ConsentManagement.js"
+        },
+        "./consentManagement/ConsentBannerAndConsentManagement/translation": {
+            "types": "./dist/consentManagement/ConsentBannerAndConsentManagement/translation.d.ts",
+            "default": "./dist/consentManagement/ConsentBannerAndConsentManagement/translation.js"
+        },
+        "./consentManagement/Placeholder": {
+            "types": "./dist/consentManagement/Placeholder.d.ts",
+            "default": "./dist/consentManagement/Placeholder.js"
+        },
+        "./consentManagement/createConsentManagement": {
+            "types": "./dist/consentManagement/createConsentManagement.d.ts",
+            "default": "./dist/consentManagement/createConsentManagement.js"
+        },
+        "./consentManagement/processConsentChanges": {
+            "types": "./dist/consentManagement/processConsentChanges.d.ts",
+            "default": "./dist/consentManagement/processConsentChanges.js"
+        },
+        "./consentManagement/types": {
+            "types": "./dist/consentManagement/types.d.ts",
+            "default": "./dist/consentManagement/types.js"
+        },
+        "./consentManagement/useConsent": {
+            "types": "./dist/consentManagement/useConsent.d.ts",
+            "default": "./dist/consentManagement/useConsent.js"
+        },
+        "./discord": {
+            "types": "./dist/discord/index.d.ts",
+            "default": "./dist/discord/index.js"
+        },
+        "./discord/client": {
+            "types": "./dist/discord/client.d.ts",
+            "default": "./dist/discord/client.js"
+        },
+        "./discord/commands": {
+            "types": "./dist/discord/commands.d.ts",
+            "default": "./dist/discord/commands.js"
+        },
+        "./discord/embeds": {
+            "types": "./dist/discord/embeds.d.ts",
+            "default": "./dist/discord/embeds.js"
+        },
+        "./discord/loader": {
+            "types": "./dist/discord/loader.d.ts",
+            "default": "./dist/discord/loader.js"
+        },
+        "./discord/notifications": {
+            "types": "./dist/discord/notifications.d.ts",
+            "default": "./dist/discord/notifications.js"
+        },
+        "./discord/types": {
+            "types": "./dist/discord/types.d.ts",
+            "default": "./dist/discord/types.js"
+        },
+        "./discord/webhooks": {
+            "types": "./dist/discord/webhooks.d.ts",
+            "default": "./dist/discord/webhooks.js"
+        },
+        "./fr": {
+            "types": "./dist/fr/index.d.ts",
+            "default": "./dist/fr/index.js"
+        },
+        "./fr/breakpoints": {
+            "types": "./dist/fr/breakpoints.d.ts",
+            "default": "./dist/fr/breakpoints.js"
+        },
+        "./fr/colors": {
+            "types": "./dist/fr/colors.d.ts",
+            "default": "./dist/fr/colors.js"
+        },
+        "./fr/cx": {
+            "types": "./dist/fr/cx.d.ts",
+            "default": "./dist/fr/cx.js"
+        },
+        "./fr/generatedFromCss/breakpoints": {
+            "types": "./dist/fr/generatedFromCss/breakpoints.d.ts",
+            "default": "./dist/fr/generatedFromCss/breakpoints.js"
+        },
+        "./fr/generatedFromCss/classNames": {
+            "types": "./dist/fr/generatedFromCss/classNames.d.ts",
+            "default": "./dist/fr/generatedFromCss/classNames.js"
+        },
+        "./fr/generatedFromCss/colorDecisionAndCorrespondingOptions": {
+            "types": "./dist/fr/generatedFromCss/colorDecisionAndCorrespondingOptions.d.ts",
+            "default": "./dist/fr/generatedFromCss/colorDecisionAndCorrespondingOptions.js"
+        },
+        "./fr/generatedFromCss/colorDecisions": {
+            "types": "./dist/fr/generatedFromCss/colorDecisions.d.ts",
+            "default": "./dist/fr/generatedFromCss/colorDecisions.js"
+        },
+        "./fr/generatedFromCss/colorOptions": {
+            "types": "./dist/fr/generatedFromCss/colorOptions.d.ts",
+            "default": "./dist/fr/generatedFromCss/colorOptions.js"
+        },
+        "./fr/generatedFromCss/getColorDecisionsHex": {
+            "types": "./dist/fr/generatedFromCss/getColorDecisionsHex.d.ts",
+            "default": "./dist/fr/generatedFromCss/getColorDecisionsHex.js"
+        },
+        "./fr/generatedFromCss/getColorOptionsHex": {
+            "types": "./dist/fr/generatedFromCss/getColorOptionsHex.d.ts",
+            "default": "./dist/fr/generatedFromCss/getColorOptionsHex.js"
+        },
+        "./fr/generatedFromCss/spacing": {
+            "types": "./dist/fr/generatedFromCss/spacing.d.ts",
+            "default": "./dist/fr/generatedFromCss/spacing.js"
+        },
+        "./fr/generatedFromCss/typography": {
+            "types": "./dist/fr/generatedFromCss/typography.d.ts",
+            "default": "./dist/fr/generatedFromCss/typography.js"
+        },
+        "./fr/shadows": {
+            "types": "./dist/fr/shadows.d.ts",
+            "default": "./dist/fr/shadows.js"
+        },
+        "./fr/spacing": {
+            "types": "./dist/fr/spacing.d.ts",
+            "default": "./dist/fr/spacing.js"
+        },
+        "./i18n": {
+            "types": "./dist/i18n.d.ts",
+            "default": "./dist/i18n.js"
+        },
+        "./index": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
+        "./link": {
+            "types": "./dist/link.d.ts",
+            "default": "./dist/link.js"
+        },
+        "./mui": {
+            "types": "./dist/mui/index.d.ts",
+            "default": "./dist/mui/index.js"
+        },
+        "./mui/mui": {
+            "types": "./dist/mui/mui.d.ts",
+            "default": "./dist/mui/mui.js"
+        },
+        "./mui/useIsGov": {
+            "types": "./dist/mui/useIsGov.d.ts",
+            "default": "./dist/mui/useIsGov.js"
+        },
+        "./native": {
+            "types": "./dist/native/index.d.ts",
+            "default": "./dist/native/index.js"
+        },
+        "./native/components": {
+            "types": "./dist/native/components/index.d.ts",
+            "default": "./dist/native/components/index.js"
+        },
+        "./native/components/Alert": {
+            "types": "./dist/native/components/Alert.d.ts",
+            "default": "./dist/native/components/Alert.js"
+        },
+        "./native/components/Avatar": {
+            "types": "./dist/native/components/Avatar.d.ts",
+            "default": "./dist/native/components/Avatar.js"
+        },
+        "./native/components/Badge": {
+            "types": "./dist/native/components/Badge.d.ts",
+            "default": "./dist/native/components/Badge.js"
+        },
+        "./native/components/Button": {
+            "types": "./dist/native/components/Button.d.ts",
+            "default": "./dist/native/components/Button.js"
+        },
+        "./native/components/Card": {
+            "types": "./dist/native/components/Card.d.ts",
+            "default": "./dist/native/components/Card.js"
+        },
+        "./native/components/Checkbox": {
+            "types": "./dist/native/components/Checkbox.d.ts",
+            "default": "./dist/native/components/Checkbox.js"
+        },
+        "./native/components/DocumentCard": {
+            "types": "./dist/native/components/DocumentCard.d.ts",
+            "default": "./dist/native/components/DocumentCard.js"
+        },
+        "./native/components/GovernmentBanner": {
+            "types": "./dist/native/components/GovernmentBanner.d.ts",
+            "default": "./dist/native/components/GovernmentBanner.js"
+        },
+        "./native/components/Header": {
+            "types": "./dist/native/components/Header.d.ts",
+            "default": "./dist/native/components/Header.js"
+        },
+        "./native/components/IconButton": {
+            "types": "./dist/native/components/IconButton.d.ts",
+            "default": "./dist/native/components/IconButton.js"
+        },
+        "./native/components/IdentityBadge": {
+            "types": "./dist/native/components/IdentityBadge.d.ts",
+            "default": "./dist/native/components/IdentityBadge.js"
+        },
+        "./native/components/Input": {
+            "types": "./dist/native/components/Input.d.ts",
+            "default": "./dist/native/components/Input.js"
+        },
+        "./native/components/Link": {
+            "types": "./dist/native/components/Link.d.ts",
+            "default": "./dist/native/components/Link.js"
+        },
+        "./native/components/List": {
+            "types": "./dist/native/components/List.d.ts",
+            "default": "./dist/native/components/List.js"
+        },
+        "./native/components/ListItem": {
+            "types": "./dist/native/components/ListItem.d.ts",
+            "default": "./dist/native/components/ListItem.js"
+        },
+        "./native/components/Loading": {
+            "types": "./dist/native/components/Loading.d.ts",
+            "default": "./dist/native/components/Loading.js"
+        },
+        "./native/components/NavItem": {
+            "types": "./dist/native/components/NavItem.d.ts",
+            "default": "./dist/native/components/NavItem.js"
+        },
+        "./native/components/NotificationCard": {
+            "types": "./dist/native/components/NotificationCard.d.ts",
+            "default": "./dist/native/components/NotificationCard.js"
+        },
+        "./native/components/ProcedureCard": {
+            "types": "./dist/native/components/ProcedureCard.d.ts",
+            "default": "./dist/native/components/ProcedureCard.js"
+        },
+        "./native/components/Progress": {
+            "types": "./dist/native/components/Progress.d.ts",
+            "default": "./dist/native/components/Progress.js"
+        },
+        "./native/components/Radio": {
+            "types": "./dist/native/components/Radio.d.ts",
+            "default": "./dist/native/components/Radio.js"
+        },
+        "./native/components/RadioGroup": {
+            "types": "./dist/native/components/RadioGroup.d.ts",
+            "default": "./dist/native/components/RadioGroup.js"
+        },
+        "./native/components/Section": {
+            "types": "./dist/native/components/Section.d.ts",
+            "default": "./dist/native/components/Section.js"
+        },
+        "./native/components/Select": {
+            "types": "./dist/native/components/Select.d.ts",
+            "default": "./dist/native/components/Select.js"
+        },
+        "./native/components/ServiceCard": {
+            "types": "./dist/native/components/ServiceCard.d.ts",
+            "default": "./dist/native/components/ServiceCard.js"
+        },
+        "./native/components/Status": {
+            "types": "./dist/native/components/Status.d.ts",
+            "default": "./dist/native/components/Status.js"
+        },
+        "./native/components/StatusBadge": {
+            "types": "./dist/native/components/StatusBadge.d.ts",
+            "default": "./dist/native/components/StatusBadge.js"
+        },
+        "./native/components/Switch": {
+            "types": "./dist/native/components/Switch.d.ts",
+            "default": "./dist/native/components/Switch.js"
+        },
+        "./native/components/TabBar": {
+            "types": "./dist/native/components/TabBar.d.ts",
+            "default": "./dist/native/components/TabBar.js"
+        },
+        "./native/components/TextArea": {
+            "types": "./dist/native/components/TextArea.d.ts",
+            "default": "./dist/native/components/TextArea.js"
+        },
+        "./native/hooks": {
+            "types": "./dist/native/hooks/index.d.ts",
+            "default": "./dist/native/hooks/index.js"
+        },
+        "./native/primitives": {
+            "types": "./dist/native/primitives/index.d.ts",
+            "default": "./dist/native/primitives/index.js"
+        },
+        "./native/primitives/Container": {
+            "types": "./dist/native/primitives/Container.d.ts",
+            "default": "./dist/native/primitives/Container.js"
+        },
+        "./native/primitives/Divider": {
+            "types": "./dist/native/primitives/Divider.d.ts",
+            "default": "./dist/native/primitives/Divider.js"
+        },
+        "./native/primitives/Heading": {
+            "types": "./dist/native/primitives/Heading.d.ts",
+            "default": "./dist/native/primitives/Heading.js"
+        },
+        "./native/primitives/Icon": {
+            "types": "./dist/native/primitives/Icon.d.ts",
+            "default": "./dist/native/primitives/Icon.js"
+        },
+        "./native/primitives/Stack": {
+            "types": "./dist/native/primitives/Stack.d.ts",
+            "default": "./dist/native/primitives/Stack.js"
+        },
+        "./native/primitives/Text": {
+            "types": "./dist/native/primitives/Text.d.ts",
+            "default": "./dist/native/primitives/Text.js"
+        },
+        "./native/theme": {
+            "types": "./dist/native/theme/index.d.ts",
+            "default": "./dist/native/theme/index.js"
+        },
+        "./native/theme/ADSProvider": {
+            "types": "./dist/native/theme/ADSProvider.d.ts",
+            "default": "./dist/native/theme/ADSProvider.js"
+        },
+        "./native/theme/context": {
+            "types": "./dist/native/theme/context.d.ts",
+            "default": "./dist/native/theme/context.js"
+        },
+        "./native/theme/useADSTheme": {
+            "types": "./dist/native/theme/useADSTheme.d.ts",
+            "default": "./dist/native/theme/useADSTheme.js"
+        },
+        "./native/tokens": {
+            "types": "./dist/native/tokens/index.d.ts",
+            "default": "./dist/native/tokens/index.js"
+        },
+        "./native/tokens/colors": {
+            "types": "./dist/native/tokens/colors.d.ts",
+            "default": "./dist/native/tokens/colors.js"
+        },
+        "./native/tokens/dimensions": {
+            "types": "./dist/native/tokens/dimensions.d.ts",
+            "default": "./dist/native/tokens/dimensions.js"
+        },
+        "./native/tokens/elevation": {
+            "types": "./dist/native/tokens/elevation.d.ts",
+            "default": "./dist/native/tokens/elevation.js"
+        },
+        "./native/tokens/motion": {
+            "types": "./dist/native/tokens/motion.d.ts",
+            "default": "./dist/native/tokens/motion.js"
+        },
+        "./native/tokens/radius": {
+            "types": "./dist/native/tokens/radius.d.ts",
+            "default": "./dist/native/tokens/radius.js"
+        },
+        "./native/tokens/spacing": {
+            "types": "./dist/native/tokens/spacing.d.ts",
+            "default": "./dist/native/tokens/spacing.js"
+        },
+        "./native/tokens/typography": {
+            "types": "./dist/native/tokens/typography.d.ts",
+            "default": "./dist/native/tokens/typography.js"
+        },
+        "./native/utils": {
+            "types": "./dist/native/utils/index.d.ts",
+            "default": "./dist/native/utils/index.js"
+        },
+        "./native/utils/elevation": {
+            "types": "./dist/native/utils/elevation.d.ts",
+            "default": "./dist/native/utils/elevation.js"
+        },
+        "./next-app-router": {
+            "types": "./dist/next-app-router/index.d.ts",
+            "default": "./dist/next-app-router/index.js"
+        },
+        "./next-app-router/DsfrHead": {
+            "types": "./dist/next-app-router/DsfrHead.d.ts",
+            "default": "./dist/next-app-router/DsfrHead.js"
+        },
+        "./next-app-router/DsfrProvider": {
+            "types": "./dist/next-app-router/DsfrProvider.d.ts",
+            "default": "./dist/next-app-router/DsfrProvider.js"
+        },
+        "./next-app-router/getHtmlAttributes": {
+            "types": "./dist/next-app-router/getHtmlAttributes.d.ts",
+            "default": "./dist/next-app-router/getHtmlAttributes.js"
+        },
+        "./next-app-router/server-only-index": {
+            "types": "./dist/next-app-router/server-only-index.d.ts",
+            "default": "./dist/next-app-router/server-only-index.js"
+        },
+        "./next-app-router/zz_internal/defaultColorScheme": {
+            "types": "./dist/next-app-router/zz_internal/defaultColorScheme.d.ts",
+            "default": "./dist/next-app-router/zz_internal/defaultColorScheme.js"
+        },
+        "./next-app-router/zz_internal/fontUrlByFileBasename": {
+            "types": "./dist/next-app-router/zz_internal/fontUrlByFileBasename.d.ts",
+            "default": "./dist/next-app-router/zz_internal/fontUrlByFileBasename.js"
+        },
+        "./next-pagesdir": {
+            "types": "./dist/next-pagesdir.d.ts",
+            "default": "./dist/next-pagesdir.js"
+        },
+        "./picto": {
+            "types": "./dist/picto/index.d.ts",
+            "default": "./dist/picto/index.js"
+        },
+        "./picto/Accessibility": {
+            "types": "./dist/picto/Accessibility.d.ts",
+            "default": "./dist/picto/Accessibility.js"
+        },
+        "./picto/Airport": {
+            "types": "./dist/picto/Airport.d.ts",
+            "default": "./dist/picto/Airport.js"
+        },
+        "./picto/Application": {
+            "types": "./dist/picto/Application.d.ts",
+            "default": "./dist/picto/Application.js"
+        },
+        "./picto/Archive": {
+            "types": "./dist/picto/Archive.d.ts",
+            "default": "./dist/picto/Archive.js"
+        },
+        "./picto/ArmyTank": {
+            "types": "./dist/picto/ArmyTank.d.ts",
+            "default": "./dist/picto/ArmyTank.js"
+        },
+        "./picto/Art": {
+            "types": "./dist/picto/Art.d.ts",
+            "default": "./dist/picto/Art.js"
+        },
+        "./picto/Astronaut": {
+            "types": "./dist/picto/Astronaut.d.ts",
+            "default": "./dist/picto/Astronaut.js"
+        },
+        "./picto/Audio": {
+            "types": "./dist/picto/Audio.d.ts",
+            "default": "./dist/picto/Audio.js"
+        },
+        "./picto/Avatar": {
+            "types": "./dist/picto/Avatar.d.ts",
+            "default": "./dist/picto/Avatar.js"
+        },
+        "./picto/Backpack": {
+            "types": "./dist/picto/Backpack.d.ts",
+            "default": "./dist/picto/Backpack.js"
+        },
+        "./picto/Base": {
+            "types": "./dist/picto/Base.d.ts",
+            "default": "./dist/picto/Base.js"
+        },
+        "./picto/Binders": {
+            "types": "./dist/picto/Binders.d.ts",
+            "default": "./dist/picto/Binders.js"
+        },
+        "./picto/Book": {
+            "types": "./dist/picto/Book.d.ts",
+            "default": "./dist/picto/Book.js"
+        },
+        "./picto/Calendar": {
+            "types": "./dist/picto/Calendar.d.ts",
+            "default": "./dist/picto/Calendar.js"
+        },
+        "./picto/Catalog": {
+            "types": "./dist/picto/Catalog.d.ts",
+            "default": "./dist/picto/Catalog.js"
+        },
+        "./picto/CityHall": {
+            "types": "./dist/picto/CityHall.d.ts",
+            "default": "./dist/picto/CityHall.js"
+        },
+        "./picto/Coding": {
+            "types": "./dist/picto/Coding.d.ts",
+            "default": "./dist/picto/Coding.js"
+        },
+        "./picto/Community": {
+            "types": "./dist/picto/Community.d.ts",
+            "default": "./dist/picto/Community.js"
+        },
+        "./picto/Companie": {
+            "types": "./dist/picto/Companie.d.ts",
+            "default": "./dist/picto/Companie.js"
+        },
+        "./picto/Compass": {
+            "types": "./dist/picto/Compass.d.ts",
+            "default": "./dist/picto/Compass.js"
+        },
+        "./picto/Conclusion": {
+            "types": "./dist/picto/Conclusion.d.ts",
+            "default": "./dist/picto/Conclusion.js"
+        },
+        "./picto/ConnectionLost": {
+            "types": "./dist/picto/ConnectionLost.d.ts",
+            "default": "./dist/picto/ConnectionLost.js"
+        },
+        "./picto/Contract": {
+            "types": "./dist/picto/Contract.d.ts",
+            "default": "./dist/picto/Contract.js"
+        },
+        "./picto/Culture": {
+            "types": "./dist/picto/Culture.d.ts",
+            "default": "./dist/picto/Culture.js"
+        },
+        "./picto/DataVisualization": {
+            "types": "./dist/picto/DataVisualization.d.ts",
+            "default": "./dist/picto/DataVisualization.js"
+        },
+        "./picto/Datalma": {
+            "types": "./dist/picto/Datalma.d.ts",
+            "default": "./dist/picto/Datalma.js"
+        },
+        "./picto/DigitalArt": {
+            "types": "./dist/picto/DigitalArt.d.ts",
+            "default": "./dist/picto/DigitalArt.js"
+        },
+        "./picto/Doctor": {
+            "types": "./dist/picto/Doctor.d.ts",
+            "default": "./dist/picto/Doctor.js"
+        },
+        "./picto/Document": {
+            "types": "./dist/picto/Document.d.ts",
+            "default": "./dist/picto/Document.js"
+        },
+        "./picto/DocumentAdd": {
+            "types": "./dist/picto/DocumentAdd.d.ts",
+            "default": "./dist/picto/DocumentAdd.js"
+        },
+        "./picto/DocumentDownload": {
+            "types": "./dist/picto/DocumentDownload.d.ts",
+            "default": "./dist/picto/DocumentDownload.js"
+        },
+        "./picto/DocumentSearch": {
+            "types": "./dist/picto/DocumentSearch.d.ts",
+            "default": "./dist/picto/DocumentSearch.js"
+        },
+        "./picto/DrivingLicense": {
+            "types": "./dist/picto/DrivingLicense.d.ts",
+            "default": "./dist/picto/DrivingLicense.js"
+        },
+        "./picto/DrivingLicenseNew": {
+            "types": "./dist/picto/DrivingLicenseNew.d.ts",
+            "default": "./dist/picto/DrivingLicenseNew.js"
+        },
+        "./picto/EarOff": {
+            "types": "./dist/picto/EarOff.d.ts",
+            "default": "./dist/picto/EarOff.js"
+        },
+        "./picto/Ecosystem": {
+            "types": "./dist/picto/Ecosystem.d.ts",
+            "default": "./dist/picto/Ecosystem.js"
+        },
+        "./picto/Environment": {
+            "types": "./dist/picto/Environment.d.ts",
+            "default": "./dist/picto/Environment.js"
+        },
+        "./picto/Error": {
+            "types": "./dist/picto/Error.d.ts",
+            "default": "./dist/picto/Error.js"
+        },
+        "./picto/EyeOff": {
+            "types": "./dist/picto/EyeOff.d.ts",
+            "default": "./dist/picto/EyeOff.js"
+        },
+        "./picto/Factory": {
+            "types": "./dist/picto/Factory.d.ts",
+            "default": "./dist/picto/Factory.js"
+        },
+        "./picto/Firefighter": {
+            "types": "./dist/picto/Firefighter.d.ts",
+            "default": "./dist/picto/Firefighter.js"
+        },
+        "./picto/FlowList": {
+            "types": "./dist/picto/FlowList.d.ts",
+            "default": "./dist/picto/FlowList.js"
+        },
+        "./picto/FlowSettings": {
+            "types": "./dist/picto/FlowSettings.d.ts",
+            "default": "./dist/picto/FlowSettings.js"
+        },
+        "./picto/Food": {
+            "types": "./dist/picto/Food.d.ts",
+            "default": "./dist/picto/Food.js"
+        },
+        "./picto/Gendarmerie": {
+            "types": "./dist/picto/Gendarmerie.d.ts",
+            "default": "./dist/picto/Gendarmerie.js"
+        },
+        "./picto/Grocery": {
+            "types": "./dist/picto/Grocery.d.ts",
+            "default": "./dist/picto/Grocery.js"
+        },
+        "./picto/Health": {
+            "types": "./dist/picto/Health.d.ts",
+            "default": "./dist/picto/Health.js"
+        },
+        "./picto/Hospital": {
+            "types": "./dist/picto/Hospital.d.ts",
+            "default": "./dist/picto/Hospital.js"
+        },
+        "./picto/House": {
+            "types": "./dist/picto/House.d.ts",
+            "default": "./dist/picto/House.js"
+        },
+        "./picto/HumanCooperation": {
+            "types": "./dist/picto/HumanCooperation.d.ts",
+            "default": "./dist/picto/HumanCooperation.js"
+        },
+        "./picto/InProgress": {
+            "types": "./dist/picto/InProgress.d.ts",
+            "default": "./dist/picto/InProgress.js"
+        },
+        "./picto/Information": {
+            "types": "./dist/picto/Information.d.ts",
+            "default": "./dist/picto/Information.js"
+        },
+        "./picto/Innovation": {
+            "types": "./dist/picto/Innovation.d.ts",
+            "default": "./dist/picto/Innovation.js"
+        },
+        "./picto/InternationalDrivingLicense": {
+            "types": "./dist/picto/InternationalDrivingLicense.d.ts",
+            "default": "./dist/picto/InternationalDrivingLicense.js"
+        },
+        "./picto/InternationalDrivingLicenseNew": {
+            "types": "./dist/picto/InternationalDrivingLicenseNew.d.ts",
+            "default": "./dist/picto/InternationalDrivingLicenseNew.js"
+        },
+        "./picto/Internet": {
+            "types": "./dist/picto/Internet.d.ts",
+            "default": "./dist/picto/Internet.js"
+        },
+        "./picto/JusticeScales": {
+            "types": "./dist/picto/JusticeScales.d.ts",
+            "default": "./dist/picto/JusticeScales.js"
+        },
+        "./picto/Language": {
+            "types": "./dist/picto/Language.d.ts",
+            "default": "./dist/picto/Language.js"
+        },
+        "./picto/Leaf": {
+            "types": "./dist/picto/Leaf.d.ts",
+            "default": "./dist/picto/Leaf.js"
+        },
+        "./picto/LocationFrance": {
+            "types": "./dist/picto/LocationFrance.d.ts",
+            "default": "./dist/picto/LocationFrance.js"
+        },
+        "./picto/LocationOverseasFrance": {
+            "types": "./dist/picto/LocationOverseasFrance.d.ts",
+            "default": "./dist/picto/LocationOverseasFrance.js"
+        },
+        "./picto/Luggage": {
+            "types": "./dist/picto/Luggage.d.ts",
+            "default": "./dist/picto/Luggage.js"
+        },
+        "./picto/MainSend": {
+            "types": "./dist/picto/MainSend.d.ts",
+            "default": "./dist/picto/MainSend.js"
+        },
+        "./picto/Map": {
+            "types": "./dist/picto/Map.d.ts",
+            "default": "./dist/picto/Map.js"
+        },
+        "./picto/MapPin": {
+            "types": "./dist/picto/MapPin.d.ts",
+            "default": "./dist/picto/MapPin.js"
+        },
+        "./picto/MedicalResearch": {
+            "types": "./dist/picto/MedicalResearch.d.ts",
+            "default": "./dist/picto/MedicalResearch.js"
+        },
+        "./picto/MentalDisabilities": {
+            "types": "./dist/picto/MentalDisabilities.d.ts",
+            "default": "./dist/picto/MentalDisabilities.js"
+        },
+        "./picto/Money": {
+            "types": "./dist/picto/Money.d.ts",
+            "default": "./dist/picto/Money.js"
+        },
+        "./picto/Moon": {
+            "types": "./dist/picto/Moon.d.ts",
+            "default": "./dist/picto/Moon.js"
+        },
+        "./picto/Mountain": {
+            "types": "./dist/picto/Mountain.d.ts",
+            "default": "./dist/picto/Mountain.js"
+        },
+        "./picto/NationalIdentityCard": {
+            "types": "./dist/picto/NationalIdentityCard.d.ts",
+            "default": "./dist/picto/NationalIdentityCard.js"
+        },
+        "./picto/NationalIdentityCardPassport": {
+            "types": "./dist/picto/NationalIdentityCardPassport.d.ts",
+            "default": "./dist/picto/NationalIdentityCardPassport.js"
+        },
+        "./picto/NavyAnchor": {
+            "types": "./dist/picto/NavyAnchor.d.ts",
+            "default": "./dist/picto/NavyAnchor.js"
+        },
+        "./picto/NavyBachi": {
+            "types": "./dist/picto/NavyBachi.d.ts",
+            "default": "./dist/picto/NavyBachi.js"
+        },
+        "./picto/Notification": {
+            "types": "./dist/picto/Notification.d.ts",
+            "default": "./dist/picto/Notification.js"
+        },
+        "./picto/NuclearPlant": {
+            "types": "./dist/picto/NuclearPlant.d.ts",
+            "default": "./dist/picto/NuclearPlant.js"
+        },
+        "./picto/Paint": {
+            "types": "./dist/picto/Paint.d.ts",
+            "default": "./dist/picto/Paint.js"
+        },
+        "./picto/Passport": {
+            "types": "./dist/picto/Passport.d.ts",
+            "default": "./dist/picto/Passport.js"
+        },
+        "./picto/Pictures": {
+            "types": "./dist/picto/Pictures.d.ts",
+            "default": "./dist/picto/Pictures.js"
+        },
+        "./picto/Podcast": {
+            "types": "./dist/picto/Podcast.d.ts",
+            "default": "./dist/picto/Podcast.js"
+        },
+        "./picto/Police": {
+            "types": "./dist/picto/Police.d.ts",
+            "default": "./dist/picto/Police.js"
+        },
+        "./picto/PressCard": {
+            "types": "./dist/picto/PressCard.d.ts",
+            "default": "./dist/picto/PressCard.js"
+        },
+        "./picto/School": {
+            "types": "./dist/picto/School.d.ts",
+            "default": "./dist/picto/School.js"
+        },
+        "./picto/Search": {
+            "types": "./dist/picto/Search.d.ts",
+            "default": "./dist/picto/Search.js"
+        },
+        "./picto/SelfTraining": {
+            "types": "./dist/picto/SelfTraining.d.ts",
+            "default": "./dist/picto/SelfTraining.js"
+        },
+        "./picto/SignDocument": {
+            "types": "./dist/picto/SignDocument.d.ts",
+            "default": "./dist/picto/SignDocument.js"
+        },
+        "./picto/Smartphone": {
+            "types": "./dist/picto/Smartphone.d.ts",
+            "default": "./dist/picto/Smartphone.js"
+        },
+        "./picto/Success": {
+            "types": "./dist/picto/Success.d.ts",
+            "default": "./dist/picto/Success.js"
+        },
+        "./picto/Sun": {
+            "types": "./dist/picto/Sun.d.ts",
+            "default": "./dist/picto/Sun.js"
+        },
+        "./picto/System": {
+            "types": "./dist/picto/System.d.ts",
+            "default": "./dist/picto/System.js"
+        },
+        "./picto/TaxStamp": {
+            "types": "./dist/picto/TaxStamp.d.ts",
+            "default": "./dist/picto/TaxStamp.js"
+        },
+        "./picto/TechnicalError": {
+            "types": "./dist/picto/TechnicalError.d.ts",
+            "default": "./dist/picto/TechnicalError.js"
+        },
+        "./picto/TravelBack": {
+            "types": "./dist/picto/TravelBack.d.ts",
+            "default": "./dist/picto/TravelBack.js"
+        },
+        "./picto/Tree": {
+            "types": "./dist/picto/Tree.d.ts",
+            "default": "./dist/picto/Tree.js"
+        },
+        "./picto/Vaccine": {
+            "types": "./dist/picto/Vaccine.d.ts",
+            "default": "./dist/picto/Vaccine.js"
+        },
+        "./picto/VehicleRegistrationDocument": {
+            "types": "./dist/picto/VehicleRegistrationDocument.d.ts",
+            "default": "./dist/picto/VehicleRegistrationDocument.js"
+        },
+        "./picto/Video": {
+            "types": "./dist/picto/Video.d.ts",
+            "default": "./dist/picto/Video.js"
+        },
+        "./picto/VideoGames": {
+            "types": "./dist/picto/VideoGames.d.ts",
+            "default": "./dist/picto/VideoGames.js"
+        },
+        "./picto/Virus": {
+            "types": "./dist/picto/Virus.d.ts",
+            "default": "./dist/picto/Virus.js"
+        },
+        "./picto/Warning": {
+            "types": "./dist/picto/Warning.d.ts",
+            "default": "./dist/picto/Warning.js"
+        },
+        "./picto/Wheelchair": {
+            "types": "./dist/picto/Wheelchair.d.ts",
+            "default": "./dist/picto/Wheelchair.js"
+        },
+        "./picto/utils/PictoWrapper": {
+            "types": "./dist/picto/utils/PictoWrapper.d.ts",
+            "default": "./dist/picto/utils/PictoWrapper.js"
+        },
+        "./shared/Fieldset": {
+            "types": "./dist/shared/Fieldset.d.ts",
+            "default": "./dist/shared/Fieldset.js"
+        },
+        "./spa": {
+            "types": "./dist/spa.d.ts",
+            "default": "./dist/spa.js"
+        },
+        "./start": {
+            "types": "./dist/start.d.ts",
+            "default": "./dist/start.js"
+        },
+        "./styles/accessibility.css": "./dist/styles/accessibility.css",
+        "./styles/base.css": "./dist/styles/base.css",
+        "./styles/components/ads-card.css": "./dist/styles/components/ads-card.css",
+        "./styles/components/ads-layout.css": "./dist/styles/components/ads-layout.css",
+        "./styles/components/ads-portal.css": "./dist/styles/components/ads-portal.css",
+        "./styles/components/ads-search.css": "./dist/styles/components/ads-search.css",
+        "./styles/components/ads-typography.css": "./dist/styles/components/ads-typography.css",
+        "./styles/components/back-to-top.css": "./dist/styles/components/back-to-top.css",
+        "./styles/components/form.css": "./dist/styles/components/form.css",
+        "./styles/components/header.css": "./dist/styles/components/header.css",
+        "./styles/components/prose.css": "./dist/styles/components/prose.css",
+        "./styles/components/table.css": "./dist/styles/components/table.css",
+        "./styles/layout.css": "./dist/styles/layout.css",
+        "./styles/reset.css": "./dist/styles/reset.css",
+        "./styles/themes.css": "./dist/styles/themes.css",
+        "./styles/tokens.css": "./dist/styles/tokens.css",
+        "./styles/typography.css": "./dist/styles/typography.css",
+        "./styles/utilities.css": "./dist/styles/utilities.css",
+        "./tools/Deferred": {
+            "types": "./dist/tools/Deferred.d.ts",
+            "default": "./dist/tools/Deferred.js"
+        },
+        "./tools/JSX": {
+            "types": "./dist/tools/JSX.d.ts",
+            "default": "./dist/tools/JSX.js"
+        },
+        "./tools/StatefulObservable": {
+            "types": "./dist/tools/StatefulObservable/index.d.ts",
+            "default": "./dist/tools/StatefulObservable/index.js"
+        },
+        "./tools/StatefulObservable/StatefulObservable": {
+            "types": "./dist/tools/StatefulObservable/StatefulObservable.d.ts",
+            "default": "./dist/tools/StatefulObservable/StatefulObservable.js"
+        },
+        "./tools/StatefulObservable/hooks": {
+            "types": "./dist/tools/StatefulObservable/hooks/index.d.ts",
+            "default": "./dist/tools/StatefulObservable/hooks/index.js"
+        },
+        "./tools/StatefulObservable/hooks/useObservable": {
+            "types": "./dist/tools/StatefulObservable/hooks/useObservable.d.ts",
+            "default": "./dist/tools/StatefulObservable/hooks/useObservable.js"
+        },
+        "./tools/StatefulObservable/hooks/useRerenderOnChange": {
+            "types": "./dist/tools/StatefulObservable/hooks/useRerenderOnChange.d.ts",
+            "default": "./dist/tools/StatefulObservable/hooks/useRerenderOnChange.js"
+        },
+        "./tools/UnpackProps": {
+            "types": "./dist/tools/UnpackProps.d.ts",
+            "default": "./dist/tools/UnpackProps.js"
+        },
+        "./tools/cx": {
+            "types": "./dist/tools/cx.d.ts",
+            "default": "./dist/tools/cx.js"
+        },
+        "./tools/deepAssign": {
+            "types": "./dist/tools/deepAssign.d.ts",
+            "default": "./dist/tools/deepAssign.js"
+        },
+        "./tools/deepCopy": {
+            "types": "./dist/tools/deepCopy.d.ts",
+            "default": "./dist/tools/deepCopy.js"
+        },
+        "./tools/generateValidHtmlId": {
+            "types": "./dist/tools/generateValidHtmlId.d.ts",
+            "default": "./dist/tools/generateValidHtmlId.js"
+        },
+        "./tools/getAssetUrl": {
+            "types": "./dist/tools/getAssetUrl.d.ts",
+            "default": "./dist/tools/getAssetUrl.js"
+        },
+        "./tools/getBaseFontSizePx": {
+            "types": "./dist/tools/getBaseFontSizePx.d.ts",
+            "default": "./dist/tools/getBaseFontSizePx.js"
+        },
+        "./tools/isBrowser": {
+            "types": "./dist/tools/isBrowser.d.ts",
+            "default": "./dist/tools/isBrowser.js"
+        },
+        "./tools/memoize": {
+            "types": "./dist/tools/memoize.d.ts",
+            "default": "./dist/tools/memoize.js"
+        },
+        "./tools/observeInputValue": {
+            "types": "./dist/tools/observeInputValue.d.ts",
+            "default": "./dist/tools/observeInputValue.js"
+        },
+        "./tools/partition": {
+            "types": "./dist/tools/partition.d.ts",
+            "default": "./dist/tools/partition.js"
+        },
+        "./tools/powerhooks/useCallbackFactory": {
+            "types": "./dist/tools/powerhooks/useCallbackFactory.d.ts",
+            "default": "./dist/tools/powerhooks/useCallbackFactory.js"
+        },
+        "./tools/powerhooks/useConst": {
+            "types": "./dist/tools/powerhooks/useConst.d.ts",
+            "default": "./dist/tools/powerhooks/useConst.js"
+        },
+        "./tools/powerhooks/useConstCallback": {
+            "types": "./dist/tools/powerhooks/useConstCallback.d.ts",
+            "default": "./dist/tools/powerhooks/useConstCallback.js"
+        },
+        "./tools/powerhooks/useNamedState": {
+            "types": "./dist/tools/powerhooks/useNamedState.d.ts",
+            "default": "./dist/tools/powerhooks/useNamedState.js"
+        },
+        "./tools/signal": {
+            "types": "./dist/tools/signal.d.ts",
+            "default": "./dist/tools/signal.js"
+        },
+        "./tools/structuredCloneButFunctions": {
+            "types": "./dist/tools/structuredCloneButFunctions.d.ts",
+            "default": "./dist/tools/structuredCloneButFunctions.js"
+        },
+        "./tools/useAnalyticsId": {
+            "types": "./dist/tools/useAnalyticsId.d.ts",
+            "default": "./dist/tools/useAnalyticsId.js"
+        },
+        "./tools/useWindowInnerSize": {
+            "types": "./dist/tools/useWindowInnerSize.d.ts",
+            "default": "./dist/tools/useWindowInnerSize.js"
+        },
+        "./tss": {
+            "types": "./dist/tss.d.ts",
+            "default": "./dist/tss.js"
+        },
+        "./useBreakpointsValues": {
+            "types": "./dist/useBreakpointsValues.d.ts",
+            "default": "./dist/useBreakpointsValues.js"
+        },
+        "./useBreakpointsValuesPx": {
+            "types": "./dist/useBreakpointsValuesPx.d.ts",
+            "default": "./dist/useBreakpointsValuesPx.js"
+        },
+        "./useColors": {
+            "types": "./dist/useColors.d.ts",
+            "default": "./dist/useColors.js"
+        },
+        "./useIsDark": {
+            "types": "./dist/useIsDark/index.d.ts",
+            "default": "./dist/useIsDark/index.js"
+        },
+        "./useIsDark/client": {
+            "types": "./dist/useIsDark/client.d.ts",
+            "default": "./dist/useIsDark/client.js"
+        },
+        "./useIsDark/constants": {
+            "types": "./dist/useIsDark/constants.d.ts",
+            "default": "./dist/useIsDark/constants.js"
+        },
+        "./useIsDark/scriptToRunAsap": {
+            "types": "./dist/useIsDark/scriptToRunAsap.d.ts",
+            "default": "./dist/useIsDark/scriptToRunAsap.js"
+        },
+        "./useIsDark/server": {
+            "types": "./dist/useIsDark/server.d.ts",
+            "default": "./dist/useIsDark/server.js"
+        },
+        "./zz_internal/identityAndHomeLinkProps": {
+            "types": "./dist/zz_internal/identityAndHomeLinkProps.d.ts",
+            "default": "./dist/zz_internal/identityAndHomeLinkProps.js"
         }
     }
 }
