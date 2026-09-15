@@ -43,8 +43,8 @@ importers:
         specifier: ^6.5.16
         version: 6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/addon-actions':
-        specifier: ^6.5.13
-        version: 6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^9.0.8
+        version: 9.0.8
       '@storybook/addon-essentials':
         specifier: ^6.5.13
         version: 6.5.16(@babel/core@7.29.7(supports-color@8.1.1))(@storybook/builder-webpack4@6.5.16(bluebird@3.7.2)(eslint@7.32.0(supports-color@8.1.1))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(supports-color@8.1.1)(typescript@4.9.5))(@storybook/builder-webpack5@6.5.16(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(eslint@7.32.0(supports-color@8.1.1))(html-minifier-terser@6.1.0)(postcss@7.0.39)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(supports-color@8.1.1)(typescript@4.9.5)(uglify-js@3.19.3))(eslint@7.32.0(supports-color@8.1.1))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(supports-color@8.1.1)(typescript@4.9.5)(vue@2.7.16)(webpack@5.110.3(clean-css@5.3.3)(csso@5.0.5)(esbuild@0.15.18)(html-minifier-terser@6.1.0)(postcss@7.0.39)(uglify-js@3.19.3))
@@ -1643,6 +1643,9 @@ packages:
         optional: true
       react-dom:
         optional: true
+
+  '@storybook/addon-actions@9.0.8':
+    resolution: {integrity: sha512-LFePu7PPnWN0Il/uoUpmA5T0J0C7d6haJIbg0pXrjxW2MQVSYXE4S4LSUz8fOImltBDV3xAl6tLPYHFj6VcrOA==}
 
   '@storybook/addon-backgrounds@6.5.16':
     resolution: {integrity: sha512-t7qooZ892BruhilFmzYPbysFwpULt/q4zYXNSmKVbAYta8UVvitjcU4F18p8FpWd9WvhiTr0SDlyhNZuzvDfug==}
@@ -3682,8 +3685,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.420:
-    resolution: {integrity: sha512-2yD6XreGusOfNV+dUcvipJEXc3n/n7fgr7996aszTG+YY5E4mqM4tOq/3uhP129cazL9YHbVWSpc79ePotWtPA==}
+  electron-to-chromium@1.5.417:
+    resolution: {integrity: sha512-4T+DTDWuMPM4aHlHwWdAVCVWwp7LDilnhzkj+c/Lbj91XSQrLuOmZSLtS9Q4iIqjlPUbPOnC624zDVVHCHaolQ==}
 
   element-resize-detector@1.2.4:
     resolution: {integrity: sha512-Fl5Ftk6WwXE0wqCgNoseKWndjzZlDCwuPTcoVZfCP9R3EHQF8qUtr3YUPNETegRBOKqQKPW3n4kiIWngGi8tKg==}
@@ -10067,6 +10070,8 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
+  '@storybook/addon-actions@9.0.8': {}
+
   '@storybook/addon-backgrounds@6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@storybook/addons': 6.5.16(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -12235,7 +12240,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.20
       caniuse-lite: 1.0.30001810
-      electron-to-chromium: 1.5.420
+      electron-to-chromium: 1.5.417
       node-releases: 2.0.54
       update-browserslist-db: 1.3.2(browserslist@4.28.8)
 
@@ -13189,7 +13194,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.420: {}
+  electron-to-chromium@1.5.417: {}
 
   element-resize-detector@1.2.4:
     dependencies:
