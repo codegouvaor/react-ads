@@ -1,6 +1,6 @@
 {
     "name": "@codegouvaor/react-ads",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "packageManager": "pnpm@11.21.0",
     "description": "Official React implementation of the Astoria Design System (ADS), the design system for the digital ecosystem of the Republic of Astoria.",
     "repository": {
@@ -104,6 +104,7 @@
         "@gouvfr/dsfr-chart": "^1.0.0",
         "@mui/icons-material": "^5.14.18",
         "@mui/material": "^5.14.18",
+        "@react-native/virtualized-lists": "0.87.1",
         "@storybook/addon-a11y": "^6.5.16",
         "@storybook/addon-actions": "^6.5.13",
         "@storybook/addon-essentials": "^6.5.13",

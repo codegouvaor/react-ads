@@ -8,7 +8,11 @@
         "lib": ["es2015", "DOM", "ES2019.Object"],
         "moduleResolution": "node",
         "jsx": "react",
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "paths": {
+            "react-native": ["../node_modules/react-native/types/index.d.ts"]
+        }
     },
     "exclude": ["./bin"]
 }
