@@ -8,11 +8,11 @@ index e4d335c29a62c08a6503522f1f681fcf945dd507..6c53dceb02423b2fe297420d263a7f3d
  </svg>
 +<!-- Slightly increasing size so it reaches the threshold that will prevent it from being inlined by Vite. -->
 diff --git a/node_modules/@gouvfr/dsfr/dist/dsfr.module.js b/node_modules/@gouvfr/dsfr/dist/dsfr.module.js
-index f659e9283586a96b53c82d86841da6a5b908fe20..218de3324912eec4410902e9def580b1b931cd40 100644
+index 9feb2ae0042b7a18beb1f89d5aac62d3b40dc6fb..97db15496aa8ff7498015ea42d8f4d9aac0a8e5c 100644
 --- a/node_modules/@gouvfr/dsfr/dist/dsfr.module.js
 +++ b/node_modules/@gouvfr/dsfr/dist/dsfr.module.js
 @@ -6703,7 +6703,9 @@ class HeaderLinks extends api.core.Instance {
- case api.Modes.ANGULAR:
+       case api.Modes.ANGULAR:
        case api.Modes.REACT:
        case api.Modes.VUE:
 +        /*
